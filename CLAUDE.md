@@ -26,6 +26,7 @@
 ## Workflow Figma → code
 - Charger la skill Figma `figma-design-to-code`, puis `get_design_context` sur le node de la page ou de la section (fileKey ci-dessus), et l'adapter aux règles ci-dessus. Ne jamais garder le React/Tailwind renvoyé.
 - **Assets** : `figma.com` est bloqué par le réseau de l'environnement cloud. Les images actuelles ont été extraites de rendus Figma en 1x (voir `docs/assets.md`). Il faudra les remplacer par des exports 2x depuis Figma.
+- Construction Webflow : suivre `docs/webflow-build.md` (MCP Webflow).
 - Vérifier visuellement : Playwright (préinstallé), captures à 1440px et 390px, à comparer au screenshot Figma.
 
 ## Arborescence et URL (Notes & décisions)
