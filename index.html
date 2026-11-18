@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Winko Retail · La bonne mission. Le bon renfort.</title>
+  <meta name="description" content="Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/winko.css">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Header · Figma 10:37 (Symbol Webflow « Navbar ») -->
+  <header class="navbar_component" data-navbar>
+    <div class="padding-global">
+      <div class="container-large">
+        <nav class="navbar_container" aria-label="Navigation principale">
+          <a href="index.html" class="logo" aria-label="Winko Retail, accueil">
+            <span class="logo_tab">Retail</span>
+            <span class="logo_wordmark">Winko</span>
+          </a>
+          <div class="navbar_menu" id="navbar-menu">
+            <a href="retail/professionnels.html" class="navbar_link">Professionnels</a>
+            <a href="retail/entreprises.html" class="navbar_link">Entreprises</a>
+            <a href="contact.html" class="navbar_link">Contact</a>
+          </div>
+          <div class="navbar_locale">
+            <a href="index.html" aria-current="true" lang="fr">FR</a> · <a href="#" lang="en">UK</a>
+          </div>
+          <button class="navbar_menu-button" type="button" aria-controls="navbar-menu" aria-expanded="false" aria-label="Ouvrir le menu" data-navbar-toggle>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- S01 · Hero photo · Figma 299:2625 -->
+    <section class="section_home-hero background-color-accent">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="home-hero_component">
+            <div class="home-hero_content">
+              <span class="tag is-on-color">Winko Retail</span>
+              <h1 class="heading-style-display-xl text-color-inverse max-width-large">La bonne mission.<br>Le bon renfort.</h1>
+              <p class="text-size-large text-color-inverse max-width-medium">Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires.</p>
+              <div class="button-group is-center">
+                <a href="retail/professionnels.html" class="button is-white">Je cherche une mission</a>
+                <a href="retail/entreprises.html" class="button is-outline-white">Je cherche du renfort</a>
+              </div>
+            </div>
+            <div class="home-hero_image-wrapper">
+              <img src="images/home/hero-photo.jpg" alt="Une vendeuse Winko présente des smartphones en magasin" class="home-hero_image" width="1312" height="600" fetchpriority="high">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S05b · Valeurs en encarts · Figma 499:493 -->
+    <section class="section_values">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="padding-section-medium">
+            <ul class="values_list" role="list">
+              <li class="values_card">
+                <div class="values_card-top">
+                  <div class="values_icon"><img src="images/shared/picto-vitesse.svg" alt="" width="26" height="26"></div>
+                  <span class="values_number">01</span>
+                </div>
+                <h2 class="heading-style-h3">Vitesse</h2>
+                <p class="text-size-medium text-color-secondary">Délivrer immédiatement, au moment où ça compte : pics, week-ends, dernière minute.</p>
+              </li>
+              <li class="values_card">
+                <div class="values_card-top">
+                  <div class="values_icon"><img src="images/shared/picto-specialisation.svg" alt="" width="26" height="26"></div>
+                  <span class="values_number">02</span>
+                </div>
+                <h2 class="heading-style-h3">Spécialisation</h2>
+                <p class="text-size-medium text-color-secondary">Une approche par métier. Des professionnels évalués et opérationnels dès le premier jour.</p>
+              </li>
+              <li class="values_card">
+                <div class="values_card-top">
+                  <div class="values_icon"><img src="images/shared/picto-fiabilite.svg" alt="" width="26" height="26"></div>
+                  <span class="values_number">03</span>
+                </div>
+                <h2 class="heading-style-h3">Fiabilité</h2>
+                <p class="text-size-medium text-color-secondary">Une communauté engagée, des professionnels notés, peu de désistements.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S26 · Logos enseignes · Figma 297:3201 -->
+    <section class="section_logos background-color-muted">
+      <div class="padding-section-small">
+        <div class="logos_component">
+          <span class="tag">Ils nous font confiance</span>
+          <div class="marquee logos_marquee" data-marquee>
+            <div class="marquee_fade is-left"></div>
+            <div class="marquee_track logos_list">
+              <img src="images/shared/logo-carel.png" alt="Carel" class="logos_logo" width="92" height="46">
+              <img src="images/shared/logo-mellow-yellow.png" alt="Mellow Yellow" class="logos_logo" width="96" height="44">
+              <img src="images/shared/logo-seagale.png" alt="Seagale" class="logos_logo" width="69" height="47">
+              <img src="images/shared/logo-le-tanneur.png" alt="Le Tanneur" class="logos_logo" width="136" height="31">
+              <img src="images/shared/logo-cyrillus.png" alt="Cyrillus" class="logos_logo" width="130" height="32">
+              <img src="images/shared/logo-sud-express.png" alt="Sud Express" class="logos_logo" width="95" height="44">
+              <img src="images/shared/logo-rsvp-paris.png" alt="RSVP Paris" class="logos_logo" width="56" height="52">
+              <img src="images/shared/logo-pied-de-biche.png" alt="Pied de Biche" class="logos_logo" width="81" height="52">
+            </div>
+            <div class="marquee_fade is-right"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S02 · Aiguillage B2C / B2B · Figma 39:3094 -->
+    <section class="section_switch">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="padding-section-medium">
+            <div class="switch_list">
+              <div class="switch_card">
+                <p class="text-style-overline">Professionnels</p>
+                <h2 class="heading-style-h2">Vous travaillez dans le retail</h2>
+                <p class="text-size-large">Choisissez vos créneaux, validez vos compétences, soyez payé vite.</p>
+                <a href="retail/professionnels.html" class="button">Trouver une mission</a>
+              </div>
+              <div class="switch_card is-dark">
+                <p class="text-style-overline">Entreprises</p>
+                <h2 class="heading-style-h2">Vous gérez des magasins</h2>
+                <p class="text-size-large">Pourvoyez vos créneaux en quelques minutes, même le week-end et à la dernière minute.</p>
+                <a href="retail/entreprises.html" class="button is-white">Trouver du renfort</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S27 · Témoignages défilants · Figma 503:517 (contenus à remplacer : témoignages réels) -->
+    <section class="section_testimonials background-color-muted">
+      <div class="padding-section-large">
+        <div class="testimonials_component">
+          <div class="padding-global">
+            <div class="section-header">
+              <span class="tag">Témoignages</span>
+              <h2 class="heading-style-h2">Enseignes et professionnels en parlent.</h2>
+            </div>
+          </div>
+          <div class="marquee" data-marquee style="--marquee-duration: 60s">
+            <div class="marquee_fade is-left"></div>
+            <div class="marquee_track testimonials_list">
+              <figure class="testimonials_card">
+                <span class="tag">Enseigne</span>
+                <blockquote class="testimonials_quote">« Un renfort trouvé la veille pour un samedi de soldes, et une vendeuse opérationnelle dès l’ouverture. »</blockquote>
+                <figcaption class="testimonials_author">
+                  <span class="testimonials_avatar" aria-hidden="true"></span>
+                  <span><span class="testimonials_name">Prénom N.</span><br><span class="testimonials_role">Responsable de magasin, enseigne à préciser</span></span>
+                </figcaption>
+              </figure>
+              <figure class="testimonials_card">
+                <span class="tag">Professionnel</span>
+                <blockquote class="testimonials_quote">« Je choisis mes créneaux selon mes cours. Les missions sont claires et je suis payée rapidement. »</blockquote>
+                <figcaption class="testimonials_author">
+                  <img src="images/shared/avatar-1.png" alt="" class="testimonials_avatar" width="44" height="44">
+                  <span><span class="testimonials_name">Prénom N.</span><br><span class="testimonials_role">Vendeuse, missions en prêt-à-porter</span></span>
+                </figcaption>
+              </figure>
+              <figure class="testimonials_card">
+                <span class="tag">Enseigne</span>
+                <blockquote class="testimonials_quote">« Des profils qui connaissent déjà le métier : on gagne un temps précieux sur l’accueil et la formation. »</blockquote>
+                <figcaption class="testimonials_author">
+                  <span class="testimonials_avatar" aria-hidden="true"></span>
+                  <span><span class="testimonials_name">Prénom N.</span><br><span class="testimonials_role">Directrice régionale, enseigne à préciser</span></span>
+                </figcaption>
+              </figure>
+              <figure class="testimonials_card">
+                <span class="tag">Professionnel</span>
+                <blockquote class="testimonials_quote">« Mon conseiller répond directement dans l’app. Je ne me sens jamais seul sur une nouvelle mission. »</blockquote>
+                <figcaption class="testimonials_author">
+                  <img src="images/shared/avatar-2.png" alt="" class="testimonials_avatar" width="44" height="44">
+                  <span><span class="testimonials_name">Prénom N.</span><br><span class="testimonials_role">Conseiller de vente, missions en maroquinerie</span></span>
+                </figcaption>
+              </figure>
+              <figure class="testimonials_card">
+                <span class="tag">Enseigne</span>
+                <blockquote class="testimonials_quote">« Pour les pics de fin d’année, Winko est devenu notre réflexe. Simple, rapide, fiable. »</blockquote>
+                <figcaption class="testimonials_author">
+                  <span class="testimonials_avatar" aria-hidden="true"></span>
+                  <span><span class="testimonials_name">Prénom N.</span><br><span class="testimonials_role">Gérant de boutique, enseigne à préciser</span></span>
+                </figcaption>
+              </figure>
+              <figure class="testimonials_card">
+                <span class="tag">Professionnel</span>
+                <blockquote class="testimonials_quote">« J’enchaîne les missions dans les enseignes que j’aime, avec un vrai suivi de mes compétences. »</blockquote>
+                <figcaption class="testimonials_author">
+                  <!-- TODO avatar-3 : à exporter depuis Figma (503:574) -->
+                  <span class="testimonials_avatar" aria-hidden="true"></span>
+                  <span><span class="testimonials_name">Prénom N.</span><br><span class="testimonials_role">Hôtesse de caisse, missions en grande distribution</span></span>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="marquee_fade is-right"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S09 · Bandeau CTA · Figma 39:3324 -->
+    <section class="section_cta-banner">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="padding-section-small">
+            <div class="cta-banner_component">
+              <div class="cta-banner_content">
+                <h2 class="heading-style-h2">Une mission à pourvoir ? Un créneau à prendre ?</h2>
+                <p class="text-size-large">Deux minutes suffisent pour commencer.</p>
+                <div class="button-group">
+                  <a href="retail/professionnels.html" class="button is-white">Trouver une mission</a>
+                  <a href="retail/entreprises.html" class="button is-white">Trouver du renfort</a>
+                </div>
+              </div>
+              <img src="images/shared/visuel-app.png" alt="Aperçu de l’app Winko : liste des missions disponibles" class="cta-banner_image" width="520" height="327" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer · Figma 10:54 (Symbol Webflow « Footer ») -->
+  <footer class="section_footer">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="footer_component">
+          <a href="index.html" class="logo is-large" aria-label="Winko Retail, accueil">
+            <span class="logo_tab">Retail</span>
+            <span class="logo_wordmark">Winko</span>
+          </a>
+          <div class="footer_panel">
+            <div class="footer_signature">
+              <p class="footer_tagline">Les professionnels de la vente pour chacun de vos besoins.</p>
+              <div class="button-group">
+                <button type="button" class="button is-small" data-app-modal-open>Télécharger l’app</button>
+                <a href="#" class="button is-secondary is-small">Créer mon compte</a>
+              </div>
+              <p class="footer_legal-text">© 2026 Winko.</p>
+            </div>
+            <nav class="footer_column" aria-label="Pied de page">
+              <a href="index.html" class="footer_link" aria-current="page">Accueil</a>
+              <a href="retail/professionnels.html" class="footer_link">Professionnels</a>
+              <a href="retail/entreprises.html" class="footer_link">Entreprises</a>
+              <a href="contact.html" class="footer_link">Contact</a>
+            </nav>
+            <div class="footer_column">
+              <a href="#" class="footer_link">Linkedin</a>
+              <a href="#" class="footer_link">Facebook</a>
+              <a href="#" class="footer_link">Instagram</a>
+              <p class="footer_legal-text">All rights reserved.</p>
+            </div>
+            <div class="footer_column">
+              <a href="mentions-legales.html" class="footer_link">Mentions légales</a>
+              <a href="confidentialite.html" class="footer_link">Politique de confidentialité</a>
+              <p>FR · UK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="js/winko.js" defer></script>
+</body>
+</html>
