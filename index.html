@@ -279,6 +279,19 @@
   </footer>
 
 </div>
+  <!-- Modale « Télécharger l'app » · Figma 75:46 (desktop ; mobile : redirection vers le store) -->
+  <div class="app-modal" id="telecharger" data-app-modal hidden>
+    <div class="app-modal_overlay" data-app-modal-close></div>
+    <div class="app-modal_dialog" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+      <button type="button" class="app-modal_close" aria-label="Fermer" data-app-modal-close>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg>
+      </button>
+      <div class="logo"><span class="logo_tab">Retail</span><span class="logo_wordmark">Winko</span></div>
+      <h2 class="heading-style-h2" id="app-modal-title">Votre prochaine mission est dans l’app.</h2>
+      <p class="text-color-secondary">Scannez ce QR code avec l’appareil photo de votre téléphone pour télécharger Winko.</p>
+      <div class="app-modal_qr"><img src="images/shared/qr-app.svg" alt="QR code vers winko.io/app (lien provisoire)" width="200" height="200"></div>
+    </div>
+  </div>
 <script src="js/winko.js" defer></script>
 </body>
 </html>
