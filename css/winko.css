@@ -228,14 +228,15 @@ button { font: inherit; cursor: pointer; }
 
 /* S27 · Témoignages défilants */
 .testimonials_component { display: flex; flex-direction: column; gap: 2.5rem; }
-.testimonials_list > * { margin-right: 1.5rem; flex: none; }
+.testimonials_list > .testimonials_card { margin-right: 1.5rem; flex: none; }
 .testimonials_card {
   display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
-  width: 26.25rem; height: 18.75rem; padding: 2rem;
+  width: 26.25rem; min-height: 18.75rem; margin: 0; padding: 2rem;
   border: 1px solid var(--border-default); border-radius: 1.75rem;
   background-color: var(--bg-page);
 }
-.testimonials_quote { flex: 1; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.25; }
+.testimonials_card .tag { align-self: flex-start; }
+.testimonials_quote { flex: 1; margin: 0; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.25; }
 .testimonials_author { display: flex; align-items: center; gap: 0.75rem; }
 .testimonials_avatar { width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; background-color: var(--accent-subtle); flex: none; }
 .testimonials_name { font-size: 0.9375rem; font-weight: 600; }
@@ -304,7 +305,7 @@ button { font: inherit; cursor: pointer; }
   .hero_image-wrapper { aspect-ratio: 4 / 5; border-radius: 1.5rem; }
   .button-group .button { flex: 1 1 100%; }
   .switch_card { padding: 2rem; border-radius: var(--radius-card); }
-  .testimonials_card { width: 18.5rem; height: auto; min-height: 18.75rem; }
+  .testimonials_card { width: 18.5rem; }
   .cta-banner_component { padding: 2rem; border-radius: var(--radius-card); }
   .footer_panel { flex-direction: column; padding: 2rem; border-radius: var(--radius-card); }
   .logo.is-large { width: 6rem; height: 6rem; padding: 0.7rem 0.55rem 0.55rem; border-radius: 1rem; }
