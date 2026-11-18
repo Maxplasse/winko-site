@@ -66,7 +66,7 @@
     var target = new Date(el.getAttribute('data-countdown') + 'T00:00:00');
     var today = new Date(); today.setHours(0, 0, 0, 0);
     var days = Math.round((target - today) / 86400000);
-    if (isNaN(days) || days <= 0) { el.hidden = true; return; }
+    if (isNaN(days) || days <= 0) { (el.closest('[data-countdown-box]') || el).hidden = true; return; }
     el.textContent = 'J-' + days;
   });
 

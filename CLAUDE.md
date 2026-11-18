@@ -34,8 +34,23 @@
 - Pages : Accueil, Professionnels, Entreprises, Contact (formulaire HubSpot en 2 étapes), LP Black Friday, LP Noël, Légal (gabarit FR/UK), Merci, 404, popup « Télécharger l'app » (QR code).
 - Demain : `/` = accueil Winko multi-verticales, `/retail` = accueil Retail.
 
-## État d'avancement
-- [x] Socle : tokens, typo, boutons, tag, logo placeholder, header, footer
-- [x] Accueil (`index.html`), desktop et mobile (responsive à affiner sur les frames mobiles 49:2135)
-- [ ] Professionnels (24:506) · Entreprises (297:2745) · Contact (12:470, 512:2338, 512:2457) · LP Black Friday (13:455) · LP Noël (34:567) · Légal (13:599) · Merci (37:784) · 404 (37:854) · Popup app (75:1806)
-- [ ] Animations spécifiées dans Notes & décisions : collage profils S16, widget sticky « En savoir plus », compte à rebours LP, cartes du bloc sombre S17, accordéon FAQ
+## Pages (périmètre « Aujourd'hui », la partie « Demain » est hors périmètre)
+| Fichier | Figma |
+|---|---|
+| `index.html` (accueil Retail) | 11:2 |
+| `retail/professionnels.html` (B2C → app) | 24:506 |
+| `retail/entreprises.html` (B2B) | 297:2745 |
+| `contact.html` · `contact-recruter.html` · `contact-mission.html` | 12:470 · 512:2338 · 512:2457 |
+| `black-friday.html` · `noel.html` (LP événement) | 13:455 · 34:567 |
+| `mentions-legales.html` · `confidentialite.html` · `cookies.html` · `cgu.html` (gabarit unique) | 13:599 |
+| `merci.html` · `404.html` | 37:784 · 37:854 |
+| Modale « Télécharger l'app » (dans chaque page qui a un CTA app) | 75:46 |
+
+## Interactions en place (`js/winko.js`)
+Bandeaux défilants (pause au survol, coupés si « réduire les animations »), menu mobile, FAQ en accordéon (une question ouverte à la fois), widget sticky (après 600 px, masqué au-dessus du footer, barre pleine largeur sur mobile), compte à rebours J-xx (`data-countdown="AAAA-MM-JJ"`, masqué le jour J), modale QR code (desktop uniquement, Échap pour fermer).
+
+## Reste à faire
+- [ ] Comparer chaque page aux frames mobiles (49:2135) et affiner le responsive
+- [ ] Animations non encore codées : apparition des cartes au scroll, collage de profils S16 et bloc sombre S17 (sections présentes seulement en fond de la frame « Popup QR code », 75:1806)
+- [ ] Remplacer les placeholders : logo SVG officiel, polices de marque, réponses FAQ, textes légaux, témoignages réels, chiffres « [à valider] », QR code définitif (actuellement winko.io/app, lien provisoire)
+- [ ] Remplacer les images extraites en 1x par des exports 2x (voir `docs/assets.md`)

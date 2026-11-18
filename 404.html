@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page introuvable | Winko</title>
+  <meta name="description" content="Cette page a pris un autre chemin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/winko.css">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <header class="navbar_component" data-navbar>
+    <div class="padding-global">
+      <div class="container-large">
+        <nav class="navbar_container" aria-label="Navigation principale">
+          <a href="index.html" class="logo" aria-label="Winko Retail, accueil">
+            <span class="logo_tab">Retail</span>
+            <span class="logo_wordmark">Winko</span>
+          </a>
+          <div class="navbar_menu" id="navbar-menu">
+            <a href="retail/professionnels.html" class="navbar_link">Professionnels</a>
+            <a href="retail/entreprises.html" class="navbar_link">Entreprises</a>
+            <a href="contact.html" class="navbar_link">Contact</a>
+          </div>
+          <div class="navbar_actions">
+            <div class="navbar_locale"><a href="#" aria-current="true" lang="fr">FR</a> · <a href="#" lang="en">UK</a></div>
+            <button class="navbar_menu-button" type="button" aria-controls="navbar-menu" aria-expanded="false" aria-label="Ouvrir le menu" data-navbar-toggle>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+<!-- 404 · page introuvable · Figma 37:854 (en Webflow : page 404 utilitaire) -->
+    <section class="section_404">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="not-found_component">
+            <img src="images/shared/objet-signature.png" alt="Panneau de direction Winko : Retail, Find Job" class="not-found_image" width="893" height="810">
+            <h1 class="heading-style-display-m max-width-large">Cette page a pris un autre chemin.</h1>
+            <p class="text-size-large text-color-secondary">Le panneau indique deux directions. Choisissez la vôtre.</p>
+            <div class="button-group is-center">
+              <a href="retail/professionnels.html" class="button">Je cherche une mission</a>
+              <a href="retail/entreprises.html" class="button is-secondary">Je recrute</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="section_footer">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="footer_component">
+          <a href="index.html" class="logo is-large" aria-label="Winko Retail, accueil">
+            <span class="logo_tab">Retail</span>
+            <span class="logo_wordmark">Winko</span>
+          </a>
+          <div class="footer_panel">
+            <div class="footer_signature">
+              <p class="footer_tagline">Les professionnels de la vente pour chacun de vos besoins.</p>
+              <div class="button-group">
+                <a href="#telecharger" class="button is-small" data-app-modal-open>Télécharger l’app</a>
+                <a href="contact-recruter.html" class="button is-secondary is-small">Créer mon compte</a>
+              </div>
+              <p class="footer_legal-text">© 2026 Winko.</p>
+            </div>
+            <nav class="footer_column" aria-label="Pied de page">
+              <a href="index.html" class="footer_link">Accueil</a>
+              <a href="retail/professionnels.html" class="footer_link">Professionnels</a>
+              <a href="retail/entreprises.html" class="footer_link">Entreprises</a>
+              <a href="contact.html" class="footer_link">Contact</a>
+            </nav>
+            <div class="footer_column">
+              <a href="#" class="footer_link">Linkedin</a>
+              <a href="#" class="footer_link">Facebook</a>
+              <a href="#" class="footer_link">Instagram</a>
+              <p class="footer_legal-text">All rights reserved.</p>
+            </div>
+            <div class="footer_column">
+              <a href="mentions-legales.html" class="footer_link">Mentions légales</a>
+              <a href="confidentialite.html" class="footer_link">Politique de confidentialité</a>
+              <p>FR · UK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+  <!-- Modale « Télécharger l'app » · Figma 75:46 (desktop ; mobile : redirection vers le store) -->
+  <div class="app-modal" id="telecharger" data-app-modal hidden>
+    <div class="app-modal_overlay" data-app-modal-close></div>
+    <div class="app-modal_dialog" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+      <button type="button" class="app-modal_close" aria-label="Fermer" data-app-modal-close>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg>
+      </button>
+      <div class="logo"><span class="logo_tab">Retail</span><span class="logo_wordmark">Winko</span></div>
+      <h2 class="heading-style-h2" id="app-modal-title">Votre prochaine mission est dans l’app.</h2>
+      <p class="text-color-secondary">Scannez ce QR code avec l’appareil photo de votre téléphone pour télécharger Winko.</p>
+      <div class="app-modal_qr"><img src="images/shared/qr-app.svg" alt="QR code vers winko.io/app (lien provisoire)" width="200" height="200"></div>
+    </div>
+  </div>
+<script src="js/winko.js" defer></script>
+</body>
+</html>

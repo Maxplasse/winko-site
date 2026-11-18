@@ -615,3 +615,137 @@ textarea.form_input { min-height: 7.5rem; resize: vertical; }
   .form_component { padding: 1.5rem; }
   .form_row { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   13. Ajouts · LP événement (Black Friday, Noël)
+   ========================================================================== */
+/* S14 · Hero LP événement : fond sombre (is-dark) ou teinté (is-tint) */
+.section_hero-event { background-color: var(--accent-tint); }
+.section_hero-event.is-dark { background-color: var(--bg-inverse); color: var(--text-inverse); }
+.hero-event_component { display: flex; align-items: center; gap: 2.5rem; padding-top: 6rem; padding-bottom: 6rem; }
+.hero-event_content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+.hero-event_checklist { display: flex; flex-direction: column; gap: 1.5rem; }
+.hero-event_visual { position: relative; flex: none; width: 37.5rem; height: 41.25rem; }
+.hero-event_frame { position: absolute; left: 5rem; top: 10rem; width: 31.25rem; height: 31.25rem; border-radius: 3.5rem; background-color: var(--accent-default); }
+.hero-event_image { position: absolute; left: 8.125rem; top: 1.25rem; width: 26.25rem; height: 39.375rem; object-fit: cover; }
+.hero-event_card { position: absolute; left: -1.25rem; top: 18.75rem; width: 22.5rem; }
+.hero-event_countdown[hidden] { display: none; }
+.hero-event_countdown {
+  position: absolute; left: -0.625rem; top: 3.75rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.375rem;
+  padding: 0.875rem 1.5rem 1rem; border-radius: 1.25rem;
+  background-color: var(--bg-surface); box-shadow: 0 12px 16px rgba(0, 0, 0, 0.25); white-space: nowrap;
+}
+.hero-event_countdown-number { font-family: var(--font-display); font-size: 4.5rem; line-height: 0.95; letter-spacing: -0.01em; color: var(--accent-default); }
+.hero-event_countdown-label { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+
+/* Carte UI vitrée (mission posée sur la photo) : vitrée par défaut, is-dark */
+.glass-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem;
+  padding: 3rem; border: 2px solid var(--neutral-white); border-radius: 3rem;
+  background-color: rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  color: var(--text-inverse);
+}
+.glass-card.is-dark { background-color: rgba(33, 33, 33, 0.92); }
+.glass-card_pill { padding: 0.5rem 1rem; border-radius: var(--radius-button); background-color: var(--neutral-white); color: var(--text-primary); font-weight: 600; line-height: 1; }
+.glass-card_meta { font-size: 0.875rem; font-weight: 500; line-height: 1.3; }
+.glass-card_button { width: 100%; padding: 0.875rem; border: 1px solid var(--neutral-white); border-radius: var(--radius-button); text-align: center; font-weight: 600; line-height: 1; }
+
+/* S22 · Bandeau défilant (texte) */
+.ticker_component { padding-top: 1.75rem; padding-bottom: 1.75rem; background-color: var(--accent-default); color: var(--text-inverse); }
+.ticker_list { align-items: center; white-space: nowrap; }
+.ticker_list > * { margin-right: 2.5rem; flex: none; }
+.ticker_word { font-family: var(--font-display); font-size: 3.25rem; line-height: 1; letter-spacing: -0.005em; }
+.ticker_star { font-size: 2.25rem; line-height: 1; }
+
+/* S12 · Formulaire + visuel */
+.form-visual_component { display: flex; align-items: center; gap: 4rem; }
+.form-visual_image-wrapper { flex: none; width: 37.5rem; height: 35rem; overflow: hidden; border-radius: 3.5rem; background-color: var(--accent-tint); }
+.form-visual_image { width: 100%; height: 100%; object-fit: cover; }
+.form-visual_content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+.form_component.is-short { max-width: none; margin: 0; padding: 2.25rem; gap: 1rem; box-shadow: var(--shadow-card); }
+
+/* S08 · FAQ en liste (accordéon) */
+.faq-list_component { display: flex; gap: 5rem; align-items: flex-start; }
+.faq-list_header { flex: none; width: 25rem; display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.faq-list_list { flex: 1; }
+.faq-list_item { border-bottom: 1px solid var(--border-strong); border-radius: 0; background-color: transparent; }
+.faq-list_item .faq_question { padding: 1.5rem 0; justify-content: space-between; font-size: 1.375rem; font-weight: 600; line-height: 1.3; }
+.faq-list_icon { flex: none; font-family: var(--font-display); font-size: 2.25rem; line-height: 1; color: var(--accent-default); }
+.faq-list_icon::before { content: "+"; }
+.faq_item.is-open .faq-list_icon::before { content: "–"; }
+.faq-list_item .faq_answer-inner p { padding: 0 0 1.5rem; }
+
+@media screen and (max-width: 991px) {
+  .hero-event_component, .form-visual_component, .faq-list_component { flex-direction: column; align-items: stretch; gap: 3rem; }
+  .hero-event_visual { margin: 0 auto; }
+  .form-visual_image-wrapper { width: 100%; height: 28rem; }
+  .faq-list_header { width: auto; }
+}
+@media screen and (max-width: 767px) {
+  .hero-event_component { padding-top: 3rem; padding-bottom: 3rem; }
+  .hero-event_visual { width: 100%; max-width: 22rem; height: 30rem; }
+  .hero-event_frame { left: 1.5rem; top: 7rem; width: calc(100% - 1.5rem); height: 22rem; border-radius: 2rem; }
+  .hero-event_image { left: 3rem; top: 0.5rem; width: calc(100% - 4rem); height: 29rem; }
+  .hero-event_card { left: 0; top: auto; bottom: 0; width: 15rem; }
+  .glass-card { padding: 1.5rem; border-radius: 1.75rem; }
+  .glass-card .heading-style-h3 { font-size: 1.5rem; }
+  .hero-event_countdown { left: 0; top: 1.5rem; padding: 0.625rem 1rem; }
+  .hero-event_countdown-number { font-size: 3rem; }
+  .ticker_word { font-size: 2.25rem; }
+  .form-visual_image-wrapper { height: 22rem; border-radius: var(--radius-card); }
+  .faq-list_item .faq_question { font-size: 1.125rem; }
+}
+
+/* ==========================================================================
+   14. Ajouts · Légal, Merci, 404
+   ========================================================================== */
+/* S23 · Hero légal */
+.hero-legal_component { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-top: 6rem; padding-bottom: 6rem; }
+.hero-legal_tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.hero-legal_tabs .tag { transition: background-color 150ms ease; }
+.hero-legal_tabs .tag:hover, .hero-legal_tabs .tag[aria-current="page"] { background-color: var(--accent-default); color: var(--text-inverse); }
+
+/* S15 · Contenu légal : sommaire sticky + texte riche */
+.legal_component { display: flex; gap: 5rem; align-items: flex-start; padding-top: 2rem; padding-bottom: 8rem; }
+.legal_toc { position: sticky; top: 7.5rem; flex: none; width: 18.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.legal_toc-title { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.legal_toc a { color: var(--text-secondary); }
+.legal_toc a:hover { color: var(--accent-default); }
+.legal_rich-text { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; color: var(--text-secondary); }
+.legal_rich-text h2 { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.05; color: var(--text-primary); scroll-margin-top: 7.5rem; }
+
+/* S24 · Confirmation (merci) */
+.confirmation_component { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; padding-top: 7.5rem; padding-bottom: 7.5rem; text-align: center; }
+.confirmation_icon { display: flex; align-items: center; justify-content: center; width: 4.5rem; height: 4.5rem; border-radius: var(--radius-full); background-color: var(--feedback-success); color: var(--neutral-white); font-family: var(--font-display); font-size: 2.25rem; }
+.confirmation_component .text-size-large { max-width: 40rem; }
+.confirmation_steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; width: 100%; padding: 2.5rem 0 0; margin: 0; list-style: none; text-align: left; }
+.confirmation_step { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 2.25rem; border-radius: var(--radius-panel); background-color: var(--accent-tint); color: var(--accent-default); }
+
+/* S25 · 404 */
+.section_404 { background-color: var(--accent-tint); }
+.not-found_component { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; padding-top: 7.5rem; padding-bottom: 7.5rem; text-align: center; }
+.not-found_image { width: 26.25rem; height: 24.375rem; object-fit: contain; }
+.not-found_component .text-size-large { max-width: 35rem; }
+
+@media screen and (max-width: 991px) {
+  .legal_component { flex-direction: column; gap: 2.5rem; }
+  .legal_toc { position: static; width: auto; }
+  .confirmation_steps { grid-template-columns: 1fr; }
+}
+@media screen and (max-width: 767px) {
+  .hero-legal_component { padding-top: 3.5rem; padding-bottom: 3rem; }
+  .legal_rich-text h2 { font-size: 1.75rem; }
+  .confirmation_component, .not-found_component { padding-top: 4rem; padding-bottom: 4rem; }
+  .not-found_image { width: 100%; max-width: 18rem; height: auto; }
+}
+
+/* Correctifs mobile (débordements) */
+.advantages_card, .steps_card, .profiles_card, .arguments_card { min-width: 0; }
+.ui-tabs { flex-wrap: wrap; }
+.choice_list { width: 100%; }
+.choice_card { flex: 0 1 27.5rem; }
+@media screen and (max-width: 767px) {
+  .ui-card_row { flex-wrap: wrap; }
+  .choice_card .heading-style-h3 { font-size: 1.75rem; }
+}
