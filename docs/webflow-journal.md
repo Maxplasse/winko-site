@@ -13,6 +13,13 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - **Page Professionnels** (`/retail/professionnels`, id 6afe9d7a63f8d55484889e48) : uniquement des instances de Components.
 - **Page Home** complète : Header, S01 Hero, S05b Valeurs, S26 Logos, S02 Aiguillage, S27 Témoignages, S09 Bandeau CTA, Footer, popup « Télécharger l'app ». Toutes les images sont reliées à leur asset.
 
+- **Sections CMS (Slots)** : l'API ne sait ni lier des champs CMS dans la définition d'un Component, ni déposer un élément dans un Slot. Méthode : la liste statique du Component est remplacée par un **Slot** ; la Collection List, entièrement reliée et stylée, est construite à la fin du `main-wrapper` de la page, nommée « … → glisser dans le Slot de Sxx », à glisser à la main dans le Slot (Navigator).
+  - S20 FAQ (Professionnels) : FAQ, limite 6 — filtre Cible = Professionnels, tri Ordre.
+  - S04 Profils (Entreprises) : Profils, limite 4 — filtre Consentement = on, tri Ordre ; métier en deux textes (Métier : Nom féminin / masculin) à afficher selon Genre (visibilité conditionnelle).
+  - S03 Chiffres (Entreprises) : Chiffres clés, limite 4 — filtre Cible = Entreprises, tri Ordre.
+  - S26 Logos et S27 Témoignages (Accueil, Professionnels) : deux listes chacune (la 2e `aria-hidden`, pour la boucle CSS) — tri Ordre, filtre Accord de diffusion = on pour les logos. Classes `marquee_list` (wrapper et list) / `marquee_item` ; l'espacement est sur `logos_logo` / `testimonials_card`.
+  - Filtres et tris à régler dans le Designer (refusés via MCP).
+
 ## Components (groupes « Global » et « Sections »)
 | Component | Id | Propriétés / variantes |
 |---|---|---|
