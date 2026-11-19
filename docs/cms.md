@@ -52,7 +52,7 @@ Toutes les collections existent avec leurs champs et leurs contenus (Événement
 
 | Collection | Id | Champ nom |
 |---|---|---|
-| Secteurs | 6afea87e38c9291ca9d6e1f3 | Nom |
+| Secteurs | 6afeaf77d852e997766167da | Nom |
 | Métiers | 6afea8bb38c9291ca9d6ef55 | Nom (masculin) |
 | Profils | 6afea8bc8a1019cc67060e1f | Prénom + initiale |
 | FAQ | 6afea8bcf5cb1bb71b0bf9d7 | Question |
@@ -63,7 +63,7 @@ Toutes les collections existent avec leurs champs et leurs contenus (Événement
 | Événements | 6afea8bfbaf838e4089b13a3 | Titre |
 
 Écarts avec le JSON :
-- La collection a été créée sous le nom « Verticales » : la renommer « Secteurs » (singulier « Secteur », slug `secteurs`) dans Webflow, CMS > Settings (l'API ne le permet pas). Le champ de référence s'affiche « Secteur » partout mais son slug interne reste `verticale`.
+- Le renommage de « Verticales » échouant dans Webflow (« Failed to create database »), une collection « Secteurs » neuve a remplacé l'ancienne ; les références (slug `secteur`) pointent vers elle. L'ancienne collection « Verticales » (6afea87e38c9291ca9d6e1f3) n'est plus utilisée : la supprimer dans le CMS (l'API ne sait pas supprimer une collection).
 - Profils : la note est un texte (« 4,8 ») ; l'alt de la photo est porté par l'image. Le libellé du métier s'affiche avec deux textes liés à Métier : Nom (masculin) / Nom (féminin), chacun en visibilité conditionnelle sur Genre.
 - Enseignes : `largeur` → « Largeur (px) » ; `hauteur` non reprise.
 - Événements : listes à plat (Point clé 1-3, Bandeau mot 1-4, Argument 1-3 titre / texte / picto en image).

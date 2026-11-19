@@ -4,7 +4,7 @@ refs.json : {"metiers": {"vendeur": "<item id>"}, ...} pour les références."""
 import json, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ASSETS = json.loads((ROOT / 'tools/webflow/assets.json').read_text())
-SECTEUR = {'retail': '6afeaa83916c88d54c3254bd'}
+SECTEUR = {'retail': '6afeafc6a0f72ec540285e1d'}
 CIBLE = {
   'faq': {'professionnels': '7c4129f4250f6ce06f6bcec4833010ac', 'entreprises': 'e583a49c508712ca10d01d9facea35c7', 'les-deux': '206c037c6b0d7eeb08d9c4c578b28a9a'},
   'chiffres-cles': {'professionnels': '714b3f72af189357b395af0cffa15f1e', 'entreprises': '02e45048d7855aa4de954377ad0cfa8c', 'les-deux': '6c3fc857435ec63383be3bd4f79df0a4'},
@@ -31,19 +31,19 @@ def build(col, refs):
     for x in data:
         v = SECTEUR[x['secteur']]
         if col == 'metiers':
-            f = {'name': x['nomMasculin'], 'nom-feminin': x['nomFeminin'], 'verticale': v, 'description-courte': x['descriptionCourte'], 'picto': img(x['picto']), 'ordre': x['ordre']}
+            f = {'name': x['nomMasculin'], 'nom-feminin': x['nomFeminin'], 'secteur': v, 'description-courte': x['descriptionCourte'], 'picto': img(x['picto']), 'ordre': x['ordre']}
         elif col == 'faq':
-            f = {'name': x['question'], 'reponse': x['reponse'], 'cible': CIBLE['faq'][x['cible']], 'verticale': v, 'afficher-sur-l-accueil': x['afficherAccueil'], 'ordre': x['ordre']}
+            f = {'name': x['question'], 'reponse': x['reponse'], 'cible': CIBLE['faq'][x['cible']], 'secteur': v, 'afficher-sur-l-accueil': x['afficherAccueil'], 'ordre': x['ordre']}
         elif col == 'chiffres-cles':
-            f = {'name': x['valeur'], 'libelle': x['libelle'], 'source-date': x['source'], 'cible': CIBLE[col][x['cible']], 'verticale': v, 'ordre': x['ordre']}
+            f = {'name': x['valeur'], 'libelle': x['libelle'], 'source-date': x['source'], 'cible': CIBLE[col][x['cible']], 'secteur': v, 'ordre': x['ordre']}
         elif col == 'exemples-missions':
-            f = {'name': x['titre'], 'pastille': x['pastille'], 'description': x['description'], 'lieu-dates': x['lieuDates'], 'libelle-du-bouton': x['libelleBouton'], 'photo': img(x['photo']), 'verticale': v}
+            f = {'name': x['titre'], 'pastille': x['pastille'], 'description': x['description'], 'lieu-dates': x['lieuDates'], 'libelle-du-bouton': x['libelleBouton'], 'photo': img(x['photo']), 'secteur': v}
         elif col == 'enseignes-clientes':
-            f = {'name': x['nom'], 'logo': img(x['logo'], x['nom']), 'largeur-px': x['largeur'], 'accord-de-diffusion': x['accordDiffusion'], 'verticale': v, 'ordre': x['ordre']}
+            f = {'name': x['nom'], 'logo': img(x['logo'], x['nom']), 'largeur-px': x['largeur'], 'accord-de-diffusion': x['accordDiffusion'], 'secteur': v, 'ordre': x['ordre']}
         elif col == 'temoignages':
-            f = {'name': x['auteur'], 'type': TYPE_T[x['type']], 'citation': x['citation'], 'role': x['role'], 'avatar': img(x['avatar']), 'verticale': v, 'ordre': x['ordre']}
+            f = {'name': x['auteur'], 'type': TYPE_T[x['type']], 'citation': x['citation'], 'role': x['role'], 'avatar': img(x['avatar']), 'secteur': v, 'ordre': x['ordre']}
         elif col == 'profils':
-            f = {'name': x['prenomInitiale'], 'metier': refs['metiers'][x['metier']], 'genre': GENRE[x['genre']], 'verticale': v,
+            f = {'name': x['prenomInitiale'], 'metier': refs['metiers'][x['metier']], 'genre': GENRE[x['genre']], 'secteur': v,
                  'photo-face-camera': img(x['photo'], x['photoAlt']), 'photo-detouree': img(x['photoDetouree']), 'missions': x['missions'],
                  'note': str(x['note']).replace('.', ','), 'specialites': x['specialites'], 'pastille': x['pastille'],
                  'consentement-de-diffusion': x['consentementDiffusion'], 'ordre': x['ordre']}
@@ -51,7 +51,7 @@ def build(col, refs):
             f = {'name': x['titre'], 'surtitre': x['surtitre'], 'chapo': x['chapo'],
                  **{f'point-cle-{i+1}': p for i, p in enumerate(x['pointsCles'])},
                  'date-de-l-evenement': date(x['dateEvenement']), 'libelle-compte-a-rebours': x['libelleCompteARebours'],
-                 'theme': THEME[x['theme']], 'cible': CIBLE[col][x['cible']], 'verticale': v, 'visuel-hero-detoure': img(x['visuelHero']),
+                 'theme': THEME[x['theme']], 'cible': CIBLE[col][x['cible']], 'secteur': v, 'visuel-hero-detoure': img(x['visuelHero']),
                  'mission-mise-en-avant': refs['exemples-missions'][x['missionMiseEnAvant']],
                  **{f'bandeau-mot-{i+1}': m for i, m in enumerate(x['motsBandeau'])},
                  'arguments-surtitre': x['argumentsSurtitre'], 'arguments-titre': x['argumentsTitre'],

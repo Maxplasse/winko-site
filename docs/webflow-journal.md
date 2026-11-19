@@ -3,7 +3,7 @@
 Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b588aa38a8fffe`.
 
 ## Fait
-- **CMS** : 9 collections avec champs et contenus importés (`docs/cms.md`, section « Dans Webflow »). « Verticales » renommé « Secteurs » partout sauf le nom de la collection (à faire à la main) et les slugs internes `verticale`.
+- **CMS** : 9 collections avec champs et contenus importés (`docs/cms.md`, section « Dans Webflow »). « Verticales » remplacée par une collection « Secteurs » neuve (6afeaf77d852e997766167da), références `secteur` migrées ; l'ancienne collection « Verticales » est à supprimer à la main.
 - **FAQ Entreprises** : Collection List sur FAQ (classes `faq_list-wrapper` > `faq_list` + `data-faq`, item `faq_item` ; Question et Réponse liées), limite 6. **Filtre « Cible = Entreprises » et tri « Ordre croissant » à régler dans le Designer** (refusés via MCP, voir pièges).
 - **Variables** : tous les tokens de `:root` créés dans la collection par défaut (« Base collection ») avec **les mêmes noms CSS que le prototype** (`--accent-default`, `--bg-muted`, `--radius-card`, `--font-display`…). Une collection « Winko » (vide) a été créée en test : la supprimer dans le panneau Variables (elle préfixait les noms en `--_winko---…`).
 - **Assets** : les 30 images de `public/images/` sont téléversées ; correspondance fichier ↔ id dans `tools/webflow/assets.json`.
