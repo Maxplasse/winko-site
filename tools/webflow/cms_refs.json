@@ -1,6 +1,6 @@
 {
  "secteurs": {
-  "retail": "6afeaa83916c88d54c3254bd"
+  "retail": "6afeafc6a0f72ec540285e1d"
  },
  "metiers": {
   "conseiller-vente": "6afeaae0bf819202a9b3aaa2",
@@ -35,5 +35,15 @@
   "karim-b": "6afeab0721410d3d91fdbd9d",
   "ines-t": "6afeab0721410d3d91fdbd9f",
   "lea-m": "6afeab0721410d3d91fdbda1"
+ },
+ "chiffres-cles": {
+  "communaute": "6afeaae153b379777f696ca7",
+  "delai-creneau": "6afeaae153b379777f696ca9",
+  "note-moyenne": "6afeaae153b379777f696cab",
+  "missions-24-7": "6afeaae153b379777f696cad"
+ },
+ "evenements": {
+  "black-friday": "6afeab517eb486a2d4ca73d3",
+  "noel": "6afeab517eb486a2d4ca73d5"
  }
 }
