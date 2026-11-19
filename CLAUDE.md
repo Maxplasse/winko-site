@@ -20,7 +20,7 @@ Astro (HTML statique), sans framework front ni Tailwind. `npm run dev` (port 432
 - `src/components/global/` : Header (CTA contextuel), Footer (accroche et boutons selon la page), AppModal, StickyWidget, CtaButton, Logo.
 - `src/components/sections/` : **une section Figma = un fichier = un futur Component Webflow**, nommé par son code Figma (`S01Hero`, `S26Logos`, `S28Advantages`…). En tête : commentaire `// Sxx · Nom · Figma id` + filtre CMS, repris en `<!-- … -->` dans le HTML.
 - `src/content/*.json` + `src/content.config.ts` : **une collection CMS = un fichier JSON**, mêmes champs que la page « CMS & collections » du Figma (correspondance dans `docs/cms.md`). Tout contenu répété ou changeant (FAQ, profils, chiffres, témoignages, logos, missions, événements) vit là, jamais en dur dans une page.
-- `src/lib/` : `url()` (préfixe de base pour la préversion), `site.ts` (navigation, lien app, liens stores), `content.ts` (filtres CMS : cible, verticale, consentement, limite).
+- `src/lib/` : `url()` (préfixe de base pour la préversion), `site.ts` (navigation, lien app, liens stores), `content.ts` (filtres CMS : cible, secteur, consentement, limite).
 - `src/pages/` : `/`, `/retail/professionnels`, `/retail/entreprises`, `/contact`, `/merci`, `/mentions-legales`, `/confidentialite`, `/cookies`, `/cgu`, `/404`, `/evenements/[slug]` (page modèle), `/styleguide` (tokens, noindex).
 
 ## Règles d'intégration (impératives)
@@ -29,7 +29,7 @@ Astro (HTML statique), sans framework front ni Tailwind. `npm run dev` (port 432
    - composants : `[composant]_[élément]` (ex. `hero_image`) ; variantes : combo class `is-…` ;
    - utilitaires globaux seulement s'ils existent déjà dans `winko.css`. Pas de Tailwind, pas de classes utilitaires ad hoc.
 2. **Tokens = variables CSS** dans `:root` de `winko.css`, nommées comme les variables Figma (`--accent-default`, `--bg-muted`…). Jamais de couleur en dur. Elles deviennent les Variables Webflow.
-3. **Verticales** : couleur d'accent via `--accent-*` ; changer de verticale = combo class `is-socialcare` / `is-healthcare` / `is-logistics` sur un parent. Jamais de dégradé sur ces couleurs (brandbook).
+3. **Secteurs** : couleur d'accent via `--accent-*` ; changer de secteur = combo class `is-socialcare` / `is-healthcare` / `is-logistics` sur un parent. Jamais de dégradé sur ces couleurs (brandbook).
 4. **Composants** : une section Figma = un composant Astro ; les props = les propriétés du Component Webflow (textes, images, liens, variante). Les boutons passent par le slot ou `CtaButton`.
 5. **Contenus CMS** : les sections alimentées par le CMS lisent `astro:content` avec le même filtre que la Collection List Webflow (documenté en tête du composant). Ajouter un champ = le déclarer dans `content.config.ts` **et** dans `docs/cms.md`.
 6. **Breakpoints Webflow** : `max-width: 991px` (tablette), `767px` (mobile paysage), `479px` (mobile portrait, « 478 px et moins » dans Webflow).
@@ -48,7 +48,7 @@ Astro (HTML statique), sans framework front ni Tailwind. `npm run dev` (port 432
 ## Arborescence et URL (Notes & décisions)
 - `/` = accueil Retail ; `/retail/professionnels` (B2C → app), `/retail/entreprises` (B2B) ; `/retail` redirige vers `/`.
 - **Inversion d'URL** : sur le site actuel `/professionnels` est la page B2B ; elle devient B2C. Prévoir une table de redirections 301 et contrôler les liens depuis l'app et les campagnes.
-- Demain : `/` = accueil Winko multi-verticales, `/retail` = accueil Retail (hors périmètre).
+- Demain : `/` = accueil Winko multisecteur, `/retail` = accueil Retail (hors périmètre).
 
 ## Points d'attention
 - La première recette porte sur la version code (préversion), pas sur Webflow : à dire à Djouher.

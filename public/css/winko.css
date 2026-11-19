@@ -31,7 +31,7 @@
   --border-default: #e6e2da;
   --border-inverse: #212121;
 
-  /* Verticale (mode Retail par défaut). Changer de verticale =
+  /* Secteur (mode Retail par défaut). Changer de secteur =
      surcharger ces 4 variables (cf. .is-socialcare, etc.). */
   --accent-default: #3458db;
   --accent-strong: #1a3fa6;
@@ -53,7 +53,7 @@
   --container-large: 82rem; /* 1312px */
 }
 
-/* Modes « Verticale » (brandbook : jamais de dégradé) */
+/* Modes « Secteur » (brandbook : jamais de dégradé) */
 .is-socialcare { --accent-default: #ec335e; --accent-strong: #b81e44; --accent-subtle: #fde3ea; }
 .is-healthcare { --accent-default: #28532f; --accent-strong: #1a3820; --accent-subtle: #e2ece3; }
 .is-logistics  { --accent-default: #472d88; --accent-strong: #311f5f; --accent-subtle: #e8e3f3; }
@@ -132,7 +132,7 @@ button { font: inherit; cursor: pointer; }
 .button-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .button-group.is-center { justify-content: center; }
 
-/* Tag : surtitre / badge, prend la couleur de la verticale */
+/* Tag : surtitre / badge, prend la couleur du secteur */
 .tag {
   display: inline-flex;
   padding: 0.375rem 0.75rem;

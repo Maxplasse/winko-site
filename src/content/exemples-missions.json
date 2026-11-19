@@ -7,7 +7,7 @@
     "lieuDates": "Paris 9e  ·  27-30 nov. 9h-21h",
     "libelleBouton": "Pourvu en 12 min [à valider]",
     "photo": null,
-    "verticale": "retail"
+    "secteur": "retail"
   },
   {
     "id": "noel-nocturne",
@@ -17,6 +17,6 @@
     "lieuDates": "Lyon 2e  ·  du 18 au 23 déc.",
     "libelleBouton": "Accepter",
     "photo": null,
-    "verticale": "retail"
+    "secteur": "retail"
   }
 ]

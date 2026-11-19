@@ -1,0 +1,39 @@
+{
+ "secteurs": {
+  "retail": "6afeaa83916c88d54c3254bd"
+ },
+ "metiers": {
+  "conseiller-vente": "6afeaae0bf819202a9b3aaa2",
+  "vendeur": "6afeaae0bf819202a9b3aaa4",
+  "hote-caisse": "6afeaae0bf819202a9b3aaa6",
+  "responsable-stocks": "6afeaae0bf819202a9b3aaa8"
+ },
+ "exemples-missions": {
+  "black-friday-4-creneaux": "6afeaae253b379777f696d00",
+  "noel-nocturne": "6afeaae253b379777f696d02"
+ },
+ "faq": {
+  "pro-trouver-emploi-paris": "6afeaae8955073727f54e638",
+  "pro-quest-ce-que-winko": "6afeaae8955073727f54e63a",
+  "pro-mission-lendemain": "6afeaae8955073727f54e63c",
+  "pro-competences-evaluees": "6afeaae8955073727f54e63e",
+  "pro-entretien": "6afeaae8955073727f54e640",
+  "pro-rejoindre-communaute": "6afeaae8955073727f54e642",
+  "ent-renforcer-equipes": "6afeaae8955073727f54e644",
+  "ent-quels-professionnels": "6afeaae8955073727f54e646",
+  "ent-evaluation": "6afeaae8955073727f54e648",
+  "ent-publier-mission": "6afeaae8955073727f54e64a",
+  "ent-besoin-immediat": "6afeaae8955073727f54e64c",
+  "ent-apres-publication": "6afeaae8955073727f54e64e",
+  "evt-agence-interim": "6afeaae8955073727f54e650",
+  "evt-memes-professionnels-bf": "6afeaae8955073727f54e652",
+  "evt-reserver-decembre": "6afeaae8955073727f54e654",
+  "evt-tarif": "6afeaae8955073727f54e656"
+ },
+ "profils": {
+  "melissande-c": "6afeab0721410d3d91fdbd9b",
+  "karim-b": "6afeab0721410d3d91fdbd9d",
+  "ines-t": "6afeab0721410d3d91fdbd9f",
+  "lea-m": "6afeab0721410d3d91fdbda1"
+ }
+}

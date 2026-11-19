@@ -1,5 +1,5 @@
 ---
-// S04 · Communauté (profils) · Figma 39:3149 · CMS : collection Profils (verticale, consentement = oui, 4 premiers)
+// S04 · Communauté (profils) · Figma 39:3149 · CMS : collection Profils (secteur, consentement = oui, 4 premiers)
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { url } from '../../lib/url';
 interface Props {
@@ -17,7 +17,7 @@ const cards = await Promise.all(items.map(async ({ data: p }) => {
   return { ...p, metierLabel: p.genre === 'f' ? m.nomFeminin : m.nomMasculin, data: `${p.missions} missions · ${note} / 5` };
 }));
 ---
-<!-- S04 · Communauté (profils) · Figma 39:3149 · CMS : collection Profils (verticale, consentement = oui, 4 premiers) -->
+<!-- S04 · Communauté (profils) · Figma 39:3149 · CMS : collection Profils (secteur, consentement = oui, 4 premiers) -->
 <section class:list={['section_profiles', { 'background-color-muted': muted }]} id={id}>
   <div class="padding-global">
     <div class="container-large">

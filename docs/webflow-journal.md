@@ -3,6 +3,8 @@
 Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b588aa38a8fffe`.
 
 ## Fait
+- **CMS** : 9 collections avec champs et contenus importés (`docs/cms.md`, section « Dans Webflow »). « Verticales » renommé « Secteurs » partout sauf le nom de la collection (à faire à la main) et les slugs internes `verticale`.
+- **FAQ Entreprises** : Collection List sur FAQ (classes `faq_list-wrapper` > `faq_list` + `data-faq`, item `faq_item` ; Question et Réponse liées), limite 6. **Filtre « Cible = Entreprises » et tri « Ordre croissant » à régler dans le Designer** (refusés via MCP, voir pièges).
 - **Variables** : tous les tokens de `:root` créés dans la collection par défaut (« Base collection ») avec **les mêmes noms CSS que le prototype** (`--accent-default`, `--bg-muted`, `--radius-card`, `--font-display`…). Une collection « Winko » (vide) a été créée en test : la supprimer dans le panneau Variables (elle préfixait les noms en `--_winko---…`).
 - **Assets** : les 30 images de `public/images/` sont téléversées ; correspondance fichier ↔ id dans `tools/webflow/assets.json`.
 - **Styles globaux** : le plan du site ne permet pas le code personnalisé au niveau du site (l'API renvoie 404). Les polices Google et le CSS non exprimable en classes Webflow (base `body`/titres, `@keyframes`, sélecteurs descendants, `::before`, `[hidden]`, `prefers-reduced-motion`) sont dans un **Embed** `global-styles` placé dans `page-wrapper` (méthode Client-First).
@@ -58,3 +60,6 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - Ombres : pas de variable possible, valeurs littérales. Une ombre `inset` s'est mal rendue : préférer une bordure.
 - Tout lien vers `https://winko.io/app` ouvre la popup QR (desktop) ou le store (mobile) : le script le détecte, pas besoin d'attribut.
 - Les variantes de Component se choisissent via la propriété « Variant » de l'instance (valeur = id de variante).
+- Collection List : `source` = `static_json` `{"collectionId": …}` ; `limit` en `static_number`. Les `filters` / `sort` non vides (format `[{"fieldSlug","operator":"equals","value"}]`, `[{"fieldSlug","direction":"ascending"}]`) passent la validation mais le serveur répond « [Conflict] … component map » : les régler dans le Designer.
+- Opérateurs de filtre : option → equals / doesNotEqual / isSet / isNotSet ; switch → isOn / isOff.
+- Une image passée par URL à un item CMS est re-téléversée (nouvel asset) : prévoir le ménage des doublons dans Assets.

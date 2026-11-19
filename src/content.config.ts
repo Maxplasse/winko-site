@@ -8,8 +8,8 @@ import { z } from 'astro/zod';
 const cible = z.enum(['professionnels', 'entreprises', 'les-deux']);
 const image = z.string().nullable(); // chemin dans public/ (Webflow : champ Image)
 
-const verticales = defineCollection({
-  loader: file('src/content/verticales.json'),
+const secteurs = defineCollection({
+  loader: file('src/content/secteurs.json'),
   schema: z.object({
     nom: z.string(),
     libelleOngletLogo: z.string(),
@@ -32,7 +32,7 @@ const metiers = defineCollection({
   schema: z.object({
     nomMasculin: z.string(),
     nomFeminin: z.string(),
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     descriptionCourte: z.string().nullable(),
     picto: image,
     ordre: z.number(),
@@ -45,7 +45,7 @@ const profils = defineCollection({
     prenomInitiale: z.string(),
     metier: reference('metiers'),
     genre: z.enum(['f', 'm']),
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     photo: z.string(),
     photoAlt: z.string(),
     photoDetouree: image,
@@ -64,7 +64,7 @@ const faq = defineCollection({
     question: z.string(),
     reponse: z.string(), // texte riche (HTML)
     cible,
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     afficherAccueil: z.boolean(),
     ordre: z.number(),
   }),
@@ -77,7 +77,7 @@ const chiffresCles = defineCollection({
     libelle: z.string(),
     source: z.string().nullable(),
     cible,
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     ordre: z.number(),
   }),
 });
@@ -91,7 +91,7 @@ const exemplesMissions = defineCollection({
     lieuDates: z.string(),
     libelleBouton: z.string(),
     photo: image,
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
   }),
 });
 
@@ -103,7 +103,7 @@ const enseignesClientes = defineCollection({
     largeur: z.number(),
     hauteur: z.number(),
     accordDiffusion: z.boolean(),
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     ordre: z.number(),
   }),
 });
@@ -119,7 +119,7 @@ const evenements = defineCollection({
     libelleCompteARebours: z.string(),
     theme: z.enum(['clair', 'sombre']),
     cible,
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     visuelHero: z.string(),
     missionMiseEnAvant: reference('exemplesMissions'),
     motsBandeau: z.array(z.string()),
@@ -149,13 +149,13 @@ const temoignages = defineCollection({
     auteur: z.string(),
     role: z.string(),
     avatar: image,
-    verticale: reference('verticales'),
+    secteur: reference('secteurs'),
     ordre: z.number(),
   }),
 });
 
 export const collections = {
-  verticales,
+  secteurs,
   metiers,
   profils,
   faq,
