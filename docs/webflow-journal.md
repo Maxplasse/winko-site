@@ -7,6 +7,7 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - **Assets** : les 30 images de `public/images/` sont téléversées ; correspondance fichier ↔ id dans `tools/webflow/assets.json`.
 - **Styles globaux** : le plan du site ne permet pas le code personnalisé au niveau du site (l'API renvoie 404). Les polices Google et le CSS non exprimable en classes Webflow (base `body`/titres, `@keyframes`, sélecteurs descendants, `::before`, `[hidden]`, `prefers-reduced-motion`) sont dans un **Embed** `global-styles` placé dans `page-wrapper` (méthode Client-First).
 - **Script** : `public/js/winko.js` dans un Embed en fin de `body` (à déplacer dans Site settings > Custom code quand le plan le permet).
+- **Page Entreprises** (`/retail/entreprises`, id 6afea103ec8c8a6d9e831dfd) : instances + une section FAQ (questions entreprises) hors Component, à remplacer par la Collection List FAQ.
 - **Page Professionnels** (`/retail/professionnels`, id 6afe9d7a63f8d55484889e48) : uniquement des instances de Components.
 - **Page Home** complète : Header, S01 Hero, S05b Valeurs, S26 Logos, S02 Aiguillage, S27 Témoignages, S09 Bandeau CTA, Footer, popup « Télécharger l'app ». Toutes les images sont reliées à leur asset.
 
@@ -28,6 +29,10 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 | S20 FAQ grille | 934d1621-45ab-c6d4-c041-7166b4815045 | questions Professionnels en dur (→ collection FAQ filtrée par cible) |
 | S21 CTA photo | 35f060df-7853-de7d-67f8-e94e1f31a1b4 | contenu fixe |
 | Widget sticky | 10d0929e-9056-3b87-a29e-ab148d363993 | Titre, Texte, Bouton texte/lien |
+| S01 Hero split | 71b77504-2f3b-e9f7-f00f-b38d9c6967c3 | contenu fixe (Entreprises) |
+| S03 Chiffres | d62c914e-c4aa-1a0d-4be0-0a3f6683b12a | contenu fixe (→ collection Chiffres clés) |
+| S04 Profils | cf925b6f-545c-4784-adfa-40d3c9de55c9 | Surtitre, Titre, Texte (+ visible) · cartes → collection Profils |
+| S05 Arguments | 43e44e99-2c39-3111-609c-cff8fb853911 | Surtitre, Titre · cartes → arguments de l'item Événements sur les LP |
 | S09 Bandeau CTA | 44f4e100-6c7b-dd0c-5070-8914da6c89f2 | Titre, Texte, Image + alt, Bouton 1 texte/lien, Bouton 2 visible/texte/lien · variantes B2C / B2B |
 
 ## À faire (dans l'ordre)
