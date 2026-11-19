@@ -2,6 +2,8 @@
    En Webflow : à coller dans Site settings > Custom code (avant </body>)
    ou à remplacer par des Webflow Interactions quand c'est possible. */
 (function () {
+  // Active les animations CSS (bandeaux) : sans script, comme dans le Designer Webflow, tout reste figé.
+  document.documentElement.classList.add('js-ready');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Les bandeaux défilants (logos, témoignages, mots) sont 100 % CSS : voir .marquee dans winko.css.
@@ -119,10 +121,12 @@
       e.preventDefault();
       lastFocus = document.activeElement;
       modal.hidden = false;
+      modal.classList.add('is-open');
       modal.querySelector('[data-app-modal-close]').focus();
       document.addEventListener('keydown', onKey);
     };
     var close = function () {
+      modal.classList.remove('is-open');
       modal.hidden = true;
       document.removeEventListener('keydown', onKey);
       if (lastFocus) lastFocus.focus();
