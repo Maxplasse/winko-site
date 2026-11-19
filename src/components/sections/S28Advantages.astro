@@ -1,0 +1,87 @@
+---
+// S28 · Avantages en cards · Figma 506:531 (Professionnels)
+// Les mini-écrans de l'app (ui-card) sont décoratifs : aria-hidden. Extraits de l'app à valider par Djouher.
+import { url } from '../../lib/url';
+---
+<!-- S28 · Avantages en cards · Figma 506:531 (Professionnels) -->
+<section class="section_advantages">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="advantages_component">
+          <div class="advantages_header">
+            <span class="tag">Les avantages</span>
+            <h2 class="heading-style-h2">Ce qui change avec Winko.</h2>
+          </div>
+          <ul class="advantages_list" role="list">
+            <li class="advantages_card">
+              <h3 class="advantages_title">Un clic, c’est à vous.</h3>
+              <p class="advantages_text">Une offre vous plaît ? Pas d’entretien à refaire.</p>
+              <div class="advantages_ui ui-card" aria-hidden="true">
+                <div class="ui-card_row"><span class="ui-card_title is-accent">Vendeur</span><span class="ui-card_strong is-accent">197,66 € brut</span></div>
+                <span class="ui-card_meta">◎&nbsp;&nbsp;Paris 7e</span>
+                <span class="ui-card_meta">▢&nbsp;&nbsp;3 jours travaillés</span>
+              </div>
+            </li>
+            <li class="advantages_card is-subtle">
+              <h3 class="advantages_title">Vos missions, vos règles.</h3>
+              <p class="advantages_text">Lieu, durée, rémunération : tout est clair avant.</p>
+              <div class="advantages_ui ui-card" aria-hidden="true">
+                <span class="ui-card_title">Rémunération brute</span>
+                <span class="ui-card_amount">197,66 €</span>
+                <div class="ui-card_row"><span class="ui-card_meta is-small">Salaire de base (12,10 €/h)</span><span>163,35 €</span></div>
+                <div class="ui-card_row"><span class="ui-card_meta is-small">Indemnité de congés payés</span><span>+ 16,34 €</span></div>
+                <div class="ui-card_row"><span class="ui-card_meta is-small">Indemnité de fin de mission</span><span>+ 17,97 €</span></div>
+              </div>
+            </li>
+            <li class="advantages_card is-dark">
+              <h3 class="advantages_title">Chaque mission compte.</h3>
+              <p class="advantages_text">Gagnez des badges, relevez des défis.</p>
+              <div class="advantages_ui" aria-hidden="true">
+                <div class="ui-tabs">
+                  <span class="ui-tabs_tab">Mon activité</span>
+                  <span class="ui-tabs_tab is-active">Mes badges</span>
+                  <span class="ui-tabs_tab">Mes expériences</span>
+                </div>
+                <div class="ui-card is-row">
+                  <span class="ui-card_icon">✓</span>
+                  <span><span class="ui-card_tile-value">1 défi</span><br><span class="ui-card_meta is-small">À découvrir</span></span>
+                </div>
+              </div>
+            </li>
+            <li class="advantages_card is-dark">
+              <h3 class="advantages_title">Payé en 72 h.</h3>
+              <p class="advantages_text">70 % de votre paie, automatiquement.</p>
+              <div class="advantages_ui ui-card" aria-hidden="true">
+                <span class="ui-card_title">Résumé du mois</span>
+                <div class="ui-card_tiles">
+                  <div class="ui-card_tile"><span class="ui-card_tile-value">1 568 €</span><span class="ui-card_meta is-small">Brut généré</span></div>
+                  <div class="ui-card_tile"><span class="ui-card_tile-value">42 heures</span><span class="ui-card_meta is-small">Travaillées</span></div>
+                </div>
+              </div>
+            </li>
+            <li class="advantages_card">
+              <h3 class="advantages_title">Tout dans l’app.</h3>
+              <p class="advantages_text">Vos documents et vos contrats, au même endroit.</p>
+              <div class="advantages_ui ui-card" aria-hidden="true">
+                <span class="ui-card_title">Documents administratifs</span>
+                <div class="ui-card_row"><span>Pièce d’identité</span><span class="ui-card_check">✓</span></div>
+                <div class="ui-card_row"><span>Photo de profil</span><span class="ui-card_check">✓</span></div>
+                <div class="ui-card_row"><span>Attestation d’assurance maladie</span><span class="ui-card_check">✓</span></div>
+                <span class="ui-card_meta is-small">Pour créer vos contrats de travail</span>
+              </div>
+            </li>
+            <li class="advantages_card is-subtle">
+              <h3 class="advantages_title">Des conseils pour progresser.</h3>
+              <p class="advantages_text">Des articles métier, à lire en 2 minutes.</p>
+              <div class="advantages_ui ui-card is-row" aria-hidden="true">
+                <span class="ui-card_body"><span class="ui-card_title is-small">Gérer un client difficile ou une réclamation en magasin</span><br><span class="ui-card_meta is-small">◷ 2 min&nbsp;&nbsp;·&nbsp;&nbsp;Populaire</span></span>
+                <img src={url('/images/professionnels/vignette-article.png')} alt="" class="ui-card_thumb" width="72" height="72" loading="lazy">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

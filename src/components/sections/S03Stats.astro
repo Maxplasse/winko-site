@@ -1,0 +1,20 @@
+---
+// S03 · Chiffres clés · Figma 39:3116 · CMS : collection Chiffres clés (cible de la page + verticale)
+import type { CollectionEntry } from 'astro:content';
+interface Props { items: CollectionEntry<'chiffresCles'>[] }
+const { items } = Astro.props;
+---
+<!-- S03 · Chiffres clés · Figma 39:3116 · CMS : collection Chiffres clés (cible de la page + verticale) -->
+<section class="section_stats">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-small">
+        <dl class="stats_list">
+          {items.map(({ data: s }) => (
+            <div class="stats_item"><dt class="stats_number">{s.valeur}</dt><dd class="stats_label">{s.libelle}</dd></div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

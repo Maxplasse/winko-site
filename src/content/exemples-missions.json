@@ -1,0 +1,22 @@
+[
+  {
+    "id": "black-friday-4-creneaux",
+    "pastille": "Nouvelle mission",
+    "titre": "Black Friday   4 créneaux",
+    "description": "Vendeur·se renfort · encaissement et réassort.",
+    "lieuDates": "Paris 9e  ·  27-30 nov. 9h-21h",
+    "libelleBouton": "Pourvu en 12 min [à valider]",
+    "photo": null,
+    "verticale": "retail"
+  },
+  {
+    "id": "noel-nocturne",
+    "pastille": "Nouvelle mission",
+    "titre": "Nocturne   18h-22h",
+    "description": "Conseil cadeau et emballage en maroquinerie.",
+    "lieuDates": "Lyon 2e  ·  du 18 au 23 déc.",
+    "libelleBouton": "Accepter",
+    "photo": null,
+    "verticale": "retail"
+  }
+]

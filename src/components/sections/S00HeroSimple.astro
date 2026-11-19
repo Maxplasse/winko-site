@@ -1,0 +1,17 @@
+---
+// S00 · Hero simple · Figma 39:3341 (Contact)
+interface Props { tag: string; title: string; text: string }
+const { tag, title, text } = Astro.props;
+---
+<!-- S00 · Hero simple · Figma 39:3341 (Contact) -->
+<section class="section_hero-simple">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="hero-simple_component">
+        <span class="tag">{tag}</span>
+        <h1 class="heading-style-display-l max-width-large">{title}</h1>
+        <p class="text-size-large text-color-secondary">{text}</p>
+      </div>
+    </div>
+  </div>
+</section>

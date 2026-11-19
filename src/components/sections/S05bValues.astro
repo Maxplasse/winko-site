@@ -1,0 +1,27 @@
+---
+// S05b · Valeurs en encarts · Figma 499:493 (Accueil)
+import { url } from '../../lib/url';
+interface Props { items: { picto: string; title: string; text: string }[] }
+const { items } = Astro.props;
+---
+<!-- S05b · Valeurs en encarts · Figma 499:493 (Accueil) -->
+<section class="section_values">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-medium">
+        <ul class="values_list" role="list">
+          {items.map((v, i) => (
+            <li class="values_card">
+              <div class="values_card-top">
+                <div class="values_icon"><img src={url(`/images/shared/picto-${v.picto}.svg`)} alt="" width="26" height="26"></div>
+                <span class="values_number">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <h2 class="values_title">{v.title}</h2>
+              <p class="text-size-medium text-color-secondary">{v.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

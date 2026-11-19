@@ -1,0 +1,28 @@
+---
+// S26 · Logos enseignes · Figma 297:3201 · CMS : collection Enseignes clientes (accord de diffusion = oui)
+// Défilement 100 % CSS : la liste est rendue deux fois (la copie est masquée aux lecteurs d'écran)
+// et la piste glisse de -50 %. En Webflow : Collection List dupliquée dans la piste.
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+interface Props { tag?: string }
+const { tag = 'Ils nous font confiance' } = Astro.props;
+const logos = (await getCollection('enseignesClientes', (e) => e.data.accordDiffusion))
+  .sort((a, b) => a.data.ordre - b.data.ordre);
+---
+<!-- S26 · Logos enseignes · Figma 297:3201 · CMS : collection Enseignes clientes (accord de diffusion = oui) -->
+<section class="section_logos background-color-muted">
+  <div class="padding-section-small">
+    <div class="logos_component">
+      <span class="tag">{tag}</span>
+      <div class="marquee logos_marquee">
+        <div class="marquee_fade is-left"></div>
+        <div class="marquee_track logos_list">
+          {[false, true].map((copy) => logos.map(({ data: l }) => (
+            <img src={url(l.logo)} alt={copy ? '' : l.nom} aria-hidden={copy ? 'true' : undefined} class="logos_logo" width={l.largeur} height={l.hauteur}>
+          )))}
+        </div>
+        <div class="marquee_fade is-right"></div>
+      </div>
+    </div>
+  </div>
+</section>

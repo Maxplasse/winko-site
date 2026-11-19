@@ -1,0 +1,42 @@
+---
+// S13 · Formulaire B2B · Figma 512:2357 (Contact « Je cherche à recruter »)
+// En Webflow : embed HubSpot, redirection vers /merci.
+import { url } from '../../lib/url';
+---
+<!-- S13 · Formulaire B2B · Figma 512:2357 (Contact « Je cherche à recruter ») -->
+<section class="section_form">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-small">
+        <form class="form_component" action={url('/merci')} method="get">
+          <h2 class="heading-style-h3">Parlons de vos besoins en renfort.</h2>
+          <div class="form_row">
+            <div class="form_field"><label class="form_label" for="prenom">Prénom</label><input class="form_input" id="prenom" name="prenom" placeholder="Camille" autocomplete="given-name" required></div>
+            <div class="form_field"><label class="form_label" for="nom">Nom</label><input class="form_input" id="nom" name="nom" placeholder="Martin" autocomplete="family-name" required></div>
+          </div>
+          <div class="form_row">
+            <div class="form_field"><label class="form_label" for="email">Email professionnel</label><input class="form_input" id="email" name="email" type="email" placeholder="camille@enseigne.fr" autocomplete="email" required></div>
+            <div class="form_field"><label class="form_label" for="entreprise">Entreprise</label><input class="form_input" id="entreprise" name="entreprise" placeholder="Ex. Maison Dupont" autocomplete="organization" required></div>
+          </div>
+          <div class="form_row">
+            <div class="form_field"><label class="form_label" for="objet">Objet</label>
+              <select class="form_input" id="objet" name="objet" required>
+                <option value="" disabled selected>Sélectionner</option>
+                <option>[Options à définir dans HubSpot]</option>
+              </select>
+            </div>
+            <div class="form_field"><label class="form_label" for="pays">Pays</label>
+              <select class="form_input" id="pays" name="pays">
+                <option selected>France</option>
+                <option>Royaume-Uni</option>
+              </select>
+            </div>
+          </div>
+          <div class="form_field"><label class="form_label" for="message">Message</label><textarea class="form_input" id="message" name="message" placeholder="Votre message"></textarea></div>
+          <p class="form_legal">En envoyant ce formulaire, vous acceptez notre <a href={url('/confidentialite')}>politique de confidentialité</a>. [texte RGPD à valider]</p>
+          <button type="submit" class="button">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

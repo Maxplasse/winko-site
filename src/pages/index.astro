@@ -1,0 +1,49 @@
+---
+// Accueil Retail · Figma 11:2
+import BaseLayout from '../layouts/BaseLayout.astro';
+import S01Hero from '../components/sections/S01Hero.astro';
+import S05bValues from '../components/sections/S05bValues.astro';
+import S26Logos from '../components/sections/S26Logos.astro';
+import S02Switch from '../components/sections/S02Switch.astro';
+import S27Testimonials from '../components/sections/S27Testimonials.astro';
+import S09CtaBanner from '../components/sections/S09CtaBanner.astro';
+import { url } from '../lib/url';
+---
+<BaseLayout
+  title="Winko Retail · La bonne mission. Le bon renfort."
+  description="Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires."
+  footer={{ current: 'Accueil' }}
+>
+  <!-- S01 · Hero photo · Figma 299:2625 -->
+  <S01Hero
+    tag="Winko Retail"
+    title="La bonne mission.<br>Le bon renfort."
+    text="Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires."
+    image={{ src: '/images/home/hero-photo.jpg', alt: 'Une vendeuse Winko présente des smartphones en magasin', width: 1312, height: 600 }}
+  >
+    <a href={url('/retail/professionnels')} class="button is-white">Je cherche une mission</a>
+    <a href={url('/retail/entreprises')} class="button is-outline-white">Je cherche du renfort</a>
+  </S01Hero>
+
+  <!-- S05b · Valeurs en encarts · Figma 499:493 -->
+  <S05bValues items={[
+    { picto: 'vitesse', title: 'Vitesse', text: 'Délivrer immédiatement, au moment où ça compte : pics, week-ends, dernière minute.' },
+    { picto: 'specialisation', title: 'Spécialisation', text: 'Une approche par métier. Des professionnels évalués et opérationnels dès le premier jour.' },
+    { picto: 'fiabilite', title: 'Fiabilité', text: 'Une communauté engagée, des professionnels notés, peu de désistements.' },
+  ]} />
+
+  <!-- S26 · Logos enseignes · Figma 297:3201 -->
+  <S26Logos />
+
+  <!-- S02 · Aiguillage B2C / B2B · Figma 39:3094 -->
+  <S02Switch />
+
+  <!-- S27 · Témoignages défilants · Figma 503:517 -->
+  <S27Testimonials />
+
+  <!-- S09 · Bandeau CTA · Figma 39:3324 -->
+  <S09CtaBanner title="Une mission à pourvoir ? Un créneau à prendre ?" text="Deux minutes suffisent pour commencer.">
+    <a href={url('/retail/professionnels')} class="button is-white">Trouver une mission</a>
+    <a href={url('/retail/entreprises')} class="button is-white">Trouver du renfort</a>
+  </S09CtaBanner>
+</BaseLayout>

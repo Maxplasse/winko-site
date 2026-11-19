@@ -1,0 +1,49 @@
+---
+// Page modèle « Événements » · /evenements/[slug] · LP Black Friday (Figma 13:455) et LP Noël (34:567)
+// Alimentée par la collection Événements. Non publiée au lancement : noindex, hors navigation.
+// En Webflow : Collection Template Page, items Black Friday et Noël en brouillon.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import S14HeroEvent from '../../components/sections/S14HeroEvent.astro';
+import S22Ticker from '../../components/sections/S22Ticker.astro';
+import S05Arguments from '../../components/sections/S05Arguments.astro';
+import S12FormVisual from '../../components/sections/S12FormVisual.astro';
+import S04Profiles from '../../components/sections/S04Profiles.astro';
+import S08FaqList from '../../components/sections/S08FaqList.astro';
+import { resolve } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('evenements');
+  return events.map((e) => ({ params: { slug: e.id }, props: { event: e.data } }));
+}
+const { event: e } = Astro.props;
+const [profiles, faq] = await Promise.all([resolve(e.profils), resolve(e.faq)]);
+---
+<BaseLayout
+  title={e.seoTitle}
+  description={e.seoDescription}
+  image={e.seoImage ?? undefined}
+  active="Entreprises"
+  headerAction="compte"
+  footer={{ buttons: ['compte'] }}
+  modal={false}
+  noindex
+>
+  <!-- S14 · Hero LP événement · Figma 39:3472 / 39:3815 -->
+  <S14HeroEvent event={e} />
+
+  <!-- S22 · Bandeau défilant · Figma 39:3549 -->
+  <S22Ticker words={e.motsBandeau} />
+
+  <!-- S05 · Arguments (3 cartes) · fond gris -->
+  <S05Arguments tag={e.argumentsSurtitre} title={e.argumentsTitre} items={e.arguments} muted />
+
+  <!-- S12 · Formulaire + visuel · Figma 39:3681 -->
+  <S12FormVisual title={e.formulaireTitre} image={e.formulaireVisuel} hubspotFormId={e.hubspotFormId} />
+
+  <!-- S04 · Communauté (profils) -->
+  <S04Profiles id="profils" items={profiles} tag="Ils seront en magasin" title="Des professionnels, pas des CV." />
+
+  <!-- S08 · FAQ en liste -->
+  <S08FaqList items={faq} />
+</BaseLayout>

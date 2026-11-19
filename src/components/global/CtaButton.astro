@@ -1,0 +1,16 @@
+---
+// Boutons d'action contextuels réutilisés dans le header, le footer et les sections.
+//  - app    : « Télécharger l'app » → popup QR code sur desktop, lien intelligent vers le store sur mobile
+//  - compte : « Créer mon compte » → écran Contact « Je cherche à recruter »
+import { url } from '../../lib/url';
+import { APP_URL, APP_STORE_URL, PLAY_STORE_URL } from '../../lib/site';
+interface Props { action: 'app' | 'compte'; variant?: string; label?: string }
+const { action, variant = '', label } = Astro.props;
+const cls = ['button', variant].filter(Boolean).join(' ');
+---
+{action === 'app' ? (
+  <a href={APP_URL} class={cls} data-app-modal-open data-app-link
+     data-ios-url={APP_STORE_URL || undefined} data-android-url={PLAY_STORE_URL || undefined}>{label ?? 'Télécharger l’app'}</a>
+) : (
+  <a href={url('/contact#recruter')} class={cls}>{label ?? 'Créer mon compte'}</a>
+)}

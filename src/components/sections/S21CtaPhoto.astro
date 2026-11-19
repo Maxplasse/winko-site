@@ -1,0 +1,21 @@
+---
+// S21 · CTA final sur photo · Figma 39:1612 (Professionnels)
+import { url } from '../../lib/url';
+interface Props { title: string; image?: string }
+const { title, image = '/images/shared/detoure-anna.png' } = Astro.props;
+---
+<!-- S21 · CTA final sur photo · Figma 39:1612 (Professionnels) -->
+<section class="section_cta-photo">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-small">
+        <div class="cta-photo_component">
+          <img src={url(image)} alt="" class="cta-photo_image" width="460" height="620" loading="lazy">
+          <div class="cta-photo_overlay"></div>
+          <h2 class="heading-style-display-l max-width-large">{title}</h2>
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

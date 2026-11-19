@@ -1,0 +1,6 @@
+[
+  { "id": "communaute", "valeur": "XX XXX", "libelle": "professionnels dans la communauté [à valider]", "source": null, "cible": "entreprises", "verticale": "retail", "ordre": 1 },
+  { "id": "delai-creneau", "valeur": "X min", "libelle": "pour pourvoir un créneau [à valider]", "source": null, "cible": "entreprises", "verticale": "retail", "ordre": 2 },
+  { "id": "note-moyenne", "valeur": "4,8 / 5", "libelle": "note moyenne des professionnels [à valider]", "source": null, "cible": "entreprises", "verticale": "retail", "ordre": 3 },
+  { "id": "missions-24-7", "valeur": "24/7", "libelle": "missions publiées à toute heure", "source": null, "cible": "entreprises", "verticale": "retail", "ordre": 4 }
+]

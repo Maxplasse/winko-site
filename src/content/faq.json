@@ -1,0 +1,20 @@
+[
+  { "id": "pro-trouver-emploi-paris", "question": "Comment trouver un emploi de vendeur ou vendeuse en intérim à Paris et sa région ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "professionnels", "verticale": "retail", "afficherAccueil": false, "ordre": 1 },
+  { "id": "pro-quest-ce-que-winko", "question": "Qu’est-ce que Winko ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "professionnels", "verticale": "retail", "afficherAccueil": false, "ordre": 2 },
+  { "id": "pro-mission-lendemain", "question": "Peut-on vraiment trouver une mission de vente du jour au lendemain ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "professionnels", "verticale": "retail", "afficherAccueil": false, "ordre": 3 },
+  { "id": "pro-competences-evaluees", "question": "Comment mes compétences de vente sont-elles évaluées ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "professionnels", "verticale": "retail", "afficherAccueil": false, "ordre": 4 },
+  { "id": "pro-entretien", "question": "Faut-il passer un entretien d’embauche pour décrocher une mission ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "professionnels", "verticale": "retail", "afficherAccueil": false, "ordre": 5 },
+  { "id": "pro-rejoindre-communaute", "question": "Comment rejoindre la communauté des vendeurs et vendeuses de Paris et sa région ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "professionnels", "verticale": "retail", "afficherAccueil": false, "ordre": 6 },
+
+  { "id": "ent-renforcer-equipes", "question": "Comment Winko peut-il m’aider à renforcer mes équipes ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 1 },
+  { "id": "ent-quels-professionnels", "question": "Quels professionnels puis-je trouver sur Winko ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 2 },
+  { "id": "ent-evaluation", "question": "Comment les professionnels sont-ils évalués ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 3 },
+  { "id": "ent-publier-mission", "question": "Comment publier une mission sur Winko ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 4 },
+  { "id": "ent-besoin-immediat", "question": "Dois-je avoir un besoin immédiat pour m’inscrire ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 5 },
+  { "id": "ent-apres-publication", "question": "Que se passe-t-il après la publication de ma mission ?", "reponse": "<p>[Réponse à reprendre du site actuel]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 6 },
+
+  { "id": "evt-agence-interim", "question": "Winko, c’est une agence d’intérim ?", "reponse": "<p>[Réponse à rédiger]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 10 },
+  { "id": "evt-memes-professionnels-bf", "question": "Puis-je garder les mêmes professionnels du jeudi au Cyber Monday ?", "reponse": "<p>[Réponse à rédiger]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 11 },
+  { "id": "evt-reserver-decembre", "question": "Puis-je réserver des professionnels pour tout le mois de décembre ?", "reponse": "<p>[Réponse à rédiger]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 12 },
+  { "id": "evt-tarif", "question": "Comment est calculé le tarif ?", "reponse": "<p>[Réponse à rédiger]</p>", "cible": "entreprises", "verticale": "retail", "afficherAccueil": false, "ordre": 13 }
+]

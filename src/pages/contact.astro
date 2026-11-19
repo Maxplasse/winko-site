@@ -1,0 +1,37 @@
+---
+// Contact · Figma 12:470 (choix) · 512:2338 (2A Je cherche à recruter) · 512:2457 (2B Je cherche une mission)
+// Une page, trois écrans : le choix affiche le formulaire B2B (#recruter) ou le renvoi vers l'app (#mission).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import S00HeroSimple from '../components/sections/S00HeroSimple.astro';
+import ContactChoice from '../components/sections/ContactChoice.astro';
+import S13Form from '../components/sections/S13Form.astro';
+import S09CtaBanner from '../components/sections/S09CtaBanner.astro';
+import CtaButton from '../components/global/CtaButton.astro';
+---
+<BaseLayout
+  title="Contact | Winko"
+  description="Une question ? Dites-nous ce que vous cherchez, on vous oriente."
+  active="Contact"
+  footer={{ current: 'Contact' }}
+>
+  <!-- S00 · Hero simple · Figma 39:3341 -->
+  <S00HeroSimple tag="Contact" title="Une question ? On vous répond." text="Dites-nous ce que vous cherchez, on vous oriente." />
+
+  <!-- Choix · Mission / Recruter · Figma 486:2141 -->
+  <ContactChoice />
+
+  <!-- Écran 2A · Je cherche à recruter · Figma 512:2338 -->
+  <div id="recruter" class="contact_panel" data-contact-panel="recruter" hidden>
+    <!-- S13 · Formulaire HubSpot · Figma 512:2357 -->
+    <S13Form />
+    <div class="padding-section-small"></div>
+  </div>
+
+  <!-- Écran 2B · Je cherche une mission · Figma 512:2457 -->
+  <div id="mission" class="contact_panel" data-contact-panel="mission" hidden>
+    <!-- S09 · Bandeau CTA (variante B2C) · Figma 512:2576 -->
+    <S09CtaBanner title="Votre conseiller vous attend dans l’app." text="Un accès direct à votre conseiller vous est réservé. Téléchargez l’app pour lui écrire.">
+      <CtaButton action="app" variant="is-white" />
+    </S09CtaBanner>
+  </div>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+// Header · Figma 10:37 (Symbol Webflow « Navbar »)
+// CTA contextuel : « Télécharger l'app » (pages B2C), « Créer mon compte » (pages B2B), rien ailleurs.
+import Logo from './Logo.astro';
+import CtaButton from './CtaButton.astro';
+import { NAV } from '../../lib/site';
+import { url } from '../../lib/url';
+interface Props { active?: string; action?: 'app' | 'compte' }
+const { active, action } = Astro.props;
+---
+<!-- Header · Figma 10:37 (Symbol Webflow « Navbar ») -->
+<header class="navbar_component" data-navbar>
+  <div class="padding-global">
+    <div class="container-large">
+      <nav class="navbar_container" aria-label="Navigation principale">
+        <Logo />
+        <div class="navbar_menu" id="navbar-menu">
+          {NAV.map((l) => (
+            <a href={url(l.href)} class="navbar_link" aria-current={l.label === active ? 'page' : undefined}>{l.label}</a>
+          ))}
+        </div>
+        <div class="navbar_actions">
+          <div class="navbar_locale"><a href={url('/')} aria-current="true" lang="fr">FR</a> · <a href="#" lang="en">UK</a></div>
+          {action && <CtaButton action={action} variant="is-small" />}
+          <button class="navbar_menu-button" type="button" aria-controls="navbar-menu" aria-expanded="false" aria-label="Ouvrir le menu" data-navbar-toggle>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,66 @@
+---
+// Entreprises (B2B) · Figma 297:2745
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import S01HeroSplit from '../../components/sections/S01HeroSplit.astro';
+import S03Stats from '../../components/sections/S03Stats.astro';
+import S04Profiles from '../../components/sections/S04Profiles.astro';
+import S05Arguments from '../../components/sections/S05Arguments.astro';
+import S20FaqGrid from '../../components/sections/S20FaqGrid.astro';
+import S09CtaBanner from '../../components/sections/S09CtaBanner.astro';
+import StickyWidget from '../../components/global/StickyWidget.astro';
+import CtaButton from '../../components/global/CtaButton.astro';
+import { faqFor, statsFor, profilesFor } from '../../lib/content';
+const [faq, stats, profiles] = await Promise.all([faqFor('entreprises'), statsFor('entreprises'), profilesFor()]);
+---
+<BaseLayout
+  title="Entreprises · Renforcez vos équipes retail | Winko"
+  description="Accédez à des professionnels de la vente évalués et disponibles pour répondre à vos besoins de remplacement et de renfort."
+  active="Entreprises"
+  headerAction="compte"
+  footer={{ buttons: ['compte'], current: 'Entreprises' }}
+  modal={false}
+>
+  <!-- S01 · Hero split · Figma 297:2746 -->
+  <S01HeroSplit
+    tag="Entreprises"
+    title="Trouvez rapidement le bon professionnel pour renforcer vos équipes."
+    text="Accédez à des professionnels de la vente évalués et disponibles pour répondre à vos besoins de remplacement et de renfort."
+    image={{ src: '/images/shared/detoure-anna.png', alt: 'Anna, responsable magasin, prépare un sac en cuir', width: 460, height: 620 }}
+  >
+    <CtaButton action="compte" />
+  </S01HeroSplit>
+
+  <!-- S03 · Chiffres clés · Figma 39:3116 (cible : entreprises) -->
+  <S03Stats items={stats} />
+
+  <!-- S04 · Communauté (profils) · Figma 39:3149 -->
+  <S04Profiles
+    items={profiles}
+    tag="La communauté"
+    title="Tout le monde n’entre pas. Les professionnels, si."
+    text="Chaque profil est validé par des tests, un historique de missions et les appréciations des employeurs."
+  />
+
+  <!-- S05 · Arguments (3 cartes) · Figma 297:2750 -->
+  <S05Arguments tag="Comment ça marche" title="Trois étapes pour renforcer vos équipes." items={[
+    { picto: 'vitesse', titre: 'Recrutez efficacement.', texte: 'Laissez-vous guider en 5 étapes pour publier votre mission. Elle est instantanément visible auprès de nos professionnels disponibles pour le poste recherché.' },
+    { picto: 'specialisation', titre: 'Validez rapidement.', texte: 'Les professionnels Winko sont évalués en amont sur leurs compétences et leur savoir-être.' },
+    { picto: 'fiabilite', titre: 'Sécurisez votre renfort', texte: 'Vérifications, rappels et accompagnement : Winko suit chaque professionnel jusqu’au démarrage de sa mission.' },
+  ]} />
+
+  <!-- S20 · FAQ en grille · Figma 39:2391 (cible : entreprises) -->
+  <S20FaqGrid items={faq} />
+
+  <!-- S09 · Bandeau CTA (variante B2B) · Figma 297:2752 -->
+  <S09CtaBanner
+    variant="b2b"
+    title="Vos renforts, prêts avant le rush."
+    text="Créez votre compte et publiez votre première mission."
+    image={{ src: '/images/entreprises/cta-maroquinerie.jpg', alt: 'Une professionnelle Winko met en place un rayon maroquinerie', width: 766, height: 522 }}
+  >
+    <CtaButton action="compte" variant="is-white" />
+  </S09CtaBanner>
+
+  <!-- Widget « En savoir plus » · Figma 21:753 -->
+  <StickyWidget slot="after-main" title="En savoir plus." text="Formulaire de contact à remplir en 2 min." label="Être appelé" href="/contact#recruter" ariaLabel="Être appelé" />
+</BaseLayout>

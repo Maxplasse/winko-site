@@ -1,0 +1,6 @@
+[
+  { "id": "conseiller-vente", "nomMasculin": "Conseiller de vente", "nomFeminin": "Conseillère de vente", "verticale": "retail", "descriptionCourte": null, "picto": null, "ordre": 1 },
+  { "id": "vendeur", "nomMasculin": "Vendeur", "nomFeminin": "Vendeuse", "verticale": "retail", "descriptionCourte": null, "picto": null, "ordre": 2 },
+  { "id": "hote-caisse", "nomMasculin": "Hôte de caisse", "nomFeminin": "Hôtesse de caisse", "verticale": "retail", "descriptionCourte": null, "picto": null, "ordre": 3 },
+  { "id": "responsable-stocks", "nomMasculin": "Responsable des stocks", "nomFeminin": "Responsable des stocks", "verticale": "retail", "descriptionCourte": null, "picto": null, "ordre": 4 }
+]

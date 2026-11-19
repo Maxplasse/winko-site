@@ -1,0 +1,61 @@
+---
+// Footer · Figma 10:54 (Symbol Webflow « Footer »)
+// Accroche et boutons selon la page (props du composant Webflow).
+import Logo from './Logo.astro';
+import CtaButton from './CtaButton.astro';
+import { url } from '../../lib/url';
+interface Props {
+  tagline?: string;
+  buttons?: ('app' | 'compte')[];
+  current?: string;
+}
+const {
+  tagline = 'Les professionnels de la vente pour chacun de vos besoins.',
+  buttons = ['app', 'compte'],
+  current,
+} = Astro.props;
+const nav = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Professionnels', href: '/retail/professionnels' },
+  { label: 'Entreprises', href: '/retail/entreprises' },
+  { label: 'Contact', href: '/contact' },
+];
+const legal = [
+  { label: 'Mentions légales', href: '/mentions-legales' },
+  { label: 'Politique de confidentialité', href: '/confidentialite' },
+  { label: 'Politique cookies', href: '/cookies' },
+];
+const cur = (l: string) => (l === current ? 'page' : undefined);
+---
+<!-- Footer · Figma 10:54 (Symbol Webflow « Footer ») -->
+<footer class="section_footer">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="footer_component">
+        <Logo large />
+        <div class="footer_panel">
+          <div class="footer_signature">
+            <p class="footer_tagline">{tagline}</p>
+            <div class="button-group">
+              {buttons.map((b, i) => <CtaButton action={b} variant={i > 0 ? 'is-secondary is-small' : 'is-small'} />)}
+            </div>
+            <p class="footer_legal-text">© 2026 Winko.</p>
+          </div>
+          <nav class="footer_column" aria-label="Pied de page">
+            {nav.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
+          </nav>
+          <div class="footer_column">
+            <a href="#" class="footer_link">Linkedin</a>
+            <a href="#" class="footer_link">Facebook</a>
+            <a href="#" class="footer_link">Instagram</a>
+            <p class="footer_legal-text">All rights reserved.</p>
+          </div>
+          <div class="footer_column">
+            {legal.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
+            <p>FR · UK</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

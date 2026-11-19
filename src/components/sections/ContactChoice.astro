@@ -1,0 +1,33 @@
+---
+// Contact · écrans de choix · Figma 486:2141 (choix) → 512:2338 (2A recruter) / 512:2457 (2B mission)
+// Une seule page : le choix affiche le panneau correspondant (formulaire B2B ou renvoi vers l'app).
+// Piloté par data-contact-* et l'ancre d'URL (#recruter, #mission) pour pouvoir y lier directement.
+// En Webflow : composant Tabs natif, ou ces attributs + le script du site.
+import { url } from '../../lib/url';
+const cards = [
+  { key: 'mission', picto: 'planning', title: 'Je cherche une mission', text: 'Vous êtes professionnel de la vente.' },
+  { key: 'recruter', picto: 'magasin', title: 'Je cherche à recruter', text: 'Vous gérez une enseigne ou un magasin.' },
+];
+---
+<!-- Contact · écrans de choix · Figma 486:2141 (choix) → 512:2338 (2A recruter) / 512:2457 (2B mission) -->
+<section class="section_choice">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="choice_component is-alone" data-contact-choice>
+        <div class="choice_list">
+          {cards.map((c) => (
+            <a href={`#${c.key}`} class="choice_card" data-contact-option={c.key} aria-controls={c.key}>
+              <div class="choice_top">
+                <div class="choice_icon"><img src={url(`/images/shared/picto-${c.picto}.svg`)} alt="" width="26" height="26"></div>
+                <span class="choice_arrow" aria-hidden="true">→</span>
+              </div>
+              <h2 class="heading-style-h3">{c.title}</h2>
+              <p class="text-color-secondary">{c.text}</p>
+            </a>
+          ))}
+        </div>
+        <p class="choice_note">Une demande de partenariat ? Écrivez-nous à <a href="mailto:marketing@winko.io">marketing@winko.io</a></p>
+      </div>
+    </div>
+  </div>
+</section>

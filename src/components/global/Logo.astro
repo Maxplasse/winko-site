@@ -1,0 +1,16 @@
+---
+// Logo Winko (placeholder HTML/CSS, à remplacer par logo-winko-blue.svg officiel).
+// L'onglet affiche le libellé de la verticale (collection Verticales).
+import { url } from '../../lib/url';
+interface Props { large?: boolean; link?: boolean; tab?: string }
+const { large = false, link = true, tab = 'Retail' } = Astro.props;
+const cls = large ? 'logo is-large' : 'logo';
+---
+{link ? (
+  <a href={url('/')} class={cls} aria-label={`Winko ${tab}, accueil`}>
+    <span class="logo_tab">{tab}</span>
+    <span class="logo_wordmark">Winko</span>
+  </a>
+) : (
+  <div class={cls}><span class="logo_tab">{tab}</span><span class="logo_wordmark">Winko</span></div>
+)}

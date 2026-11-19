@@ -1,0 +1,35 @@
+---
+// S05 · Arguments (3 cartes) · Figma 297:2750 (Entreprises) ; LP événement : champs « 3 arguments » de l'item
+import { url } from '../../lib/url';
+interface Props {
+  tag: string;
+  title: string;
+  items: { picto: string; titre: string; texte: string }[];
+  muted?: boolean;
+}
+const { tag, title, items, muted = false } = Astro.props;
+---
+<!-- S05 · Arguments (3 cartes) · Figma 297:2750 (Entreprises) ; LP événement : champs « 3 arguments » de l'item -->
+<section class:list={['section_arguments', { 'background-color-muted': muted }]}>
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="arguments_component">
+          <div class="arguments_header">
+            <span class="tag">{tag}</span>
+            <h2 class="heading-style-h2">{title}</h2>
+          </div>
+          <ul class="arguments_list" role="list">
+            {items.map((a) => (
+              <li class="arguments_card">
+                <div class="arguments_icon"><img src={url(`/images/shared/picto-${a.picto}.svg`)} alt="" width="26" height="26"></div>
+                <h3 class="heading-style-h4">{a.titre}</h3>
+                <p class="text-color-secondary">{a.texte}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

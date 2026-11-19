@@ -1,0 +1,29 @@
+---
+// S08 · FAQ en liste · CMS : collection FAQ (LP événement : multi-référence de l'item Événements)
+import type { CollectionEntry } from 'astro:content';
+interface Props { items: CollectionEntry<'faq'>[]; tag?: string; title?: string }
+const { items, tag = 'FAQ', title = 'Les réponses, sans détour.' } = Astro.props;
+---
+<!-- S08 · FAQ en liste · CMS : collection FAQ (LP événement : multi-référence de l'item Événements) -->
+<section class="section_faq-list">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="faq-list_component">
+          <div class="faq-list_header">
+            <span class="tag">{tag}</span>
+            <h2 class="heading-style-h2">{title}</h2>
+          </div>
+          <div class="faq-list_list" data-faq>
+            {items.map(({ data: f }) => (
+              <div class="faq_item faq-list_item">
+                <button class="faq_question" type="button" aria-expanded="false">{f.question}<span class="faq-list_icon" aria-hidden="true"></span></button>
+                <div class="faq_answer"><div class="faq_answer-inner" set:html={f.reponse} /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

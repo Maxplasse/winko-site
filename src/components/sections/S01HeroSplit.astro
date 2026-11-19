@@ -1,0 +1,33 @@
+---
+// S01 · Hero split · Figma 297:2746 (Entreprises)
+// Texte à gauche, personnage détouré dans un cadre teinté à droite.
+import { url } from '../../lib/url';
+interface Props {
+  tag: string;
+  title: string;
+  text: string;
+  image: { src: string; alt: string; width: number; height: number };
+}
+const { tag, title, text, image } = Astro.props;
+---
+<!-- S01 · Hero split · Figma 297:2746 (Entreprises) -->
+<section class="section_hero-split">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="hero-split_component">
+        <div class="hero-split_content">
+          <span class="tag">{tag}</span>
+          <h1 class="heading-style-display-m">{title}</h1>
+          <p class="text-size-large text-color-secondary">{text}</p>
+          <div class="button-group">
+            <slot />
+          </div>
+        </div>
+        <div class="hero-split_visual">
+          <div class="hero-split_frame"></div>
+          <img src={url(image.src)} alt={image.alt} class="hero-split_image" width={image.width} height={image.height} fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

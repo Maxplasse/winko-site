@@ -1,0 +1,27 @@
+---
+// S20 · FAQ en grille · Figma 39:1557 · CMS : collection FAQ filtrée par cible
+// Accordéon : une seule question ouverte à la fois (data-faq).
+import type { CollectionEntry } from 'astro:content';
+interface Props { items: CollectionEntry<'faq'>[]; title?: string }
+const { items, title = 'Questions fréquemment posées' } = Astro.props;
+---
+<!-- S20 · FAQ en grille · Figma 39:1557 · CMS : collection FAQ filtrée par cible -->
+<section class="section_faq">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="faq_component">
+          <h2 class="heading-style-display-l text-align-center">{title}</h2>
+          <div class="faq_list" data-faq>
+            {items.map(({ data: f }) => (
+              <div class="faq_item">
+                <button class="faq_question" type="button" aria-expanded="false"><span class="faq_icon" aria-hidden="true"></span>{f.question}</button>
+                <div class="faq_answer"><div class="faq_answer-inner" set:html={f.reponse} /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

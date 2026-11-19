@@ -1,0 +1,34 @@
+---
+// Merci · après formulaire · Figma 37:784
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaButton from '../components/global/CtaButton.astro';
+import { url } from '../lib/url';
+const steps = [
+  { title: 'Appel de découverte', text: 'Vos magasins, vos pics, vos métiers.' },
+  { title: 'Démo de l’interface', text: 'Publier une mission en 2 minutes.' },
+  { title: 'Premiers créneaux', text: 'Vos premiers professionnels en magasin.' },
+];
+---
+<BaseLayout title="Merci | Winko" description="Votre demande est enregistrée." active="Contact" noindex>
+  <!-- Confirmation · Figma 37:784 -->
+  <section class="section_confirmation">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="confirmation_component">
+          <div class="confirmation_icon" aria-hidden="true">✓</div>
+          <h1 class="heading-style-display-m">C’est enregistré.</h1>
+          <p class="text-size-large text-color-secondary">On revient vers vous avant vendredi. Un expert retail vous appelle pour comprendre vos besoins et vous montrer Winko. [délai à valider]</p>
+          <ol class="confirmation_steps" role="list">
+            {steps.map((s, i) => (
+              <li class="confirmation_step"><span class="badge-arrow">{String(i + 1).padStart(2, '0')}</span><h2 class="heading-style-h3">{s.title}</h2><p>{s.text}</p></li>
+            ))}
+          </ol>
+          <div class="button-group is-center">
+            <a href={url('/')} class="button is-secondary">Retour à l’accueil</a>
+            <CtaButton action="compte" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

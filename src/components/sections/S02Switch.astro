@@ -1,0 +1,30 @@
+---
+// S02 · Aiguillage B2C / B2B · Figma 39:3094 (Accueil)
+// Accroches issues de la collection Verticales (accroche professionnels / entreprises).
+import { getEntry } from 'astro:content';
+import { url } from '../../lib/url';
+const v = (await getEntry('verticales', 'retail'))!.data;
+---
+<!-- S02 · Aiguillage B2C / B2B · Figma 39:3094 (Accueil) -->
+<section class="section_switch">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-medium">
+        <div class="switch_list">
+          <div class="switch_card">
+            <p class="text-style-overline">Professionnels</p>
+            <h2 class="heading-style-h2">{v.accrocheProfessionnels}</h2>
+            <p class="text-size-large">Choisissez vos créneaux, validez vos compétences, soyez payé vite.</p>
+            <a href={url(`${v.prefixeUrl}/professionnels`)} class="button">Trouver une mission</a>
+          </div>
+          <div class="switch_card is-dark">
+            <p class="text-style-overline">Entreprises</p>
+            <h2 class="heading-style-h2">{v.accrocheEntreprises}</h2>
+            <p class="text-size-large">Pourvoyez vos créneaux en quelques minutes, même le week-end et à la dernière minute.</p>
+            <a href={url(`${v.prefixeUrl}/entreprises`)} class="button is-white">Trouver du renfort</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

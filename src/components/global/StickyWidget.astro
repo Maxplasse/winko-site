@@ -1,0 +1,13 @@
+---
+// Widget sticky · Figma 24:751 (Professionnels) / 21:753 (Entreprises)
+// Apparaît après 600 px de scroll, masqué quand le footer arrive ; barre pleine largeur sur mobile.
+import { url } from '../../lib/url';
+interface Props { title: string; text: string; label: string; href: string; ariaLabel: string }
+const { title, text, label, href, ariaLabel } = Astro.props;
+---
+<!-- Widget sticky · Figma 24:751 / 21:753 -->
+<aside class="sticky-widget" data-sticky-widget aria-label={ariaLabel}>
+  <p class="heading-style-h3">{title}</p>
+  <p class="sticky-widget_text">{text}</p>
+  <a href={url(href)} class="button">{label}</a>
+</aside>

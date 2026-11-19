@@ -1,0 +1,21 @@
+---
+// S22 · Bandeau défilant thématique · Figma 39:3549 · champ « Mots du bandeau défilant » de l'item Événements
+// Défilement 100 % CSS (40 s, pause au survol), contenu rendu deux fois.
+interface Props { words: string[] }
+const { words } = Astro.props;
+---
+<!-- S22 · Bandeau défilant thématique · Figma 39:3549 · champ « Mots du bandeau défilant » de l'item Événements -->
+<section class="section_ticker">
+  <div class="ticker_component">
+    <div class="marquee">
+      <div class="marquee_track ticker_list">
+        {[false, true].map((copy) => words.map((w) => (
+          <Fragment>
+            <span class="ticker_word" aria-hidden={copy ? 'true' : undefined}>{w}</span>
+            <span class="ticker_star" aria-hidden="true">✦</span>
+          </Fragment>
+        )))}
+      </div>
+    </div>
+  </div>
+</section>

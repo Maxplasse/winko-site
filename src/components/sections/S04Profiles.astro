@@ -1,0 +1,45 @@
+---
+// S04 · Communauté (profils) · Figma 39:3149 · CMS : collection Profils (verticale, consentement = oui, 4 premiers)
+import { getEntry, type CollectionEntry } from 'astro:content';
+import { url } from '../../lib/url';
+interface Props {
+  items: CollectionEntry<'profils'>[];
+  tag: string;
+  title: string;
+  text?: string;
+  muted?: boolean;
+  id?: string;
+}
+const { items, tag, title, text, muted = true, id } = Astro.props;
+const cards = await Promise.all(items.map(async ({ data: p }) => {
+  const m = (await getEntry(p.metier))!.data;
+  const note = p.note.toLocaleString('fr-FR');
+  return { ...p, metierLabel: p.genre === 'f' ? m.nomFeminin : m.nomMasculin, data: `${p.missions} missions · ${note} / 5` };
+}));
+---
+<!-- S04 · Communauté (profils) · Figma 39:3149 · CMS : collection Profils (verticale, consentement = oui, 4 premiers) -->
+<section class:list={['section_profiles', { 'background-color-muted': muted }]} id={id}>
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="profiles_component">
+          <div class="profiles_header">
+            <span class="tag">{tag}</span>
+            <h2 class="heading-style-h2">{title}</h2>
+            {text && <p class="text-size-large text-color-secondary">{text}</p>}
+          </div>
+          <ul class="profiles_list" role="list">
+            {cards.map((p) => (
+              <li class="profiles_card">
+                <img src={url(p.photo)} alt={p.photoAlt} class="profiles_image" width="278" height="300" loading="lazy">
+                <h3 class="heading-style-h4">{p.prenomInitiale}</h3>
+                <p class="text-size-small text-color-secondary">{p.metierLabel}</p>
+                <p class="profiles_data">{p.data}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

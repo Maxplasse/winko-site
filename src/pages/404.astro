@@ -1,0 +1,23 @@
+---
+// 404 · page introuvable · Figma 37:854 (en Webflow : page utilitaire 404)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
+---
+<BaseLayout title="Page introuvable | Winko" description="Cette page a pris un autre chemin." noindex>
+  <!-- 404 · Figma 37:854 -->
+  <section class="section_404">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="not-found_component">
+          <img src={url('/images/shared/objet-signature.png')} alt="Panneau de direction Winko : Retail, Find Job" class="not-found_image" width="893" height="810">
+          <h1 class="heading-style-display-m max-width-large">Cette page a pris un autre chemin.</h1>
+          <p class="text-size-large text-color-secondary">Le panneau indique deux directions. Choisissez la vôtre.</p>
+          <div class="button-group is-center">
+            <a href={url('/retail/professionnels')} class="button">Je cherche une mission</a>
+            <a href={url('/retail/entreprises')} class="button is-secondary">Je recrute</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

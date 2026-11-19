@@ -1,0 +1,51 @@
+---
+// Gabarit commun : <head>, Header, Footer, popup app et scripts.
+// En Webflow : réglages de page (SEO) + Symbols Navbar / Footer + custom code du site.
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+import AppModal from '../components/global/AppModal.astro';
+import { url } from '../lib/url';
+
+interface Props {
+  title: string;
+  description: string;
+  active?: string;
+  headerAction?: 'app' | 'compte';
+  footer?: { tagline?: string; buttons?: ('app' | 'compte')[]; current?: string };
+  modal?: boolean;
+  noindex?: boolean;
+  image?: string;
+}
+const { title, description, active, headerAction, footer = {}, modal = true, noindex = false, image } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  {noindex ? <meta name="robots" content="noindex, nofollow"> : <link rel="canonical" href={canonical}>}
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  {image && <meta property="og:image" content={new URL(url(image), Astro.site)}>}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href={url('/css/winko.css')}>
+</head>
+<body>
+<div class="page-wrapper">
+  <Header active={active} action={headerAction} />
+  <main class="main-wrapper">
+    <slot />
+  </main>
+  <slot name="after-main" />
+  <Footer {...footer} />
+</div>
+{modal && <AppModal />}
+<script is:inline src={url('/js/winko.js')} defer></script>
+</body>
+</html>

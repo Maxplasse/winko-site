@@ -1,0 +1,116 @@
+---
+// Page de styles : affiche les tokens (variables CSS issues du Figma, page « 🎨 Fondations » 8:2),
+// la typographie et les composants de base. Lue directement dans public/css/winko.css,
+// elle reste synchronisée. Non publiée (noindex) ; en Webflow : page « Style guide » Client-First.
+import fs from 'node:fs';
+import path from 'node:path';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const css = fs.readFileSync(path.join(process.cwd(), 'public/css/winko.css'), 'utf8');
+const root = css.match(/:root\s*{([\s\S]*?)\n}/)![1];
+const tokens: { group: string; name: string; value: string }[] = [];
+let group = 'Autres';
+for (const line of root.split('\n')) {
+  const g = line.match(/\/\*\s*(.+?)\s*\*\//);
+  if (g && !line.includes('--')) group = g[1];
+  const m = line.match(/(--[\w-]+)\s*:\s*([^;]+);/);
+  if (m) tokens.push({ group, name: m[1], value: m[2].trim() });
+}
+const isColor = (v: string) => /^(#|rgb|hsl)/.test(v) || /^var\(--(neutral|gray|accent|bg|text|border|feedback)/.test(v);
+const colors = tokens.filter((t) => isColor(t.value));
+const others = tokens.filter((t) => !isColor(t.value));
+const groups = [...new Set(colors.map((t) => t.group))];
+
+const type = [
+  ['heading-style-display-xl', 'Display XL', 'La bonne mission.'],
+  ['heading-style-display-m', 'Display M', 'Black Friday arrive.'],
+  ['heading-style-display-l', 'Display L', 'Questions fréquemment posées'],
+  ['heading-style-h2', 'H2', 'Ce qui change avec Winko.'],
+  ['heading-style-h3', 'H3', 'Créez votre compte.'],
+  ['heading-style-h4', 'H4', 'Recrutez efficacement.'],
+  ['text-size-large', 'Texte large', 'Les missions des enseignes que vous aimez. Payées en 72 h.'],
+  ['text-size-medium', 'Texte moyen', 'Une communauté engagée, des professionnels notés.'],
+  ['', 'Texte courant', 'Contrats, paie et suivi gérés par Winko by Manpower.'],
+  ['text-size-small', 'Texte petit', 'Conseillère de vente'],
+];
+---
+<BaseLayout title="Style guide | Winko" description="Tokens et composants de base du site Winko." noindex>
+  <section class="section_styleguide">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="padding-section-medium">
+          <div class="styleguide_component">
+            <div class="styleguide_header">
+              <span class="tag">Fondations · Figma 8:2</span>
+              <h1 class="heading-style-display-m">Style guide</h1>
+              <p class="text-size-large text-color-secondary">Variables CSS = Variables Webflow. Breakpoints : 991 px (tablette), 767 px (mobile paysage), 478 px (mobile portrait).</p>
+            </div>
+
+            <h2 class="heading-style-h3">Couleurs</h2>
+            {groups.map((g) => (
+              <div class="styleguide_group">
+                <p class="text-style-overline">{g}</p>
+                <ul class="styleguide_swatches" role="list">
+                  {colors.filter((t) => t.group === g).map((t) => (
+                    <li class="styleguide_swatch">
+                      <span class="styleguide_chip" style={`background: var(${t.name})`}></span>
+                      <code>{t.name}</code>
+                      <span class="text-size-small text-color-secondary">{t.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            <h2 class="heading-style-h3">Verticales</h2>
+            <p class="text-color-secondary">Combo class sur un parent : <code>is-socialcare</code>, <code>is-healthcare</code>, <code>is-logistics</code>.</p>
+            <ul class="styleguide_swatches" role="list">
+              {['', 'is-socialcare', 'is-healthcare', 'is-logistics'].map((v) => (
+                <li class:list={['styleguide_swatch', v]}>
+                  <span class="styleguide_chip" style="background: var(--accent-default)"></span>
+                  <span class="styleguide_chip is-small" style="background: var(--accent-subtle)"></span>
+                  <code>{v || 'Retail (défaut)'}</code>
+                </li>
+              ))}
+            </ul>
+
+            <h2 class="heading-style-h3">Autres variables</h2>
+            <table class="styleguide_table">
+              <tbody>
+                {others.map((t) => <tr><td><code>{t.name}</code></td><td>{t.value}</td></tr>)}
+              </tbody>
+            </table>
+
+            <h2 class="heading-style-h3">Typographie</h2>
+            <div class="styleguide_type">
+              {type.map(([cls, label, sample]) => (
+                <div class="styleguide_type-row">
+                  <code>{cls || 'body'}</code>
+                  <p class={cls}>{sample}</p>
+                  <span class="text-size-small text-color-secondary">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            <h2 class="heading-style-h3">Boutons et tags</h2>
+            <div class="button-group">
+              <a href="#" class="button">button</a>
+              <a href="#" class="button is-secondary">button is-secondary</a>
+              <a href="#" class="button is-small">button is-small</a>
+            </div>
+            <div class="styleguide_dark button-group">
+              <a href="#" class="button is-white">button is-white</a>
+              <a href="#" class="button is-outline-white">button is-outline-white</a>
+              <span class="tag is-on-color">tag is-on-color</span>
+            </div>
+            <div class="button-group">
+              <span class="tag">tag</span>
+              <span class="badge-arrow">01</span>
+              <span class="badge-arrow is-dark">02</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

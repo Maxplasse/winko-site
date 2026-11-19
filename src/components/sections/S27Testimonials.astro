@@ -1,0 +1,39 @@
+---
+// S27 · Témoignages défilants · Figma 503:517 · collection Témoignages (contenus provisoires « Prénom N. »)
+// Défilement 100 % CSS (liste rendue deux fois, copie aria-hidden), pause au survol.
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+const items = (await getCollection('temoignages')).sort((a, b) => a.data.ordre - b.data.ordre);
+const label = { enseigne: 'Enseigne', professionnel: 'Professionnel' };
+---
+<!-- S27 · Témoignages défilants · Figma 503:517 · collection Témoignages (contenus provisoires « Prénom N. ») -->
+<section class="section_testimonials background-color-muted">
+  <div class="padding-section-large">
+    <div class="testimonials_component">
+      <div class="padding-global">
+        <div class="section-header">
+          <span class="tag">Témoignages</span>
+          <h2 class="heading-style-h2">Enseignes et professionnels en parlent.</h2>
+        </div>
+      </div>
+      <div class="marquee" style="--marquee-duration: 60s">
+        <div class="marquee_fade is-left"></div>
+        <div class="marquee_track testimonials_list">
+          {[false, true].map((copy) => items.map(({ data: t }) => (
+            <figure class="testimonials_card" aria-hidden={copy ? 'true' : undefined}>
+              <span class="tag">{label[t.type]}</span>
+              <blockquote class="testimonials_quote">« {t.citation} »</blockquote>
+              <figcaption class="testimonials_author">
+                {t.avatar
+                  ? <img src={url(t.avatar)} alt="" class="testimonials_avatar" width="44" height="44">
+                  : <span class="testimonials_avatar" aria-hidden="true"></span>}
+                <span><span class="testimonials_name">{t.auteur}</span><br><span class="testimonials_role">{t.role}</span></span>
+              </figcaption>
+            </figure>
+          )))}
+        </div>
+        <div class="marquee_fade is-right"></div>
+      </div>
+    </div>
+  </div>
+</section>

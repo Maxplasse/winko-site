@@ -1,0 +1,37 @@
+---
+// S09 · Bandeau CTA · Figma 39:3324
+// Variantes : B2C (fond accent + visuel app) et B2B (« is-dark » + photo).
+import { url } from '../../lib/url';
+interface Props {
+  title: string;
+  text: string;
+  variant?: 'b2c' | 'b2b';
+  image?: { src: string; alt: string; width: number; height: number };
+}
+const {
+  title,
+  text,
+  variant = 'b2c',
+  image = { src: '/images/shared/visuel-app.png', alt: 'Aperçu de l’app Winko : liste des missions disponibles', width: 520, height: 327 },
+} = Astro.props;
+const dark = variant === 'b2b';
+---
+<!-- S09 · Bandeau CTA · Figma 39:3324 -->
+<section class="section_cta-banner">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-small">
+        <div class:list={['cta-banner_component', { 'is-dark': dark }]}>
+          <div class="cta-banner_content">
+            <h2 class="heading-style-h2">{title}</h2>
+            <p class="text-size-large">{text}</p>
+            <div class="button-group">
+              <slot />
+            </div>
+          </div>
+          <img src={url(image.src)} alt={image.alt} class:list={['cta-banner_image', { 'is-photo': dark }]} width={image.width} height={image.height} loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

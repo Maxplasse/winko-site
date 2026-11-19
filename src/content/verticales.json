@@ -1,0 +1,18 @@
+[
+  {
+    "id": "retail",
+    "nom": "Retail",
+    "libelleOngletLogo": "Retail",
+    "couleurPrincipale": "#3458db",
+    "teinteClaire": "#e3eafc",
+    "statut": "active",
+    "panneau3d": null,
+    "accrocheProfessionnels": "Vous travaillez dans le retail",
+    "accrocheEntreprises": "Vous gérez des magasins",
+    "accroche": null,
+    "description": null,
+    "visuelCarte": null,
+    "ordre": 1,
+    "prefixeUrl": "/retail"
+  }
+]

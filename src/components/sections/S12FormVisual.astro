@@ -1,0 +1,35 @@
+---
+// S12 · Formulaire court + visuel · Figma 39:3681 (LP événement)
+// En Webflow : embed HubSpot (champ « ID formulaire HubSpot » de l'item Événements).
+import { url } from '../../lib/url';
+interface Props { title: string; image: string; tag?: string; hubspotFormId?: string | null }
+const { title, image, tag = 'Proposition sous 24 h [à valider]', hubspotFormId } = Astro.props;
+---
+<!-- S12 · Formulaire court + visuel · Figma 39:3681 (LP événement) -->
+<section class="section_form-visual" id="proposition">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="form-visual_component">
+          <div class="form-visual_image-wrapper"><img src={url(image)} alt="" class="form-visual_image" loading="lazy"></div>
+          <div class="form-visual_content">
+            <span class="tag">{tag}</span>
+            <h2 class="heading-style-h2">{title}</h2>
+            <form class="form_component is-short" action={url('/merci')} method="get" data-hubspot-form={hubspotFormId ?? undefined}>
+              <h3 class="heading-style-h3">Recevez une proposition</h3>
+              <div class="form_field"><label class="form_label" for="email">Email professionnel</label><input class="form_input" id="email" name="email" type="email" placeholder="camille@enseigne.fr" autocomplete="email" required></div>
+              <div class="form_field"><label class="form_label" for="entreprise">Entreprise</label><input class="form_input" id="entreprise" name="entreprise" placeholder="Ex. Maison Dupont" autocomplete="organization" required></div>
+              <div class="form_field"><label class="form_label" for="magasins">Nombre de magasins</label>
+                <select class="form_input" id="magasins" name="magasins" required>
+                  <option value="" disabled selected>Sélectionner</option>
+                  <option>[Tranches à définir dans HubSpot]</option>
+                </select>
+              </div>
+              <button type="submit" class="button">Être rappelé</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

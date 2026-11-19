@@ -1,0 +1,35 @@
+---
+// S01 · Hero photo · Figma 299:2625 (Accueil) / 506:2774 (variante visuel app, Professionnels)
+// Fond couleur d'accent, titre display, visuel pleine largeur sous le texte.
+// Les boutons passent par le slot (props « Lien » des boutons dans Webflow).
+import { url } from '../../lib/url';
+interface Props {
+  tag: string;
+  title: string; // HTML autorisé (<br>)
+  text: string;
+  image: { src: string; alt: string; width: number; height: number };
+  variant?: 'photo' | 'app';
+}
+const { tag, title, text, image, variant = 'photo' } = Astro.props;
+const app = variant === 'app';
+---
+<!-- S01 · Hero photo · Figma 299:2625 (Accueil) / 506:2774 (variante visuel app, Professionnels) -->
+<section class="section_hero background-color-accent">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="hero_component">
+        <div class="hero_content">
+          <span class="tag is-on-color">{tag}</span>
+          <h1 class:list={['heading-style-display-xl', { 'is-medium': app }, 'text-color-inverse max-width-large']} set:html={title} />
+          <p class="text-size-large text-color-inverse max-width-medium">{text}</p>
+          <div class="button-group is-center">
+            <slot />
+          </div>
+        </div>
+        <div class:list={['hero_image-wrapper', { 'is-contain': app }]}>
+          <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

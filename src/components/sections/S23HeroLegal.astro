@@ -1,0 +1,23 @@
+---
+// S23 · Hero légal · Figma 39:4040 (onglets saisis à la main dans Webflow)
+import { LEGAL_DOCS } from '../../lib/site';
+import { url } from '../../lib/url';
+interface Props { title: string; current: string; updated?: string }
+const { title, current, updated = '[date]' } = Astro.props;
+---
+<!-- S23 · Hero légal · Figma 39:4040 (onglets saisis à la main dans Webflow) -->
+<section class="section_hero-legal">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="hero-legal_component">
+        <h1 class="heading-style-display-l">{title}</h1>
+        <p class="text-color-muted">Dernière mise à jour : {updated}</p>
+        <nav class="hero-legal_tabs" aria-label="Pages légales">
+          {LEGAL_DOCS.map((d) => (
+            <a href={url(d.href)} class="tag" aria-current={d.href === current ? 'page' : undefined}>{d.short}</a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
