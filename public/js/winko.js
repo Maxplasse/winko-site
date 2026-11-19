@@ -13,7 +13,7 @@
   var ua = navigator.userAgent || '';
   var platform = /iPhone|iPad|iPod/i.test(ua) ? 'ios' : /Android/i.test(ua) ? 'android' : null;
   if (platform) {
-    document.querySelectorAll('[data-app-link]').forEach(function (link) {
+    document.querySelectorAll('[data-app-link], a[href*="winko.io/app"]').forEach(function (link) {
       var store = link.getAttribute('data-' + platform + '-url');
       if (store) link.setAttribute('href', store);
     });
@@ -128,7 +128,7 @@
       if (lastFocus) lastFocus.focus();
     };
     var onKey = function (e) { if (e.key === 'Escape') close(); };
-    document.querySelectorAll('[data-app-modal-open]').forEach(function (btn) { btn.addEventListener('click', open); });
+    document.querySelectorAll('[data-app-modal-open], a[href*="winko.io/app"]').forEach(function (btn) { btn.addEventListener('click', open); });
     modal.querySelectorAll('[data-app-modal-close]').forEach(function (btn) { btn.addEventListener('click', close); });
   }
 

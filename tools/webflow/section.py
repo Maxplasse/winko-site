@@ -41,10 +41,25 @@ def clean(h):
     return h.strip()
 
 def norm(d):
+    # les ombres ne peuvent pas être des Variables Webflow : valeurs littérales
+    d = d.replace('var(--shadow-ui)', '0 12px 32px rgba(13, 20, 51, 0.18)').replace('var(--shadow-card)', '0 8px 24px rgba(18, 18, 18, 0.08)')
+    d = re.sub(r'(box-shadow:[^;]*?)var\(--accent-default\)', r'\1#3458db', d)
     d = re.sub(r'background:\s*none', 'background-color: transparent; background-image: none', d)
     d = re.sub(r'background:\s*(linear-gradient\([^;]*\))', r'background-image: \1', d)
     d = re.sub(r'border:\s*0(?![.\d])', 'border-style: none', d)
     d = re.sub(r'inset:\s*0(?![.\d])', 'top: 0; right: 0; bottom: 0; left: 0', d)
+    # zéros sans unité (refusés par l'import Webflow : « Invalid length unit »)
+    out = []
+    for decl in d.split(';'):
+        if ':' in decl:
+            k, v = decl.split(':', 1)
+            if k.strip() not in ('flex', 'opacity', 'z-index', 'line-height', 'order', 'flex-grow', 'flex-shrink', 'font-weight') and 'rgba' not in v and 'polygon' not in v:
+                v = re.sub(r'(?<![\w.])0(?![\w.%])', '0px', v)
+            decl = k + ':' + v
+        out.append(decl)
+    d = ';'.join(out)
+    # clip-path n'est pas géré par le panneau de styles : à mettre dans l'Embed Global styles
+    d = re.sub(r'clip-path:[^;]*;?', '', d)
     return d
 
 BP = {None: None, 991: 'medium', 767: 'small', 479: 'tiny'}
@@ -63,6 +78,7 @@ def accent_fixes(rules):
         for p in d.split(';'):
             if 'var(--accent-default)' not in p: continue
             name = p.split(':')[0].strip()
+            if name == 'box-shadow': continue
             if name == 'border': props += ['border-top-color', 'border-right-color', 'border-bottom-color', 'border-left-color']
             elif name in ('background',): props.append('background-color')
             else: props.append(name)

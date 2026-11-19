@@ -7,6 +7,7 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - **Assets** : les 30 images de `public/images/` sont téléversées ; correspondance fichier ↔ id dans `tools/webflow/assets.json`.
 - **Styles globaux** : le plan du site ne permet pas le code personnalisé au niveau du site (l'API renvoie 404). Les polices Google et le CSS non exprimable en classes Webflow (base `body`/titres, `@keyframes`, sélecteurs descendants, `::before`, `[hidden]`, `prefers-reduced-motion`) sont dans un **Embed** `global-styles` placé dans `page-wrapper` (méthode Client-First).
 - **Script** : `public/js/winko.js` dans un Embed en fin de `body` (à déplacer dans Site settings > Custom code quand le plan le permet).
+- **Page Professionnels** (`/retail/professionnels`, id 6afe9d7a63f8d55484889e48) : uniquement des instances de Components.
 - **Page Home** complète : Header, S01 Hero, S05b Valeurs, S26 Logos, S02 Aiguillage, S27 Témoignages, S09 Bandeau CTA, Footer, popup « Télécharger l'app ». Toutes les images sont reliées à leur asset.
 
 ## Components (groupes « Global » et « Sections »)
@@ -22,6 +23,11 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 | S26 Logos | 3ab0e886-860b-8451-5b43-c7def4eb4d7b | contenu fixe (→ Collection List Enseignes clientes) |
 | S02 Aiguillage | 47353986-3c4e-bcc4-790d-311644516df2 | contenu fixe (accueil) |
 | S27 Témoignages | d5b96abf-faf6-92dc-a4dd-f6dfea32cc6e | contenu fixe (→ collection Témoignages) |
+| S28 Avantages | 08748852-6f64-3f12-792c-5764e204fd71 | contenu fixe (Professionnels) |
+| S18 Étapes | 47a1ecff-c9b5-93d8-acc0-e3020683b25c | contenu fixe |
+| S20 FAQ grille | 934d1621-45ab-c6d4-c041-7166b4815045 | questions Professionnels en dur (→ collection FAQ filtrée par cible) |
+| S21 CTA photo | 35f060df-7853-de7d-67f8-e94e1f31a1b4 | contenu fixe |
+| Widget sticky | 10d0929e-9056-3b87-a29e-ab148d363993 | Titre, Texte, Bouton texte/lien |
 | S09 Bandeau CTA | 44f4e100-6c7b-dd0c-5070-8914da6c89f2 | Titre, Texte, Image + alt, Bouton 1 texte/lien, Bouton 2 visible/texte/lien · variantes B2C / B2B |
 
 ## À faire (dans l'ordre)
@@ -43,3 +49,7 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - `blockquote` hérite d'un style Webflow par défaut (bordure gauche) : neutraliser dans la classe.
 - Un `span` n'a pas de réglage « text » liable à une propriété : utiliser un TextBlock (div) avec la même classe.
 - Liaison d'une propriété : `get_settings` (clé `text`, `link`, `assetId`, `altText`, `visibility`) puis `set_settings` avec `binding: {source_type: "prop"}` et `scope_component_id`.
+- Zéros sans unité (`margin: 0`) et `clip-path` font échouer l'import : `section.py` ajoute `px` et retire `clip-path` (mis dans Global styles).
+- Ombres : pas de variable possible, valeurs littérales. Une ombre `inset` s'est mal rendue : préférer une bordure.
+- Tout lien vers `https://winko.io/app` ouvre la popup QR (desktop) ou le store (mobile) : le script le détecte, pas besoin d'attribut.
+- Les variantes de Component se choisissent via la propriété « Variant » de l'instance (valeur = id de variante).
