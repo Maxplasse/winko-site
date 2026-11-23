@@ -627,9 +627,12 @@ textarea.form_input { min-height: 7.5rem; resize: vertical; }
 /* ==========================================================================
    13. Ajouts · LP événement (Black Friday, Noël)
    ========================================================================== */
-/* S14 · Hero LP événement : fond sombre (is-dark) ou teinté (is-tint) */
+/* S14 · Hero LP événement : thème = champ CMS « Thème » via data-theme (Clair : fond teinté ; Sombre : fond sombre) */
 .section_hero-event { background-color: var(--accent-tint); }
-.section_hero-event.is-dark { background-color: var(--bg-inverse); color: var(--text-inverse); }
+.section_hero-event[data-theme="Sombre"] { background-color: var(--bg-inverse); color: var(--text-inverse); }
+.section_hero-event[data-theme="Sombre"] .button.is-secondary { background-color: var(--bg-surface); border-color: var(--bg-surface); color: var(--text-primary); }
+.section_hero-event[data-theme="Clair"] .glass-card { background-color: rgba(33, 33, 33, 0.92); }
+.hero-event_checklist p::before { content: "✓\00a0\00a0"; }
 .hero-event_component { display: flex; align-items: center; gap: 2.5rem; padding-top: 6rem; padding-bottom: 6rem; }
 .hero-event_content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 .hero-event_checklist { display: flex; flex-direction: column; gap: 1.5rem; }

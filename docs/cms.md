@@ -66,4 +66,4 @@ Toutes les collections existent avec leurs champs et leurs contenus (Événement
 - Le renommage de « Verticales » échouant dans Webflow (« Failed to create database »), une collection « Secteurs » neuve a remplacé l'ancienne ; les références (slug `secteur`) pointent vers elle. L'ancienne collection « Verticales » (6afea87e38c9291ca9d6e1f3) n'est plus utilisée : la supprimer dans le CMS (l'API ne sait pas supprimer une collection).
 - Profils : la note est un texte (« 4,8 ») ; l'alt de la photo est porté par l'image. Le libellé du métier s'affiche avec deux textes liés à Métier : Nom (masculin) / Nom (féminin), chacun en visibilité conditionnelle sur Genre.
 - Enseignes : `largeur` → « Largeur (px) » ; `hauteur` non reprise.
-- Événements : listes à plat (Point clé 1-3, Bandeau mot 1-4, Argument 1-3 titre / texte / picto en image).
+- Événements : le Thème (Clair / Sombre) est rendu en attribut `data-theme` sur S14 (même valeur dans le prototype et Webflow). Listes à plat (Point clé 1-3, Bandeau mot 1-4, Argument 1-3 titre / texte / picto en image).

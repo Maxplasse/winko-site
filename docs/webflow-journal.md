@@ -3,6 +3,11 @@
 Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b588aa38a8fffe`.
 
 ## Fait
+- **Page modèle Événements** (`6afea8bfbaf838e4089b13ac`, /evenements/[slug]) : Global styles, Navbar (CTA Créer mon compte), Footer (bouton compte seul), Scripts ; sections de page liées aux champs de l'item :
+  - S14 Hero : textes, points clés, visuel, carte vitrée = champs de « Mission mise en avant », compte à rebours (`data-countdown` = Date de l'événement, `data-countdown-box`), thème = attribut `data-theme` lié au champ Option Thème (règles `[data-theme="Sombre"]` / `[data-theme="Clair"]` dans Global styles) ;
+  - S22 Bandeau (mots 1 à 4, deux fois), S05 Arguments (surtitre, titre, 3 cartes avec picto), S12 Formulaire + visuel (titre, visuel ; `data-hubspot-form-id` lié à « ID formulaire HubSpot ») ;
+  - S04 Profils et S08 FAQ : Collection Lists dont la source est la multi-référence de l'item (source `{collectionId: <collection cible>, fieldSlug: "profils" | "faq"}`).
+  - À régler dans le Designer : SEO de la page modèle (SEO title / description / Image de partage liés aux champs), exclusion de l'indexation (LP non publiées), visibilité conditionnelle du métier (Genre), redirection du formulaire vers /merci.
 - **Pages Contact, Merci, légales, 404** (plan payant) : créées par duplication de Home (Navbar, Footer, Global styles, Scripts, Popup), SEO repris du prototype.
   - Contact `6b04070b232ee9a349e6b1c3` : hero simple, écran de choix (`data-contact-*`), panneau #recruter (formulaire Webflow natif, classe `form_component` sur le formulaire), panneau #mission (instance S09, textes B2C, bouton app).
   - Merci `6b04070b643dd0f0fbe286d3`, 404 `6b04070d687627e7199bc235` (page /404 ordinaire), Mentions légales `6b04070c643dd0f0fbe286fb`, Confidentialité `6b04070c643dd0f0fbe28723`, Cookies `6b04070d02318b24e4c3694f`, CGU `6b04070d7c64e41acc76414d`.

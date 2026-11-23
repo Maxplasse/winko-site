@@ -2,6 +2,7 @@
 // S14 · Hero LP événement · Figma 39:3472 (sombre, Black Friday) / 39:3815 (clair, Noël)
 // Champs de l'item Événements + carte vitrée = « Mission mise en avant » (collection Exemples de missions).
 // Compte à rebours J-xx depuis la date de l'événement, masqué le jour J.
+// Thème : attribut data-theme = valeur du champ Option « Thème » (Clair / Sombre), lié au CMS dans Webflow.
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { url } from '../../lib/url';
 interface Props { event: CollectionEntry<'evenements'>['data'] }
@@ -10,7 +11,7 @@ const dark = e.theme === 'sombre';
 const mission = (await getEntry(e.missionMiseEnAvant))!.data;
 ---
 <!-- S14 · Hero LP événement · Figma 39:3472 (sombre, Black Friday) / 39:3815 (clair, Noël) -->
-<section class:list={['section_hero-event', { 'is-dark': dark }]}>
+<section class="section_hero-event" data-theme={dark ? 'Sombre' : 'Clair'}>
   <div class="padding-global">
     <div class="container-large">
       <div class="hero-event_component">
@@ -19,17 +20,17 @@ const mission = (await getEntry(e.missionMiseEnAvant))!.data;
           <h1 class="heading-style-display-m">{e.titre}</h1>
           <p class="text-size-large">{e.chapo}</p>
           <div class="hero-event_checklist">
-            {e.pointsCles.map((p) => <p>✓&nbsp;&nbsp;{p}</p>)}
+            {e.pointsCles.map((p) => <p>{p}</p>)}
           </div>
           <div class="button-group">
             <a href="#proposition" class="button">Être rappelé</a>
-            <a href="#profils" class:list={['button', dark ? 'is-white' : 'is-secondary']}>Voir les profils</a>
+            <a href="#profils" class="button is-secondary">Voir les profils</a>
           </div>
         </div>
         <div class="hero-event_visual">
           <div class="hero-event_frame"></div>
           <img src={url(e.visuelHero)} alt="" class="hero-event_image" width="420" height="630" fetchpriority="high">
-          <div class:list={['hero-event_card glass-card', { 'is-dark': !dark }]} aria-hidden="true">
+          <div class="hero-event_card glass-card" aria-hidden="true">
             <span class="glass-card_pill">{mission.pastille}</span>
             <p class="heading-style-h3">{mission.titre}</p>
             <p>{mission.description}</p>
