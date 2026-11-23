@@ -82,6 +82,7 @@ button { font: inherit; cursor: pointer; }
 .page-wrapper { overflow-x: clip; }
 .padding-global { padding-left: var(--gutter); padding-right: var(--gutter); }
 .container-large { width: 100%; max-width: var(--container-large); margin-left: auto; margin-right: auto; }
+.padding-section-xsmall { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 .padding-section-small { padding-top: 4rem; padding-bottom: 4rem; }
 .padding-section-medium { padding-top: 5rem; padding-bottom: 5rem; }
 .padding-section-large { padding-top: 6rem; padding-bottom: 6rem; }
@@ -297,6 +298,7 @@ button { font: inherit; cursor: pointer; }
    et ne sert qu'aux ajustements constatés en comparant aux frames mobiles (Figma 49:2135). */
 @media screen and (max-width: 767px) {
   :root { --gutter: 1.25rem; }
+  .padding-section-xsmall { padding-top: 2rem; padding-bottom: 2rem; }
   .padding-section-medium { padding-top: 3.5rem; padding-bottom: 3.5rem; }
   .padding-section-large { padding-top: 4rem; padding-bottom: 4rem; }
   .heading-style-display-xl { font-size: 3.5rem; }
