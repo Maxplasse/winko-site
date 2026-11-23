@@ -120,27 +120,15 @@
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe91572f42630b2ca33c28_visuel-app.png"
  },
  "./home/panneau-poster.webp": {
-  "id": "6b04b650f898f9861b5335fe",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b650f898f9861b5335fe_panneau-poster-hd.webp"
+  "id": "6b04b836073f91ca2a06b730",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b836073f91ca2a06b730_panneau-poster-native.webp"
  },
  "./shared/logo-mellow-yellow.svg": {
   "id": "6b04b37916a47680ef372fe6",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b37916a47680ef372fe6_logo-mellow-yellow.svg"
  },
- "./home/panneau-sprite-1.webp": {
-  "id": "6b04b6507a6a57867354def6",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b6507a6a57867354def6_panneau-sprite-1.webp"
- },
- "./home/panneau-sprite-2.webp": {
-  "id": "6b04b6502338049ad05d7a19",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b6502338049ad05d7a19_panneau-sprite-2.webp"
- },
- "./home/panneau-sprite-3.webp": {
-  "id": "6b04b6507c1a7a0af782b3a4",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b6507c1a7a0af782b3a4_panneau-sprite-3.webp"
- },
- "./home/panneau-sprite-4.webp": {
-  "id": "6b04b650f8910fb8c520c921",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b650f8910fb8c520c921_panneau-sprite-4.webp"
+ "../videos/panneau-scroll.mp4": {
+  "id": "6b04b836073f91ca2a06b708",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b836073f91ca2a06b708_panneau-scroll.mp4"
  }
 }
