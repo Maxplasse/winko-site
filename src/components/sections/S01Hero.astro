@@ -5,7 +5,7 @@
 //  - dessous : visuel sous le texte, fond accent ;
 //  - panneau : fond clair, panneau de signalisation 3D sous le texte, animé au scroll (Accueil).
 //    Animation reprise de winko.io : séquence d'images (planche « sprite ») lue dans un canvas selon le scroll.
-//    L'image sert d'affiche (1re image) ; la planche est donnée par la prop « Séquence » (attributs data-sequence-*).
+//    L'image sert d'affiche (1re image) ; les planches (URL séparées par des espaces) sont données par la prop « Séquence » (attributs data-sequence-*).
 // Les boutons passent par le slot (props « Lien » des boutons dans Webflow).
 import { url } from '../../lib/url';
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
   image: { src: string; alt: string; width: number; height: number };
   variant?: 'photo' | 'app';
   visual?: 'fond' | 'dessous' | 'panneau';
-  sequence?: { sprite: string; frames: number; cols: number };
+  sequence?: { sprites: string[]; frames: number; cols: number };
 }
 const { tag, title, text, image, variant = 'photo', visual, sequence } = Astro.props;
 const app = variant === 'app';
@@ -36,7 +36,7 @@ const mode = visual ?? (app ? 'dessous' : 'fond');
         </div>
         <div class:list={['hero_image-wrapper', { 'is-contain': app }]}>
           <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high"
-            data-sequence-sprite={sequence ? url(sequence.sprite) : ''} data-sequence-frames={sequence?.frames ?? ''} data-sequence-cols={sequence?.cols ?? ''}>
+            data-sequence-sprite={sequence ? sequence.sprites.map((s) => url(s)).join(' ') : ''} data-sequence-frames={sequence?.frames ?? ''} data-sequence-cols={sequence?.cols ?? ''}>
         </div>
       </div>
     </div>

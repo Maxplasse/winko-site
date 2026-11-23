@@ -20,8 +20,8 @@ import { url } from '../lib/url';
     title="La bonne mission.<br>Le bon renfort."
     text="Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires."
     visual="panneau"
-    image={{ src: '/images/home/panneau-poster.webp', alt: 'Panneau de direction Winko : Vente, Trouver une mission', width: 607, height: 548 }}
-    sequence={{ sprite: '/images/home/panneau-sprite.webp', frames: 72, cols: 9 }}
+    image={{ src: '/images/home/panneau-poster.webp', alt: 'Panneau de direction Winko : Vente, Trouver une mission', width: 910, height: 822 }}
+    sequence={{ sprites: [1, 2, 3, 4].map((n) => `/images/home/panneau-sprite-${n}.webp`), frames: 60, cols: 4 }}
   >
     <a href={url('/retail/professionnels')} class="button is-white">Je cherche une mission</a>
     <a href={url('/retail/entreprises')} class="button is-outline-white">Je cherche du renfort</a>
