@@ -295,19 +295,37 @@ button { font: inherit; cursor: pointer; }
 .contact-app_qr-caption { font-size: 0.8125rem; line-height: 1.4; }
 
 /* ---------- 8. Footer ---------- */
-.footer_component { display: flex; gap: 1.5rem; align-items: flex-start; padding-top: 2rem; padding-bottom: 4rem; }
+.footer_component { padding-top: 2rem; padding-bottom: 2.5rem; }
 .footer_panel {
-  flex: 1; display: flex; gap: 2.5rem;
-  padding: 3rem 3.5rem; border-radius: 3.5rem;
+  display: flex; flex-direction: column; gap: 3rem;
+  padding: 3.5rem 3.5rem 2rem; border-radius: var(--radius-panel);
   background-color: var(--accent-tint); color: var(--accent-default);
 }
-.footer_signature { flex: 1; display: flex; flex-direction: column; gap: 2rem; }
+.footer_top { display: flex; justify-content: space-between; gap: 3rem; }
+.footer_signature { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; max-width: 26rem; }
 .footer_tagline { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.05; }
+.footer_columns { display: flex; gap: 3.5rem; }
 .footer_column { display: flex; flex-direction: column; gap: 1rem; font-weight: 600; line-height: 1; white-space: nowrap; }
 .footer_link:hover { text-decoration: underline; }
-.footer_legal-text { font-weight: 400; line-height: 1.5; opacity: 0.45; }
+.footer_bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--accent-subtle); }
+.footer_legal-text { font-weight: 400; line-height: 1.5; opacity: 0.6; }
+.footer_locale { font-weight: 600; }
+.logo.is-medium { width: 7rem; height: 5.25rem; padding: 0.7rem 0.5rem 0.6rem; border-radius: 1rem; }
+.logo.is-medium .logo_tab { font-size: 0.6rem; padding: 0.1rem 0.6rem; border-radius: 0.3rem; }
+.logo.is-medium .logo_wordmark { font-size: 2.25rem; }
 
 /* ---------- 9. Responsive ---------- */
+@media screen and (max-width: 991px) {
+  .footer_top { flex-direction: column; }
+  .footer_signature { max-width: none; }
+}
+@media screen and (max-width: 767px) {
+  .footer_panel { gap: 2rem; padding: 2rem 1.5rem 1.5rem; border-radius: var(--radius-card); }
+  .footer_tagline { font-size: 1.75rem; }
+  .footer_columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem 1rem; }
+  .footer_column:last-child { grid-column: 1 / -1; }
+  .footer_bottom { flex-direction: column; align-items: flex-start; }
+}
 /* Tablette (Webflow : 991px) */
 @media screen and (max-width: 991px) {
   :root { --gutter: 2.5rem; }
@@ -317,9 +335,6 @@ button { font: inherit; cursor: pointer; }
   .switch_list { grid-template-columns: 1fr; }
   .cta-banner_component { flex-direction: column; align-items: flex-start; padding: 3rem; }
   .cta-banner_image { width: 100%; max-width: 32.5rem; }
-  .footer_component { flex-direction: column; }
-  .footer_panel { flex-wrap: wrap; width: 100%; }
-  .footer_signature { flex-basis: 100%; }
 }
 /* Mobile paysage (Webflow : 767px). Les règles valent aussi pour le mobile portrait :
    le palier « 478 px et moins » de Webflow s'écrit @media screen and (max-width: 479px)
@@ -358,7 +373,6 @@ button { font: inherit; cursor: pointer; }
   .switch_card { padding: 2rem; border-radius: var(--radius-card); }
   .testimonials_card { width: 18.5rem; }
   .cta-banner_component { padding: 2rem; border-radius: var(--radius-card); }
-  .footer_panel { flex-direction: column; padding: 2rem; border-radius: var(--radius-card); }
   .logo.is-large { width: 6rem; height: 6rem; padding: 0.7rem 0.55rem 0.55rem; border-radius: 1rem; }
   .logo.is-large .logo_tab { font-size: 0.6rem; padding: 0.1rem 0.5rem; border-radius: 0.25rem; }
   .logo.is-large .logo_wordmark { font-size: 2rem; }
@@ -935,13 +949,6 @@ textarea.form_input { min-height: 7.5rem; resize: vertical; }
   .choice_component:not(.is-alone) .choice_top, .choice_component:not(.is-alone) .choice_card p { display: none; }
   .choice_component:not(.is-alone) .choice_card .heading-style-h3 { font-family: var(--font-text); font-size: 0.8125rem; font-weight: 600; line-height: 1.2; text-align: center; }
   /* Footer : liens sur deux colonnes, mentions en bas */
-  .footer_panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
-  .footer_signature { display: contents; }
-  .footer_tagline { grid-column: 1 / -1; font-size: 1.5rem; }
-  .footer_signature .button-group { grid-column: 1 / -1; }
-  .footer_signature .footer_legal-text { grid-column: 1 / -1; order: 10; }
-  .footer_column:last-child { grid-column: 1 / -1; }
-  .footer_column .footer_legal-text { display: none; }
   /* LP · carte vitrée plus large, texte réduit ; boutons centrés alignés à gauche */
   .hero-event_card { left: 1.5rem; width: calc(100% - 3rem); }
   .glass-card { gap: 0.5rem; padding: 1.25rem; }

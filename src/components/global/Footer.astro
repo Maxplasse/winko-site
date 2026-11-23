@@ -27,32 +27,37 @@ const legal = [
 ];
 const cur = (l: string) => (l === current ? 'page' : undefined);
 ---
-<!-- Footer · Figma 10:54 (Symbol Webflow « Footer ») -->
+<!-- Footer · Figma 10:54 (Symbol Webflow « Footer ») · version panneau unique : logo intégré, barre légale en bas -->
 <footer class="section_footer">
   <div class="padding-global">
     <div class="container-large">
       <div class="footer_component">
-        <Logo large />
         <div class="footer_panel">
-          <div class="footer_signature">
-            <p class="footer_tagline">{tagline}</p>
-            <div class="button-group">
-              {buttons.map((b, i) => <CtaButton action={b} variant={i > 0 ? 'is-secondary is-small' : 'is-small'} />)}
+          <div class="footer_top">
+            <div class="footer_signature">
+              <Logo medium />
+              <p class="footer_tagline">{tagline}</p>
+              <div class="button-group">
+                {buttons.map((b, i) => <CtaButton action={b} variant={i > 0 ? 'is-secondary is-small' : 'is-small'} />)}
+              </div>
             </div>
-            <p class="footer_legal-text">© 2026 Winko.</p>
+            <div class="footer_columns">
+              <nav class="footer_column" aria-label="Pied de page">
+                {nav.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
+              </nav>
+              <div class="footer_column">
+                <a href="#" class="footer_link">Linkedin</a>
+                <a href="#" class="footer_link">Facebook</a>
+                <a href="#" class="footer_link">Instagram</a>
+              </div>
+              <div class="footer_column">
+                {legal.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
+              </div>
+            </div>
           </div>
-          <nav class="footer_column" aria-label="Pied de page">
-            {nav.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
-          </nav>
-          <div class="footer_column">
-            <a href="#" class="footer_link">Linkedin</a>
-            <a href="#" class="footer_link">Facebook</a>
-            <a href="#" class="footer_link">Instagram</a>
-            <p class="footer_legal-text">All rights reserved.</p>
-          </div>
-          <div class="footer_column">
-            {legal.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
-            <p>FR · UK</p>
+          <div class="footer_bottom">
+            <p class="footer_legal-text">© 2026 Winko. All rights reserved.</p>
+            <p class="footer_locale">FR · UK</p>
           </div>
         </div>
       </div>
