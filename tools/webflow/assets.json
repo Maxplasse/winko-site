@@ -63,7 +63,7 @@
   "id": "6afe9154d6622fb6cdef2e57",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe9154d6622fb6cdef2e57_logo-le-tanneur.png"
  },
- "./shared/logo-mellow-yellow.png (remplacé par le SVG officiel)": {
+ "./shared/logo-mellow-yellow.png": {
   "id": "6afe9154a0f72ec540251a6f",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe9154a0f72ec540251a6f_logo-mellow-yellow.png"
  },
@@ -118,5 +118,17 @@
  "./shared/visuel-app.png": {
   "id": "6afe91572f42630b2ca33c28",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe91572f42630b2ca33c28_visuel-app.png"
+ },
+ "./home/panneau-sprite.webp": {
+  "id": "6b04b379271d4e6f3e4b6858",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b379271d4e6f3e4b6858_panneau-sprite.webp"
+ },
+ "./home/panneau-poster.webp": {
+  "id": "6b04b3795beee88d07bb1a74",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b3795beee88d07bb1a74_panneau-poster.webp"
+ },
+ "./shared/logo-mellow-yellow.svg": {
+  "id": "6b04b37916a47680ef372fe6",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b37916a47680ef372fe6_logo-mellow-yellow.svg"
  }
 }
