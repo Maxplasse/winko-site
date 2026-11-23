@@ -142,23 +142,53 @@
   setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"]', true);
   setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open]', false);
 
-  // Visuel qui pivote au scroll (panneau de signalisation du hero d'accueil) : de -12° à +12°
-  // pendant que l'élément traverse l'écran. Désactivé si l'utilisateur limite les animations.
-  var rotating = document.querySelectorAll('[data-scroll-rotate]');
-  if (rotating.length && !reduceMotion) {
-    var ticking = false;
-    var rotate = function () {
-      ticking = false;
-      var vh = window.innerHeight;
-      rotating.forEach(function (el) {
-        var r = el.getBoundingClientRect();
+  // Séquence d'images au scroll (panneau 3D du hero d'accueil, effet repris de winko.io).
+  // L'image porte data-sequence-sprite (planche WebP, images rangées en grille), -frames et -cols.
+  // Progression : même formule que winko.io (ScrollTrigger « top bottom » → « bottom top » sur la section),
+  // partant de la position au chargement et finissant à 80 % du parcours. Affiche seule si animations réduites.
+  document.querySelectorAll('img[data-sequence-sprite]').forEach(function (img) {
+    var src = img.getAttribute('data-sequence-sprite');
+    var frames = parseInt(img.getAttribute('data-sequence-frames'), 10);
+    var cols = parseInt(img.getAttribute('data-sequence-cols'), 10);
+    if (!src || !frames || !cols || reduceMotion) return;
+    var wrapper = img.parentElement;
+    var section = img.closest('section') || wrapper;
+    var sprite = new Image();
+    sprite.decoding = 'async';
+    sprite.onload = function () {
+      var rows = Math.ceil(frames / cols);
+      var fw = sprite.naturalWidth / cols, fh = sprite.naturalHeight / rows;
+      var canvas = document.createElement('canvas');
+      canvas.className = 'hero_sequence';
+      canvas.setAttribute('aria-hidden', 'true');
+      wrapper.appendChild(canvas);
+      var ctx = canvas.getContext('2d');
+      var start = null, current = -1, ticking = false;
+      var size = function () {
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(canvas.clientWidth * dpr);
+        canvas.height = Math.round(canvas.clientHeight * dpr);
+        current = -1;
+      };
+      var draw = function () {
+        ticking = false;
+        var vh = window.innerHeight, r = section.getBoundingClientRect();
         var progress = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
-        el.style.setProperty('--scroll-rotate', ((progress - 0.5) * 24).toFixed(2) + 'deg');
-      });
+        if (start === null) start = Math.min(progress, 0.79);
+        var seek = Math.min(1, Math.max(0, (progress - start) / (0.8 - start)));
+        var frame = Math.round(seek * (frames - 1));
+        if (frame === current) return;
+        current = frame;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(sprite, (frame % cols) * fw, Math.floor(frame / cols) * fh, fw, fh, 0, 0, canvas.width, canvas.height);
+      };
+      size(); draw();
+      wrapper.classList.add('is-sequence');
+      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(draw); } }, { passive: true });
+      window.addEventListener('resize', function () { size(); draw(); });
     };
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(rotate); } }, { passive: true });
-    rotate();
-  }
+    sprite.src = src;
+  });
 
   if (reduceMotion) document.documentElement.classList.add('reduce-motion');
 })();

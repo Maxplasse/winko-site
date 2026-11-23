@@ -1,6 +1,6 @@
 [
   { "id": "carel", "nom": "Carel", "logo": "/images/shared/logo-carel.png", "largeur": 92, "hauteur": 46, "accordDiffusion": true, "secteur": "retail", "ordre": 1 },
-  { "id": "mellow-yellow", "nom": "Mellow Yellow", "logo": "/images/shared/logo-mellow-yellow.png", "largeur": 96, "hauteur": 44, "accordDiffusion": true, "secteur": "retail", "ordre": 2 },
+  { "id": "mellow-yellow", "nom": "Mellow Yellow", "logo": "/images/shared/logo-mellow-yellow.svg", "largeur": 150, "hauteur": 20, "accordDiffusion": true, "secteur": "retail", "ordre": 2 },
   { "id": "seagale", "nom": "Seagale", "logo": "/images/shared/logo-seagale.png", "largeur": 69, "hauteur": 47, "accordDiffusion": true, "secteur": "retail", "ordre": 3 },
   { "id": "le-tanneur", "nom": "Le Tanneur", "logo": "/images/shared/logo-le-tanneur.png", "largeur": 136, "hauteur": 31, "accordDiffusion": true, "secteur": "retail", "ordre": 4 },
   { "id": "cyrillus", "nom": "Cyrillus", "logo": "/images/shared/logo-cyrillus.png", "largeur": 130, "hauteur": 32, "accordDiffusion": true, "secteur": "retail", "ordre": 5 },

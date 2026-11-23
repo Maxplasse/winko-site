@@ -14,13 +14,14 @@ import { url } from '../lib/url';
   description="Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires."
   footer={{ current: 'Accueil' }}
 >
-  <!-- S01 · Hero (visuel panneau rotatif) · Figma 299:2625 -->
+  <!-- S01 · Hero (panneau 3D animé au scroll, repris de winko.io) · Figma 299:2625 -->
   <S01Hero
     tag="Winko Retail"
     title="La bonne mission.<br>Le bon renfort."
     text="Winko réunit les professionnels du retail et les enseignes qui ont besoin de renfort. Des compétences validées, des missions claires."
     visual="panneau"
-    image={{ src: '/images/shared/objet-signature.png', alt: 'Panneau de direction Winko : Retail, Find Job', width: 893, height: 810 }}
+    image={{ src: '/images/home/panneau-poster.webp', alt: 'Panneau de direction Winko : Vente, Trouver une mission', width: 607, height: 548 }}
+    sequence={{ sprite: '/images/home/panneau-sprite.webp', frames: 72, cols: 9 }}
   >
     <a href={url('/retail/professionnels')} class="button is-white">Je cherche une mission</a>
     <a href={url('/retail/entreprises')} class="button is-outline-white">Je cherche du renfort</a>

@@ -3,8 +3,9 @@
 // Propriété « Visuel » (attribut data-hero-visual, prop Webflow « Visuel : fond ou dessous ») :
 //  - fond    : photo en panneau arrondi sur le fond accent, sous un voile neutre (Professionnels) ;
 //  - dessous : visuel sous le texte, fond accent ;
-//  - panneau : fond clair, panneau de signalisation sous le texte qui pivote au scroll (Accueil).
-//    L'image porte toujours data-scroll-rotate (attribut fixe du Component) : seul le mode panneau applique la rotation.
+//  - panneau : fond clair, panneau de signalisation 3D sous le texte, animé au scroll (Accueil).
+//    Animation reprise de winko.io : séquence d'images (planche « sprite ») lue dans un canvas selon le scroll.
+//    L'image sert d'affiche (1re image) ; la planche est donnée par la prop « Séquence » (attributs data-sequence-*).
 // Les boutons passent par le slot (props « Lien » des boutons dans Webflow).
 import { url } from '../../lib/url';
 interface Props {
@@ -14,8 +15,9 @@ interface Props {
   image: { src: string; alt: string; width: number; height: number };
   variant?: 'photo' | 'app';
   visual?: 'fond' | 'dessous' | 'panneau';
+  sequence?: { sprite: string; frames: number; cols: number };
 }
-const { tag, title, text, image, variant = 'photo', visual } = Astro.props;
+const { tag, title, text, image, variant = 'photo', visual, sequence } = Astro.props;
 const app = variant === 'app';
 const mode = visual ?? (app ? 'dessous' : 'fond');
 ---
@@ -33,7 +35,8 @@ const mode = visual ?? (app ? 'dessous' : 'fond');
           </div>
         </div>
         <div class:list={['hero_image-wrapper', { 'is-contain': app }]}>
-          <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high" data-scroll-rotate>
+          <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high"
+            data-sequence-sprite={sequence ? url(sequence.sprite) : ''} data-sequence-frames={sequence?.frames ?? ''} data-sequence-cols={sequence?.cols ?? ''}>
         </div>
       </div>
     </div>

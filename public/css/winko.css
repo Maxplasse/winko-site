@@ -211,7 +211,7 @@ button { font: inherit; cursor: pointer; }
 .section_hero[data-hero-visual="fond"] .hero_image-wrapper::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(33, 33, 33, 0.45); }
 .hero_content { position: relative; z-index: 1; }
 .section_hero[data-hero-visual="fond"] .hero_image-wrapper .hero_image { object-fit: cover; }
-/* Visuel « panneau » (accueil) : fond clair, textes foncés, panneau de signalisation qui pivote au scroll (--scroll-rotate posé par winko.js) */
+/* Visuel « panneau » (accueil) : fond clair, textes foncés, panneau 3D animé au scroll (séquence d’images, cf. winko.js) */
 .section_hero[data-hero-visual="panneau"] { background-color: var(--accent-tint); }
 .section_hero[data-hero-visual="panneau"] .text-color-inverse { color: var(--text-primary); }
 .section_hero[data-hero-visual="panneau"] .tag.is-on-color { background-color: var(--accent-subtle); color: var(--accent-strong); }
@@ -219,8 +219,12 @@ button { font: inherit; cursor: pointer; }
 .section_hero[data-hero-visual="panneau"] .button.is-white:hover { background-color: var(--accent-strong); border-color: var(--accent-strong); }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white { border-color: var(--border-inverse); color: var(--text-primary); }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white:hover { background-color: var(--text-primary); color: var(--text-inverse); }
-.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { width: 34rem; max-width: 100%; aspect-ratio: 893 / 810; border-radius: 0; overflow: visible; }
-.section_hero[data-hero-visual="panneau"] .hero_image { object-fit: contain; transform: rotate(var(--scroll-rotate, 0deg)); will-change: transform; }
+.section_hero[data-hero-visual="panneau"] .hero_component { padding-bottom: 0; }
+.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { position: relative; width: 38rem; max-width: 100%; aspect-ratio: 607 / 548; border-radius: 0; overflow: visible; }
+.section_hero[data-hero-visual="panneau"] .hero_image { object-fit: contain; }
+/* Séquence au scroll (canvas créé par winko.js) : l'affiche s'efface quand la planche est chargée */
+.hero_sequence { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero_image-wrapper.is-sequence .hero_image { visibility: hidden; }
 
 /* S05b · Valeurs en encarts */
 .values_list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -366,7 +370,7 @@ button { font: inherit; cursor: pointer; }
   .section_hero[data-hero-visual="fond"] .hero_component { min-height: 38rem; }
   .section_hero[data-hero-visual="fond"] .hero_image-wrapper { top: 1.25rem; right: 1.25rem; bottom: 1.25rem; left: 1.25rem; border-radius: var(--radius-card); }
   .section_hero[data-hero-visual="fond"] .hero_content { padding: 3rem 1.25rem; }
-  .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { width: 100%; aspect-ratio: 893 / 810; border-radius: 0; }
+  .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { width: 100%; aspect-ratio: 607 / 548; border-radius: 0; }
   .contact-app_component { flex-direction: column; align-items: stretch; gap: 1.5rem; padding: 2rem 1.5rem; border-radius: var(--radius-card); }
   .contact-app_actions { display: flex; }
   .contact-app_qr { display: none; }
