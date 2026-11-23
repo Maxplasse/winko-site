@@ -1,6 +1,6 @@
 ---
 // S01 · Hero photo · Figma 299:2625 (Accueil) / 506:2774 (variante visuel app, Professionnels)
-// Fond couleur d'accent, titre display, visuel pleine largeur sous le texte.
+// Variante photo (accueil) : photo en fond de section sous un voile neutre. Variante app : visuel sous le texte, fond accent.
 // Les boutons passent par le slot (props « Lien » des boutons dans Webflow).
 import { url } from '../../lib/url';
 interface Props {
@@ -14,7 +14,7 @@ const { tag, title, text, image, variant = 'photo' } = Astro.props;
 const app = variant === 'app';
 ---
 <!-- S01 · Hero photo · Figma 299:2625 (Accueil) / 506:2774 (variante visuel app, Professionnels) -->
-<section class="section_hero background-color-accent">
+<section class="section_hero background-color-accent" data-hero-visual={app ? 'dessous' : 'fond'}>
   <div class="padding-global">
     <div class="container-large">
       <div class="hero_component">

@@ -202,6 +202,13 @@ button { font: inherit; cursor: pointer; }
 .hero_content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
 .hero_image-wrapper { width: 100%; aspect-ratio: 1312 / 600; border-radius: var(--radius-card); overflow: hidden; }
 .hero_image { width: 100%; height: 100%; object-fit: cover; }
+/* Visuel en fond (propriété « Visuel : fond ou dessous » du Component S01 → attribut data-hero-visual) :
+   la photo passe en fond de section, sous un voile neutre (jamais de dégradé). */
+.section_hero { position: relative; overflow: hidden; }
+.section_hero[data-hero-visual="fond"] .hero_component { min-height: 44rem; justify-content: center; }
+.section_hero[data-hero-visual="fond"] .hero_image-wrapper { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: auto; aspect-ratio: auto; border-radius: 0; }
+.section_hero[data-hero-visual="fond"] .hero_image-wrapper::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(33, 33, 33, 0.45); }
+.hero_content { position: relative; z-index: 1; }
 
 /* S05b · Valeurs en encarts */
 .values_list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -311,6 +318,7 @@ button { font: inherit; cursor: pointer; }
   .hero_component { padding-top: 3rem; padding-bottom: 3rem; gap: 2rem; }
   .hero_image-wrapper { aspect-ratio: 4 / 5; border-radius: 1.5rem; }
   .hero_component .button-group .button { flex: 1 1 100%; justify-content: flex-start; }
+  .section_hero[data-hero-visual="fond"] .hero_component { min-height: 38rem; }
   .switch_card { padding: 2rem; border-radius: var(--radius-card); }
   .testimonials_card { width: 18.5rem; }
   .cta-banner_component { padding: 2rem; border-radius: var(--radius-card); }
