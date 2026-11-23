@@ -1,13 +1,29 @@
 ---
-// Widget sticky · Figma 24:751 (Professionnels) / 21:753 (Entreprises)
-// Apparaît après 600 px de scroll, masqué quand le footer arrive ; barre pleine largeur sur mobile.
+// Widget sticky · Figma 24:751 (Professionnels) / 21:753 (Entreprises) · version compacte (pastille)
+// Apparaît après 600 px de scroll, masqué quand le footer arrive. Toute la pastille est cliquable.
+// Props = propriétés du Component Webflow : picto, titre, texte, lien, action « app ».
+//  - modal = true : ouvre la popup formulaire (FormModal) ; sans JS, mène au lien (href).
+//  - app = true : popup QR code sur desktop, lien intelligent vers le store sur mobile
+//    (mêmes attributs que CtaButton : data-app-modal-open / data-app-link).
 import { url } from '../../lib/url';
-interface Props { title: string; text: string; label: string; href: string; ariaLabel: string }
-const { title, text, label, href, ariaLabel } = Astro.props;
+import { APP_URL, APP_STORE_URL, PLAY_STORE_URL } from '../../lib/site';
+interface Props { title: string; text: string; picto: string; href?: string; app?: boolean; modal?: boolean; ariaLabel: string }
+const { title, text, picto, href = '/contact', app = false, modal = false, ariaLabel } = Astro.props;
 ---
-<!-- Widget sticky · Figma 24:751 / 21:753 -->
+<!-- Widget sticky · Figma 24:751 / 21:753 · version compacte -->
 <aside class="sticky-widget" data-sticky-widget aria-label={ariaLabel}>
-  <p class="heading-style-h3">{title}</p>
-  <p class="sticky-widget_text">{text}</p>
-  <a href={url(href)} class="button">{label}</a>
+  {app ? (
+    <a href={APP_URL} class="sticky-widget_link" data-app-modal-open data-app-link
+       data-ios-url={APP_STORE_URL || undefined} data-android-url={PLAY_STORE_URL || undefined}>
+      <span class="sticky-widget_icon"><img src={url(`/images/shared/picto-${picto}.svg`)} alt="" width="22" height="22"></span>
+      <span class="sticky-widget_content"><span class="sticky-widget_title">{title}</span><span class="sticky-widget_text">{text}</span></span>
+      <span class="sticky-widget_arrow" aria-hidden="true">→</span>
+    </a>
+  ) : (
+    <a href={url(href)} class="sticky-widget_link" data-form-modal-open={modal ? "" : undefined}>
+      <span class="sticky-widget_icon"><img src={url(`/images/shared/picto-${picto}.svg`)} alt="" width="22" height="22"></span>
+      <span class="sticky-widget_content"><span class="sticky-widget_title">{title}</span><span class="sticky-widget_text">{text}</span></span>
+      <span class="sticky-widget_arrow" aria-hidden="true">→</span>
+    </a>
+  )}
 </aside>

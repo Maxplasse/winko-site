@@ -1,0 +1,37 @@
+---
+// Popup formulaire « Entretien personnalisé » (Professionnels) · ouverte par le widget sticky
+// Même formulaire sur desktop et mobile. En Webflow : Component « Popup formulaire »
+// (embed HubSpot ou formulaire natif, redirection vers /merci).
+// Le bouton reste estompé tant que le formulaire n'est pas valide (consentement compris).
+import Logo from './Logo.astro';
+import { url } from '../../lib/url';
+interface Props { title?: string; submit?: string; consent?: string }
+const {
+  title = 'Entretien personnalisé.',
+  submit = 'Être rappelé',
+  consent = 'En soumettant ce formulaire, j’accepte d’être recontacté par Winko.',
+} = Astro.props;
+---
+<!-- Popup formulaire « Entretien personnalisé » · ouverte par le widget sticky (data-form-modal-open) -->
+<div class="app-modal" data-form-modal hidden>
+  <div class="app-modal_overlay" data-modal-close></div>
+  <div class="form-modal_dialog" role="dialog" aria-modal="true" aria-labelledby="form-modal-title">
+    <div class="form-modal_header">
+      <Logo link={false} light />
+      <button type="button" class="form-modal_close" aria-label="Fermer" data-modal-close>
+        <svg width="28" height="28" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,34H48A14,14,0,0,0,34,48V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V48A14,14,0,0,0,208,34Zm2,174a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V48a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Zm-36-80a6,6,0,0,1-6,6H88a6,6,0,0,1,0-12h80A6,6,0,0,1,174,128Z"/></svg>
+      </button>
+    </div>
+    <form class="form-modal_form" action={url('/merci')} method="get">
+      <h2 class="heading-style-h2 form-modal_title" id="form-modal-title">{title}</h2>
+      <div class="form-modal_row">
+        <input class="form-modal_input" name="nom" placeholder="Nom*" aria-label="Nom" autocomplete="family-name" required>
+        <input class="form-modal_input" name="prenom" placeholder="Prénom*" aria-label="Prénom" autocomplete="given-name" required>
+      </div>
+      <input class="form-modal_input" name="email" type="email" placeholder="Email*" aria-label="Email" autocomplete="email" required>
+      <input class="form-modal_input" name="telephone" type="tel" placeholder="Numéro de téléphone*" aria-label="Numéro de téléphone" autocomplete="tel" required>
+      <label class="form-modal_check"><input type="checkbox" name="consentement" required><span>{consent}</span></label>
+      <button type="submit" class="form-modal_submit">{submit}</button>
+    </form>
+  </div>
+</div>

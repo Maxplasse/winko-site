@@ -9,6 +9,7 @@ import S27Testimonials from '../../components/sections/S27Testimonials.astro';
 import S20FaqGrid from '../../components/sections/S20FaqGrid.astro';
 import S21CtaPhoto from '../../components/sections/S21CtaPhoto.astro';
 import StickyWidget from '../../components/global/StickyWidget.astro';
+import FormModal from '../../components/global/FormModal.astro';
 import CtaButton from '../../components/global/CtaButton.astro';
 import { faqFor } from '../../lib/content';
 const faq = await faqFor('professionnels');
@@ -52,5 +53,6 @@ const faq = await faqFor('professionnels');
   </S21CtaPhoto>
 
   <!-- Widget sticky · Figma 24:751 (textes à valider : cf. Notes & décisions, points 1 et 2) -->
-  <StickyWidget slot="after-main" title="Entretien personnalisé." text="Formulaire de contact à remplir en 2 min." label="Je postule" href="/contact" ariaLabel="Être recontacté" />
+  <StickyWidget slot="after-main" picto="mobile" modal title="Entretien personnalisé." text="Formulaire de contact à remplir en 2 min." href="/contact#mission" ariaLabel="Être recontacté" />
+  <FormModal slot="after-main" />
 </BaseLayout>

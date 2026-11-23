@@ -113,17 +113,20 @@
     el.textContent = 'J-' + days;
   });
 
-  // Modale « Télécharger l'app » (QR code).
-  var modal = document.querySelector('[data-app-modal]');
-  if (modal) {
+  // Popups : « Télécharger l'app » (QR code, desktop uniquement ; mobile = lien intelligent vers le store)
+  // et « Entretien personnalisé » (formulaire, desktop et mobile). Fermeture : [data-modal-close] ou Échap.
+  var setupModal = function (modal, triggers, desktopOnly) {
+    if (!modal) return;
     var lastFocus = null;
+    var onKey = function (e) { if (e.key === 'Escape') close(); };
     var open = function (e) {
-      if (isMobile()) return; // mobile : lien intelligent vers le store
+      if (desktopOnly && isMobile()) return;
       e.preventDefault();
       lastFocus = document.activeElement;
       modal.hidden = false;
       modal.classList.add('is-open');
-      modal.querySelector('[data-app-modal-close]').focus();
+      var first = modal.querySelector('input, [data-modal-close], [data-app-modal-close]');
+      if (first) first.focus();
       document.addEventListener('keydown', onKey);
     };
     var close = function () {
@@ -132,10 +135,11 @@
       document.removeEventListener('keydown', onKey);
       if (lastFocus) lastFocus.focus();
     };
-    var onKey = function (e) { if (e.key === 'Escape') close(); };
-    document.querySelectorAll('[data-app-modal-open], a[href*="winko.io/app"]').forEach(function (btn) { btn.addEventListener('click', open); });
-    modal.querySelectorAll('[data-app-modal-close]').forEach(function (btn) { btn.addEventListener('click', close); });
-  }
+    document.querySelectorAll(triggers).forEach(function (btn) { btn.addEventListener('click', open); });
+    modal.querySelectorAll('[data-modal-close], [data-app-modal-close]').forEach(function (btn) { btn.addEventListener('click', close); });
+  };
+  setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"]', true);
+  setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open]', false);
 
   if (reduceMotion) document.documentElement.classList.add('reduce-motion');
 })();

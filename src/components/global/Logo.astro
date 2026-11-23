@@ -2,9 +2,9 @@
 // Logo Winko (placeholder HTML/CSS, à remplacer par logo-winko-blue.svg officiel).
 // L'onglet affiche le libellé du secteur (collection Secteurs).
 import { url } from '../../lib/url';
-interface Props { large?: boolean; link?: boolean; tab?: string }
-const { large = false, link = true, tab = 'Retail' } = Astro.props;
-const cls = large ? 'logo is-large' : 'logo';
+interface Props { large?: boolean; link?: boolean; tab?: string; light?: boolean }
+const { large = false, link = true, tab = 'Retail', light = false } = Astro.props;
+const cls = ['logo', large && 'is-large', light && 'is-light'].filter(Boolean).join(' ');
 ---
 {link ? (
   <a href={url('/')} class={cls} aria-label={`Winko ${tab}, accueil`}>

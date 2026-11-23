@@ -461,19 +461,28 @@ button { font: inherit; cursor: pointer; }
 .cta-photo_overlay { position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.25); }
 .cta-photo_component > .heading-style-display-l, .cta-photo_component > .button { position: relative; }
 
-/* Widget sticky « En savoir plus » : apparaît après 600 px, masqué au-dessus du footer */
+/* Widget sticky (version compacte) : pastille claire avec picto, apparaît après 600 px, masquée au-dessus du footer */
 .sticky-widget {
   position: fixed; right: 2rem; bottom: 2rem; z-index: 90;
-  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-  width: 25rem; padding: 1.75rem 0.75rem 0.75rem;
-  border-radius: 1.75rem; background-color: var(--bg-inverse); color: var(--text-inverse); text-align: center;
   opacity: 0; transform: translateY(1.5rem); pointer-events: none;
   transition: opacity 300ms ease, transform 300ms ease;
 }
 .sticky-widget.is-visible { opacity: 1; transform: none; pointer-events: auto; }
-.sticky-widget_text { opacity: 0.8; }
-.sticky-widget .button { width: 100%; }
-@media (prefers-reduced-motion: reduce) { .sticky-widget { transition: none; } }
+.sticky-widget_link {
+  display: flex; align-items: center; gap: 0.875rem;
+  padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+  border: 1px solid var(--border-default); border-radius: var(--radius-full);
+  background-color: var(--bg-surface); color: var(--text-primary); box-shadow: var(--shadow-card);
+  transition: border-color 150ms ease;
+}
+.sticky-widget_link:hover { border-color: var(--accent-default); }
+.sticky-widget_icon { display: flex; align-items: center; justify-content: center; flex: none; width: 2.75rem; height: 2.75rem; border-radius: var(--radius-full); background-color: var(--accent-subtle); }
+.sticky-widget_content { display: flex; flex-direction: column; }
+.sticky-widget_title { font-weight: 600; line-height: 1.3; }
+.sticky-widget_text { font-size: 0.8125rem; line-height: 1.3; color: var(--text-secondary); }
+.sticky-widget_arrow { margin-left: 0.25rem; font-weight: 600; color: var(--accent-default); transition: transform 150ms ease; }
+.sticky-widget_link:hover .sticky-widget_arrow { transform: translateX(0.2rem); }
+@media (prefers-reduced-motion: reduce) { .sticky-widget, .sticky-widget_arrow { transition: none; } }
 
 @media screen and (max-width: 991px) {
   .heading-style-display-l { font-size: 3.5rem; }
@@ -491,14 +500,8 @@ button { font: inherit; cursor: pointer; }
   .faq_question { padding: 1.5rem 1.25rem; font-size: 1rem; }
   .faq_answer-inner p { padding: 0 1.25rem 1.5rem; }
   .cta-photo_component { min-height: 30rem; padding: 2rem 1.25rem; border-radius: var(--radius-card); }
-  .sticky-widget {
-    left: 0; right: 0; bottom: 0; width: auto;
-    flex-direction: row; justify-content: space-between; gap: 1rem;
-    padding: 0.75rem 1.25rem; border-radius: 1.25rem 1.25rem 0 0; text-align: left;
-  }
-  .sticky-widget .heading-style-h3 { font-size: 1.25rem; }
-  .sticky-widget_text { display: none; }
-  .sticky-widget .button { width: auto; }
+  .sticky-widget { left: var(--gutter); right: var(--gutter); bottom: 1rem; }
+  .sticky-widget_arrow { margin-left: auto; }
 }
 
 /* ==========================================================================
@@ -627,6 +630,67 @@ textarea.form_input { min-height: 7.5rem; resize: vertical; }
 .app-modal_dialog .logo_tab { font-size: 0.5625rem; padding: 0.125rem 0.5rem; border-radius: 0.25rem; }
 .app-modal_dialog .logo_wordmark { font-size: 1.875rem; }
 .app-modal_qr { padding: 1.25rem; border: 2px solid var(--accent-default); border-radius: var(--radius-lg); background-color: var(--bg-surface); }
+
+/* Logo variante claire (popup formulaire) */
+.logo.is-light { background-color: var(--accent-tint); color: var(--accent-default); }
+.logo.is-light .logo_tab { background-color: var(--accent-default); color: var(--text-inverse); }
+
+/* Popup formulaire « Entretien personnalisé » (Professionnels) : même enveloppe que .app-modal */
+.form-modal_dialog {
+  position: relative; display: flex; flex-direction: column; gap: 1.75rem;
+  width: 40rem; max-width: 100%; max-height: calc(100vh - 3rem); overflow-y: auto;
+  padding: 1.75rem; border-radius: var(--radius-panel);
+  background-color: var(--accent-default); color: var(--text-inverse);
+  box-shadow: 0 24px 32px rgba(0, 0, 0, 0.25);
+}
+.form-modal_header { display: flex; justify-content: space-between; align-items: flex-start; }
+.form-modal_dialog .logo { width: 7.5rem; height: 7.5rem; padding: 0.75rem 0.5rem 1rem; border-radius: 1rem; }
+.form-modal_dialog .logo_tab { font-size: 0.625rem; padding: 0.15rem 0.5rem; border-radius: 0.25rem; }
+.form-modal_dialog .logo_wordmark { font-size: 2.25rem; }
+.form-modal_close {
+  display: flex; align-items: center; justify-content: center; flex: none;
+  width: 5.25rem; height: 5.25rem; border: 2px solid var(--accent-default); border-radius: 1.25rem;
+  background-color: var(--bg-surface); color: var(--accent-default); box-shadow: 0 0 0 2px var(--neutral-white);
+}
+.form-modal_close svg { width: 2.5rem; height: 2.5rem; }
+.form-modal_form {
+  display: flex; flex-direction: column; gap: 1.5rem;
+  padding: 2.5rem 2.5rem 0.625rem; border-radius: var(--radius-card); background-color: rgba(255, 255, 255, 0.08);
+}
+.form-modal_title { text-align: center; margin-bottom: 0.5rem; }
+.form-modal_row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.form-modal_input {
+  width: 100%; padding: 1.4rem 1.875rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.4); border-radius: 0.75rem;
+  background-color: transparent; color: var(--text-inverse); font: inherit; font-size: 1.125rem;
+}
+.form-modal_input::placeholder { color: var(--text-inverse); opacity: 1; }
+.form-modal_input:focus { outline: none; border-color: var(--neutral-white); }
+.form-modal_check { display: flex; align-items: flex-start; gap: 0.875rem; font-size: 1.0625rem; line-height: 1.4; cursor: pointer; }
+.form-modal_check input {
+  flex: none; appearance: none; width: 1.25rem; height: 1.25rem; margin: 0.15rem 0 0;
+  border: 2px solid var(--neutral-white); border-radius: 0.3rem; cursor: pointer;
+}
+.form-modal_check input:checked { background-color: var(--neutral-white); box-shadow: inset 0 0 0 3px var(--accent-default); }
+.form-modal_submit {
+  margin: 2rem -1.875rem 0; padding: 1.6rem; border: 0; border-radius: var(--radius-lg);
+  background-color: var(--neutral-white); color: var(--accent-default); font-size: 1.125rem; font-weight: 600;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.form-modal_submit:hover { background-color: var(--accent-subtle); }
+.form-modal_form:invalid .form-modal_submit { background-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.5); }
+@media screen and (max-width: 767px) {
+  .form-modal_dialog { gap: 1.25rem; padding: 1rem; border-radius: var(--radius-card); }
+  .form-modal_dialog .logo { width: 5rem; height: 5rem; }
+  .form-modal_dialog .logo_wordmark { font-size: 1.625rem; }
+  .form-modal_close { width: 3.5rem; height: 3.5rem; border-radius: 1rem; }
+  .form-modal_close svg { width: 1.75rem; height: 1.75rem; }
+  .form-modal_form { gap: 1rem; padding: 1.75rem 1.25rem 0.5rem; border-radius: 1.5rem; }
+  .form-modal_row { grid-template-columns: 1fr; gap: 1rem; }
+  .form-modal_input { padding: 1.1rem 1.25rem; font-size: 1rem; }
+  .form-modal_check { font-size: 0.9375rem; }
+  .form-modal_submit { margin: 1rem -0.75rem 0; padding: 1.25rem; }
+}
 
 @media screen and (max-width: 767px) {
   .hero-simple_component { padding-top: 3.5rem; }
