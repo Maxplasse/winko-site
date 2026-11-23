@@ -3,6 +3,10 @@
 Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b588aa38a8fffe`.
 
 ## Fait
+- **Pages Contact, Merci, légales, 404** (plan payant) : créées par duplication de Home (Navbar, Footer, Global styles, Scripts, Popup), SEO repris du prototype.
+  - Contact `6b04070b232ee9a349e6b1c3` : hero simple, écran de choix (`data-contact-*`), panneau #recruter (formulaire Webflow natif, classe `form_component` sur le formulaire), panneau #mission (instance S09, textes B2C, bouton app).
+  - Merci `6b04070b643dd0f0fbe286d3`, 404 `6b04070d687627e7199bc235` (page /404 ordinaire), Mentions légales `6b04070c643dd0f0fbe286fb`, Confidentialité `6b04070c643dd0f0fbe28723`, Cookies `6b04070d02318b24e4c3694f`, CGU `6b04070d7c64e41acc76414d`.
+  - À régler dans le Designer : redirection du formulaire vers /merci (réglages du formulaire, en attendant HubSpot) ; Merci et 404 hors index (Page settings > SEO, et exclure du sitemap) ; page utilitaire 404 de Webflow (Pages > Utility pages) : y coller la section de /404 puis supprimer /404.
 - **CMS** : 9 collections avec champs et contenus importés (`docs/cms.md`, section « Dans Webflow »). « Verticales » remplacée par une collection « Secteurs » neuve (6afeaf77d852e997766167da), références `secteur` migrées ; l'ancienne collection « Verticales » est à supprimer à la main.
 - **FAQ Entreprises** : Collection List sur FAQ (classes `faq_list-wrapper` > `faq_list` + `data-faq`, item `faq_item` ; Question et Réponse liées), limite 6. **Filtre « Cible = Entreprises » et tri « Ordre croissant » à régler dans le Designer** (refusés via MCP, voir pièges).
 - **Variables** : tous les tokens de `:root` créés dans la collection par défaut (« Base collection ») avec **les mêmes noms CSS que le prototype** (`--accent-default`, `--bg-muted`, `--radius-card`, `--font-display`…). Une collection « Winko » (vide) a été créée en test : la supprimer dans le panneau Variables (elle préfixait les noms en `--_winko---…`).
