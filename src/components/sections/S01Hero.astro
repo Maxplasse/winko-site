@@ -4,8 +4,9 @@
 //  - fond    : photo en panneau arrondi sur le fond accent, sous un voile neutre (Professionnels) ;
 //  - dessous : visuel sous le texte, fond accent ;
 //  - panneau : fond clair, panneau de signalisation 3D sous le texte, animé au scroll (Accueil).
-//    Animation reprise de winko.io : séquence d'images (planche « sprite ») lue dans un canvas selon le scroll.
-//    L'image sert d'affiche (1re image) ; les planches (URL séparées par des espaces) sont données par la prop « Séquence » (attributs data-sequence-*).
+//    Animation reprise de winko.io (vidéo 1920×1080 décodée depuis leurs fichiers) : MP4 sur fond blanc, avancée par le scroll,
+//    affichée en mode de fusion « multiply » pour que le blanc prenne la couleur du fond. L'image sert d'affiche (1re image) ;
+//    la vidéo est donnée par la prop « Séquence · vidéo (URL) » (attribut data-sequence-video). Vide = image fixe.
 // Les boutons passent par le slot (props « Lien » des boutons dans Webflow).
 import { url } from '../../lib/url';
 interface Props {
@@ -15,9 +16,9 @@ interface Props {
   image: { src: string; alt: string; width: number; height: number };
   variant?: 'photo' | 'app';
   visual?: 'fond' | 'dessous' | 'panneau';
-  sequence?: { sprites: string[]; frames: number; cols: number };
+  sequenceVideo?: string;
 }
-const { tag, title, text, image, variant = 'photo', visual, sequence } = Astro.props;
+const { tag, title, text, image, variant = 'photo', visual, sequenceVideo } = Astro.props;
 const app = variant === 'app';
 const mode = visual ?? (app ? 'dessous' : 'fond');
 ---
@@ -36,7 +37,7 @@ const mode = visual ?? (app ? 'dessous' : 'fond');
         </div>
         <div class:list={['hero_image-wrapper', { 'is-contain': app }]}>
           <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high"
-            data-sequence-sprite={sequence ? sequence.sprites.map((s) => url(s)).join(' ') : ''} data-sequence-frames={sequence?.frames ?? ''} data-sequence-cols={sequence?.cols ?? ''}>
+            data-sequence-video={sequenceVideo ? url(sequenceVideo) : ''}>
         </div>
       </div>
     </div>

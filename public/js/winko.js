@@ -142,55 +142,46 @@
   setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"]', true);
   setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open]', false);
 
-  // Séquence d'images au scroll (panneau 3D du hero d'accueil, effet repris de winko.io).
-  // L'image porte data-sequence-sprite (une ou plusieurs planches WebP séparées par des espaces, images en grille,
-  // réparties à parts égales), data-sequence-frames (total) et data-sequence-cols (colonnes par planche).
-  // Progression : de la position au chargement jusqu'à la sortie complète de la section (formule de winko.io,
-  // étalée jusqu'au bout pour un rythme comparable). Affiche seule si l'utilisateur limite les animations.
-  document.querySelectorAll('img[data-sequence-sprite]').forEach(function (img) {
-    var srcs = (img.getAttribute('data-sequence-sprite') || '').split(/[\s,]+/).filter(Boolean);
-    var frames = parseInt(img.getAttribute('data-sequence-frames'), 10);
-    var cols = parseInt(img.getAttribute('data-sequence-cols'), 10);
-    if (!srcs.length || !frames || !cols || reduceMotion) return;
+  // Vidéo pilotée par le scroll (panneau 3D du hero d'accueil, effet repris de winko.io).
+  // L'image (affiche) porte data-sequence-video : URL d'un MP4 sur fond blanc, à images clés rapprochées.
+  // Progression : de la position au chargement jusqu'à la sortie complète de la section. Un seul déplacement
+  // de lecture à la fois (le dernier demandé est appliqué à la fin du précédent) : pas d'à-coups en scroll rapide.
+  // Affiche seule si l'utilisateur limite les animations.
+  document.querySelectorAll('img[data-sequence-video]').forEach(function (img) {
+    var src = img.getAttribute('data-sequence-video');
+    if (!src || reduceMotion) return;
     var wrapper = img.parentElement;
     var section = img.closest('section') || wrapper;
-    var perSheet = Math.ceil(frames / srcs.length);
-    var sheets = srcs.map(function (src) { var im = new Image(); im.decoding = 'async'; im.src = src; return im; });
-    var canvas = null, ctx = null, start = null, current = -1, ticking = false;
-    var size = function () {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.round(canvas.clientWidth * dpr);
-      canvas.height = Math.round(canvas.clientHeight * dpr);
-      current = -1;
+    var video = document.createElement('video');
+    video.className = 'hero_sequence';
+    video.muted = true; video.playsInline = true; video.preload = 'auto';
+    video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-hidden', 'true');
+    var start = null, target = 0, ticking = false, ready = false;
+    var seekTo = function () {
+      if (!ready || video.seeking) return;
+      if (Math.abs(video.currentTime - target) > 0.01) video.currentTime = target;
     };
-    var draw = function () {
+    var update = function () {
       ticking = false;
       var vh = window.innerHeight, r = section.getBoundingClientRect();
       var progress = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
       if (start === null) start = Math.min(progress, 0.95);
       var seek = Math.min(1, Math.max(0, (progress - start) / (1 - start)));
-      var frame = Math.round(seek * (frames - 1));
-      var sheet = sheets[Math.floor(frame / perSheet)];
-      if (frame === current || !sheet.complete || !sheet.naturalWidth) return; // planche pas encore chargée : on garde l'image affichée
-      current = frame;
-      var i = frame % perSheet;
-      var inSheet = Math.min(perSheet, frames - Math.floor(frame / perSheet) * perSheet); // la dernière planche peut être incomplète
-      var fw = sheet.naturalWidth / cols, fh = sheet.naturalHeight / Math.ceil(inSheet / cols);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(sheet, (i % cols) * fw, Math.floor(i / cols) * fh, fw, fh, 0, 0, canvas.width, canvas.height);
+      target = seek * Math.max(0, (video.duration || 0) - 0.05);
+      seekTo();
     };
-    sheets.forEach(function (im) { im.addEventListener('load', function () { if (canvas) { current = -1; draw(); } }); });
-    sheets[0].addEventListener('load', function () {
-      canvas = document.createElement('canvas');
-      canvas.className = 'hero_sequence';
-      canvas.setAttribute('aria-hidden', 'true');
-      wrapper.appendChild(canvas);
-      ctx = canvas.getContext('2d');
-      size(); draw();
+    video.addEventListener('seeked', seekTo);
+    video.addEventListener('loadeddata', function () {
+      ready = true;
       wrapper.classList.add('is-sequence');
-      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(draw); } }, { passive: true });
-      window.addEventListener('resize', function () { size(); draw(); });
-    });
+      update();
+    }, { once: true });
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    video.src = src;
+    wrapper.appendChild(video);
+    // iOS : une lecture furtive autorise l'affichage des images lors des déplacements de lecture.
+    var primed = video.play();
+    if (primed && primed.then) primed.then(function () { video.pause(); update(); }).catch(function () {});
   });
 
   if (reduceMotion) document.documentElement.classList.add('reduce-motion');

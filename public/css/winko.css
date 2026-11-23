@@ -220,10 +220,10 @@ button { font: inherit; cursor: pointer; }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white { border-color: var(--border-inverse); color: var(--text-primary); }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white:hover { background-color: var(--text-primary); color: var(--text-inverse); }
 .section_hero[data-hero-visual="panneau"] .hero_component { padding-bottom: 0; }
-.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { position: relative; width: 38rem; max-width: 100%; aspect-ratio: 607 / 548; border-radius: 0; overflow: visible; }
+.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { position: relative; width: 38rem; max-width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; overflow: visible; }
 .section_hero[data-hero-visual="panneau"] .hero_image { object-fit: contain; }
-/* Séquence au scroll (canvas créé par winko.js) : l'affiche s'efface quand la planche est chargée */
-.hero_sequence { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+/* Vidéo au scroll (créée par winko.js) : fond blanc fondu dans le fond de section (multiply) ; l'affiche s'efface quand la vidéo est prête */
+.hero_sequence { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; pointer-events: none; }
 .hero_image-wrapper.is-sequence .hero_image { visibility: hidden; }
 
 /* S05b · Valeurs en encarts */
@@ -370,7 +370,7 @@ button { font: inherit; cursor: pointer; }
   .section_hero[data-hero-visual="fond"] .hero_component { min-height: 38rem; }
   .section_hero[data-hero-visual="fond"] .hero_image-wrapper { top: 1.25rem; right: 1.25rem; bottom: 1.25rem; left: 1.25rem; border-radius: var(--radius-card); }
   .section_hero[data-hero-visual="fond"] .hero_content { padding: 3rem 1.25rem; }
-  .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { width: 100%; aspect-ratio: 607 / 548; border-radius: 0; }
+  .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; }
   .contact-app_component { flex-direction: column; align-items: stretch; gap: 1.5rem; padding: 2rem 1.5rem; border-radius: var(--radius-card); }
   .contact-app_actions { display: flex; }
   .contact-app_qr { display: none; }
