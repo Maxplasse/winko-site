@@ -142,5 +142,23 @@
   setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"]', true);
   setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open]', false);
 
+  // Visuel qui pivote au scroll (panneau de signalisation du hero d'accueil) : de -12° à +12°
+  // pendant que l'élément traverse l'écran. Désactivé si l'utilisateur limite les animations.
+  var rotating = document.querySelectorAll('[data-scroll-rotate]');
+  if (rotating.length && !reduceMotion) {
+    var ticking = false;
+    var rotate = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      rotating.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        var progress = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+        el.style.setProperty('--scroll-rotate', ((progress - 0.5) * 24).toFixed(2) + 'deg');
+      });
+    };
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(rotate); } }, { passive: true });
+    rotate();
+  }
+
   if (reduceMotion) document.documentElement.classList.add('reduce-motion');
 })();

@@ -21,13 +21,14 @@ const faq = await faqFor('professionnels');
   headerAction="app"
   footer={{ tagline: 'Des missions retail selon votre expérience. D’un seul geste.', buttons: ['app'], current: 'Professionnels' }}
 >
-  <!-- S01 · Hero photo (variante visuel app) · Figma 506:2774 -->
+  <!-- S01 · Hero photo en panneau (variante app) · Figma 506:2774 -->
   <S01Hero
     variant="app"
     tag="Professionnels"
     title="Votre prochaine mission<br>en un clic."
     text="Les missions des enseignes que vous aimez. Payées en 72 h."
-    image={{ src: '/images/shared/visuel-app.png', alt: 'Aperçu de l’app Winko : liste des missions disponibles', width: 520, height: 327 }}
+    visual="fond"
+    image={{ src: '/images/home/hero-photo.jpg', alt: 'Une vendeuse Winko présente des smartphones en magasin', width: 1312, height: 600 }}
   >
     <CtaButton action="app" variant="is-white" />
   </S01Hero>

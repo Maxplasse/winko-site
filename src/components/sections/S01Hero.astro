@@ -1,6 +1,10 @@
 ---
 // S01 · Hero photo · Figma 299:2625 (Accueil) / 506:2774 (variante visuel app, Professionnels)
-// Variante photo (accueil) : photo en fond de section sous un voile neutre. Variante app : visuel sous le texte, fond accent.
+// Propriété « Visuel » (attribut data-hero-visual, prop Webflow « Visuel : fond ou dessous ») :
+//  - fond    : photo en panneau arrondi sur le fond accent, sous un voile neutre (Professionnels) ;
+//  - dessous : visuel sous le texte, fond accent ;
+//  - panneau : fond clair, panneau de signalisation sous le texte qui pivote au scroll (Accueil).
+//    L'image porte toujours data-scroll-rotate (attribut fixe du Component) : seul le mode panneau applique la rotation.
 // Les boutons passent par le slot (props « Lien » des boutons dans Webflow).
 import { url } from '../../lib/url';
 interface Props {
@@ -9,12 +13,14 @@ interface Props {
   text: string;
   image: { src: string; alt: string; width: number; height: number };
   variant?: 'photo' | 'app';
+  visual?: 'fond' | 'dessous' | 'panneau';
 }
-const { tag, title, text, image, variant = 'photo' } = Astro.props;
+const { tag, title, text, image, variant = 'photo', visual } = Astro.props;
 const app = variant === 'app';
+const mode = visual ?? (app ? 'dessous' : 'fond');
 ---
 <!-- S01 · Hero photo · Figma 299:2625 (Accueil) / 506:2774 (variante visuel app, Professionnels) -->
-<section class="section_hero background-color-accent" data-hero-visual={app ? 'dessous' : 'fond'}>
+<section class="section_hero background-color-accent" data-hero-visual={mode}>
   <div class="padding-global">
     <div class="container-large">
       <div class="hero_component">
@@ -27,7 +33,7 @@ const app = variant === 'app';
           </div>
         </div>
         <div class:list={['hero_image-wrapper', { 'is-contain': app }]}>
-          <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high">
+          <img src={url(image.src)} alt={image.alt} class="hero_image" width={image.width} height={image.height} fetchpriority="high" data-scroll-rotate>
         </div>
       </div>
     </div>
