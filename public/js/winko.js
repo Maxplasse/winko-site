@@ -129,7 +129,8 @@
       if (first) first.focus();
       document.addEventListener('keydown', onKey);
     };
-    var close = function () {
+    var close = function (e) {
+      if (e && e.preventDefault) e.preventDefault(); // le bouton Fermer peut être un lien href="#" (Webflow)
       modal.classList.remove('is-open');
       modal.hidden = true;
       document.removeEventListener('keydown', onKey);
