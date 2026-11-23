@@ -212,7 +212,7 @@ button { font: inherit; cursor: pointer; }
 .hero_content { position: relative; z-index: 1; }
 .section_hero[data-hero-visual="fond"] .hero_image-wrapper .hero_image { object-fit: cover; }
 /* Visuel « panneau » (accueil) : fond clair, textes foncés, panneau 3D animé au scroll (séquence d’images, cf. winko.js) */
-.section_hero[data-hero-visual="panneau"] { background-color: var(--accent-tint); }
+.section_hero[data-hero-visual="panneau"] { overflow: clip; background-color: var(--accent-tint); } /* clip (et non hidden) pour que le sticky fonctionne */
 .section_hero[data-hero-visual="panneau"] .text-color-inverse { color: var(--text-primary); }
 .section_hero[data-hero-visual="panneau"] .tag.is-on-color { background-color: var(--accent-subtle); color: var(--accent-strong); }
 .section_hero[data-hero-visual="panneau"] .button.is-white { background-color: var(--accent-default); border-color: var(--accent-default); color: var(--text-inverse); }
@@ -220,10 +220,16 @@ button { font: inherit; cursor: pointer; }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white { border-color: var(--border-inverse); color: var(--text-primary); }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white:hover { background-color: var(--text-primary); color: var(--text-inverse); }
 .section_hero[data-hero-visual="panneau"] .hero_component { padding-bottom: 0; }
-.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { position: relative; width: 38rem; max-width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; overflow: visible; }
+/* Zone « ralentie » : le panneau reste à l'écran pendant une demi-hauteur d'écran de scroll supplémentaire (sticky + espace après) */
+.section_hero[data-hero-visual="panneau"] .hero_component::after { content: ""; display: block; flex: none; height: 50vh; }
+.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { position: sticky; top: max(6rem, calc(50vh - 17.2rem)); width: 38rem; max-width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; overflow: visible; }
 .section_hero[data-hero-visual="panneau"] .hero_image { object-fit: contain; }
 /* Vidéo au scroll (créée par winko.js) : fond blanc fondu dans le fond de section (multiply) ; l'affiche s'efface quand la vidéo est prête */
-.hero_sequence { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; pointer-events: none; }
+.hero_sequence { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+/* La fusion se fait sur le conteneur (sticky = contexte d'empilement propre) pour se mélanger au fond de section */
+.hero_image-wrapper.is-sequence { mix-blend-mode: multiply; }
+/* Le mât est coupé en bas de la vidéo : fondu sur les derniers 12 % (masque, pas de dégradé de couleur) */
+.section_hero[data-hero-visual="panneau"] .hero_image-wrapper { -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent); mask-image: linear-gradient(to bottom, #000 88%, transparent); }
 .hero_image-wrapper.is-sequence .hero_image { visibility: hidden; }
 
 /* S05b · Valeurs en encarts */
@@ -370,7 +376,7 @@ button { font: inherit; cursor: pointer; }
   .section_hero[data-hero-visual="fond"] .hero_component { min-height: 38rem; }
   .section_hero[data-hero-visual="fond"] .hero_image-wrapper { top: 1.25rem; right: 1.25rem; bottom: 1.25rem; left: 1.25rem; border-radius: var(--radius-card); }
   .section_hero[data-hero-visual="fond"] .hero_content { padding: 3rem 1.25rem; }
-  .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; }
+  .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { top: max(5rem, calc(50vh - 10rem)); width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; }
   .contact-app_component { flex-direction: column; align-items: stretch; gap: 1.5rem; padding: 2rem 1.5rem; border-radius: var(--radius-card); }
   .contact-app_actions { display: flex; }
   .contact-app_qr { display: none; }

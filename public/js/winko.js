@@ -144,8 +144,8 @@
 
   // Vidéo pilotée par le scroll (panneau 3D du hero d'accueil, effet repris de winko.io).
   // L'image (affiche) porte data-sequence-video : URL d'un MP4 sur fond blanc, à images clés rapprochées.
-  // Progression : de la position au chargement jusqu'à la sortie complète de la section. Un seul déplacement
-  // de lecture à la fois (le dernier demandé est appliqué à la fin du précédent) : pas d'à-coups en scroll rapide.
+  // Progression : de la position au chargement jusqu'à la sortie complète de la section (le panneau reste à l'écran
+  // grâce au sticky CSS), avec inertie. Un seul déplacement de lecture à la fois : pas d'à-coups en scroll rapide.
   // Affiche seule si l'utilisateur limite les animations.
   document.querySelectorAll('img[data-sequence-video]').forEach(function (img) {
     var src = img.getAttribute('data-sequence-video');
@@ -156,10 +156,17 @@
     video.className = 'hero_sequence';
     video.muted = true; video.playsInline = true; video.preload = 'auto';
     video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-hidden', 'true');
-    var start = null, target = 0, ticking = false, ready = false;
+    var start = null, target = 0, shown = 0, ticking = false, ready = false, easing = false;
+    // Inertie (comme le scroll amorti de winko.io) : la position affichée rattrape la cible de 12 % par image.
     var seekTo = function () {
       if (!ready || video.seeking) return;
-      if (Math.abs(video.currentTime - target) > 0.01) video.currentTime = target;
+      if (Math.abs(video.currentTime - shown) > 0.01) video.currentTime = shown;
+    };
+    var ease = function () {
+      shown += (target - shown) * 0.12;
+      if (Math.abs(target - shown) < 0.005) shown = target;
+      seekTo();
+      if (shown !== target) requestAnimationFrame(ease); else easing = false;
     };
     var update = function () {
       ticking = false;
@@ -168,7 +175,7 @@
       if (start === null) start = Math.min(progress, 0.95);
       var seek = Math.min(1, Math.max(0, (progress - start) / (1 - start)));
       target = seek * Math.max(0, (video.duration || 0) - 0.05);
-      seekTo();
+      if (!easing) { easing = true; requestAnimationFrame(ease); }
     };
     video.addEventListener('seeked', seekTo);
     video.addEventListener('loadeddata', function () {
