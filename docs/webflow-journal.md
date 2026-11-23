@@ -3,6 +3,8 @@
 Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b588aa38a8fffe`.
 
 ## Fait
+- **Responsive mobile** (comparaison aux frames Figma 49:2135, captures 390 px) : bloc « 12. Mobile » de `winko.css` reporté dans Webflow au palier small (767) — header compact (CTA visible, menu cerné, langue masquée), titres réduits, logos `zoom: 0.7`, dégradés de bandeau 2,5rem, cartes sans hauteur imposée, chiffres sur une colonne, profils en carrousel, sélecteur segmenté sur Contact, footer en deux colonnes, carte vitrée LP élargie, boutons centrés alignés à gauche. Sélecteurs complexes dans Global styles.
+  - Écarts laissés : ordre de l'accueil (le Figma mobile met les logos juste après le hero), barre de contexte « Entreprises » sous le header, contenu mobile de Contact (encarts Entreprises / Partenariats), libellés courts du footer.
 - **Page modèle Événements** (`6afea8bfbaf838e4089b13ac`, /evenements/[slug]) : Global styles, Navbar (CTA Créer mon compte), Footer (bouton compte seul), Scripts ; sections de page liées aux champs de l'item :
   - S14 Hero : textes, points clés, visuel, carte vitrée = champs de « Mission mise en avant », compte à rebours (`data-countdown` = Date de l'événement, `data-countdown-box`), thème = attribut `data-theme` lié au champ Option Thème (règles `[data-theme="Sombre"]` / `[data-theme="Clair"]` dans Global styles) ;
   - S22 Bandeau (mots 1 à 4, deux fois), S05 Arguments (surtitre, titre, 3 cartes avec picto), S12 Formulaire + visuel (titre, visuel ; `data-hubspot-form-id` lié à « ID formulaire HubSpot ») ;

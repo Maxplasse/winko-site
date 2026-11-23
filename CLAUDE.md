@@ -56,7 +56,7 @@ Astro (HTML statique), sans framework front ni Tailwind. `npm run dev` (port 432
 - En attente de Djouher : témoignages, extraits de l'app (S28), conseiller, étapes (S18), réponses FAQ, textes légaux, chiffres, liens App Store / Google Play, logos et accords de diffusion.
 
 ## Reste à faire
-- [ ] Comparer chaque page aux frames mobiles (49:2135) et affiner le responsive (palier 479 px)
+- [x] Comparer chaque page aux frames mobiles (49:2135) et affiner le responsive (bloc « 12. Mobile » de winko.css, reporté dans Webflow)
 - [ ] Animations : apparition des cartes au scroll ; sections S16 (collage profils) et S17 (bloc sombre) à intégrer si confirmées
 - [ ] Remplacer les placeholders (logo SVG officiel, polices, contenus listés ci-dessus, QR code définitif)
 - [ ] Remplacer les images 1x par des exports 2x (`docs/assets.md`)
