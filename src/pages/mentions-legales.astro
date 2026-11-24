@@ -1,5 +1,18 @@
 ---
+// Mentions légales · texte fourni par Winko (Mentions légales V1), hébergeur mis à jour : Webflow (au lieu de Netlify).
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { url } from '../lib/url';
 ---
-<LegalLayout href="/mentions-legales" footerCurrent="Mentions légales"
-  sections={['Éditeur du site', 'Hébergement', 'Propriété intellectuelle', 'Données personnelles', 'Contact']} />
+<LegalLayout href="/mentions-legales" footerCurrent="Mentions légales" updated="24/11/2026"
+  sections={['Éditeur', 'Directeur de la publication', 'Prestataire d’hébergement', 'Données personnelles']}>
+  <h2 id="section-1">1. Éditeur</h2>
+  <p><strong>Société ARIANE</strong><br>Tour Landscape<br>6 Place des Degrés<br>92800 Puteaux</p>
+  <p>SAS au capital de 1 000,00 Euros<br>RCS de Nanterre N° 101 778 330<br>N° TVA intracommunautaire : FR51101778330<br>Adresse électronique : <a href="mailto:contact@winko.io">contact@winko.io</a></p>
+  <p>Entreprise de Travail Temporaire<br>Garant financier (Art. L1251-49 du Code du Travail) : BNP PARIBAS, Centre d’Affaires Elysées Haussmann, 83 Bd Sébastopol 75002 PARIS</p>
+  <h2 id="section-2">2. Directeur de la publication</h2>
+  <p>Claire Grisolia Morell</p>
+  <h2 id="section-3">3. Prestataire d’hébergement</h2>
+  <p><strong>Webflow, Inc.</strong><br>398 11th Street, 2nd Floor, San Francisco, CA 94103, États-Unis<br>Site : <a href="https://webflow.com" target="_blank" rel="noopener">https://webflow.com</a></p>
+  <h2 id="section-4">4. Données personnelles</h2>
+  <p>Pour plus d’informations sur la façon dont nous traitons vos données à caractère personnel, reportez-vous à la <a href={url('/confidentialite')}>politique de confidentialité</a>.</p>
+</LegalLayout>

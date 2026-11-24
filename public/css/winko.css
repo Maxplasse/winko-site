@@ -899,6 +899,14 @@ textarea.form-modal_input { min-height: 7rem; resize: vertical; }
 .legal_toc a:hover { color: var(--accent-default); }
 .legal_rich-text { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; color: var(--text-secondary); }
 .legal_rich-text h2 { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.05; color: var(--text-primary); scroll-margin-top: 7.5rem; }
+.legal_rich-text h2:not(:first-child) { margin-top: 1.5rem; }
+.legal_rich-text strong { color: var(--text-primary); font-weight: 600; }
+.legal_rich-text a { color: var(--accent-default); text-decoration: underline; overflow-wrap: anywhere; }
+.legal_rich-text ul { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1.25rem; list-style: disc; }
+.legal_rich-text table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.legal_rich-text th, .legal_rich-text td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-default); text-align: left; vertical-align: top; }
+.legal_rich-text th { color: var(--text-primary); font-weight: 600; background-color: var(--bg-muted); }
+.legal_rich-text td:last-child { width: 30%; }
 
 /* S24 · Confirmation (merci) */
 .confirmation_component { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; padding-top: 7.5rem; padding-bottom: 7.5rem; text-align: center; }

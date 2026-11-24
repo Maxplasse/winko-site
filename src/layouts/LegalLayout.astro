@@ -4,14 +4,14 @@ import BaseLayout from './BaseLayout.astro';
 import S23HeroLegal from '../components/sections/S23HeroLegal.astro';
 import S15Legal from '../components/sections/S15Legal.astro';
 import { LEGAL_DOCS } from '../lib/site';
-interface Props { href: string; sections: string[]; footerCurrent?: string }
-const { href, sections, footerCurrent } = Astro.props;
+interface Props { href: string; sections: string[]; footerCurrent?: string; updated?: string }
+const { href, sections, footerCurrent, updated } = Astro.props;
 const doc = LEGAL_DOCS.find((d) => d.href === href)!;
 ---
 <BaseLayout title={`${doc.title} | Winko`} description={`${doc.title} du site Winko.`} footer={{ current: footerCurrent }}>
   <!-- Légal · gabarit unique FR / UK · Figma 13:599 -->
   <!-- S23 · Hero légal · Figma 39:4040 -->
-  <S23HeroLegal title={doc.title} current={href} />
+  <S23HeroLegal title={doc.title} current={href} updated={updated} />
   <!-- S15 · Contenu légal · Figma 39:4073 -->
-  <S15Legal sections={sections} />
+  {Astro.slots.has('default') ? <S15Legal sections={sections}><slot /></S15Legal> : <S15Legal sections={sections} />}
 </BaseLayout>

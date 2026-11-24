@@ -1,9 +1,11 @@
 ---
 // S15 · Contenu légal · Figma 39:4073 · pas de CMS : une page Webflow par document et par langue
-// Sommaire sticky + texte riche. Contenu juridique en attente (fourni par Djouher, FR et UK).
+// Sommaire sticky + texte riche (Rich Text Webflow). Le contenu est passé en slot ; les titres h2 portent
+// les ancres section-1, section-2… reprises dans le sommaire. Sans contenu : texte d'attente.
 interface Props { sections: string[] }
 const { sections } = Astro.props;
-const placeholder = 'Contenu juridique en attente : fourni par Djouher (FR et UK). Page statique, modifiable dans l’éditeur Webflow.';
+const placeholder = 'Contenu juridique en attente : fourni par Winko. Page statique, modifiable dans l’éditeur Webflow.';
+const hasContent = Astro.slots.has('default');
 ---
 <!-- S15 · Contenu légal · Figma 39:4073 · pas de CMS : une page Webflow par document et par langue -->
 <section class="section_legal">
@@ -15,7 +17,7 @@ const placeholder = 'Contenu juridique en attente : fourni par Djouher (FR et UK
           {sections.map((s, i) => <a href={`#section-${i + 1}`}>{i + 1}. {s}</a>)}
         </nav>
         <div class="legal_rich-text">
-          {sections.map((s, i) => (
+          {hasContent ? <slot /> : sections.map((s, i) => (
             <Fragment>
               <h2 id={`section-${i + 1}`}>{i + 1}. {s}</h2>
               <p>{placeholder}</p>
