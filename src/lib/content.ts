@@ -11,7 +11,7 @@ const matchCible = (c: string, cible: Cible) => c === cible || c === 'les-deux';
  *  et sont reliées aux items Événements par multi-référence. */
 export async function faqFor(cible: Cible | 'accueil', secteur = 'retail', limit = 6) {
   const all = await getCollection('faq', ({ data }) =>
-    data.secteur.id === secteur &&
+    data.secteur.id === secteur && data.ordre < 10 &&
     (cible === 'accueil' ? data.afficherAccueil : matchCible(data.cible, cible)));
   return all.sort(byOrder).slice(0, limit);
 }

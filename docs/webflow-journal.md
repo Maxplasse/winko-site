@@ -94,3 +94,11 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - Mentions légales et Politique de confidentialité : textes fournis par Winko (Mentions légales V1, Privacy policy V1.1), transcrits à l'identique. Hébergeur remplacé : Webflow, Inc. (au lieu de Netlify).
 - Structure : sommaire `legal_toc` (liens #section-N) + bloc `legal_rich-text` (h2 avec id section-N, paragraphes, listes, tableau). Styles des listes / tableau / liens dans l'embed « Global styles ».
 - En attente : Politique cookies (document à venir), CGU / CGV (B2B / B2C, en cours avec la DPO).
+
+### Filtres et tris des Collection Lists (24/11)
+Les listes CMS n'avaient ni filtre ni tri : Webflow affichait les items les plus récents (ex. FAQ des LP événements sur Pro et Entreprises). Réglages posés (= filtres de `src/lib/content.ts`) :
+- FAQ Professionnels : Cible = Professionnels, Ordre < 10, tri Ordre croissant, 6 items. FAQ Entreprises : idem avec Cible = Entreprises.
+- Chiffres clés (Entreprises) : Cible ≠ Professionnels (= Entreprises ou Les deux), tri Ordre, 4 items.
+- Profils (Entreprises) : Consentement de diffusion = activé, tri Ordre, 4 items.
+- Logos (Accueil, Pro) : Accord de diffusion = activé, tri Ordre. Témoignages (Accueil, Pro) : tri Ordre. Les deux listes de chaque bandeau défilant (originale + copie aria-hidden) ont les mêmes réglages.
+- Règle : toute nouvelle Collection List doit reprendre le filtre et le tri documentés en tête du composant.
