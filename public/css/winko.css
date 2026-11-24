@@ -249,7 +249,7 @@ button { font: inherit; cursor: pointer; }
 .logos_component { display: flex; flex-direction: column; align-items: center; gap: 2.25rem; }
 .logos_marquee { width: 100%; height: 6rem; display: flex; align-items: center; }
 .logos_list { align-items: center; }
-.logos_logo { height: auto; margin-right: 5rem; flex: none; align-self: center; mix-blend-mode: multiply; opacity: 0.8; }
+.logos_logo { width: auto; height: auto; max-width: 9.5rem; max-height: 3.25rem; margin-right: 5rem; flex: none; align-self: center; mix-blend-mode: multiply; opacity: 0.8; }
 
 /* S02 · Aiguillage B2C / B2B */
 .switch_list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }

@@ -85,3 +85,7 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - La classe Webflow `app-modal` est en `display: none` : l'affichage à l'ouverture passe par `.app-modal.is-open { display: flex; }` dans l'embed « Global styles ». Sans cette règle, le script ajoute `is-open` mais rien ne s'affiche.
 - « Popup formulaire B2B » (ex « Popup formulaire ») : page Entreprises, ouverte par le widget sticky (le script relie `[data-sticky-widget] a` à la popup formulaire quand la page en contient une). Champs du formulaire Contact « Je cherche à recruter ». Combo `is-compact` sur `form-modal_dialog`.
 - Popup app : deux QR codes (iPhone → App Store, Android → Google Play).
+
+### Logos enseignes (24/11)
+- Fichiers exportés à 2× la taille d'affichage (PNG transparent, gris foncé). Taille plafonnée par la classe `logos_logo` : `width/height: auto`, `max-width: 9.5rem`, `max-height: 3.25rem` (`width` est un attribut réservé dans Webflow, impossible de le lier au champ « Largeur (px) »).
+- Pour un nouveau logo : exporter à environ 2× (≈ 300 px de large pour un logo horizontal, ≈ 104 px de haut pour un logo carré).
