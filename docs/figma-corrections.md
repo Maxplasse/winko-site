@@ -149,3 +149,10 @@ Voir § 1.2 (variante Professionnels, picto mobile) et § 1.3 (popup formulaire)
 - Liens LinkedIn / Facebook / Instagram du footer : URL à fournir.
 - Popup formulaire et formulaire Contact : messages de succès / erreur à rédiger, branchement HubSpot à confirmer.
 - Panneau 3D de l'accueil : repris de winko.io (vidéo 1920 × 1080) ; une version d'origine haute définition de l'agence serait idéale.
+
+## S28 · Avantages (Professionnels) : cartes allégées
+- Grille : espace entre cartes 32 px en largeur (au lieu de 24), 40 px entre les deux rangées (mobile : 20 px).
+- Carte : hauteur mini 296 px (au lieu de 356), marges intérieures 28 px partout (au lieu de 36/32).
+- Titre de carte : 36 px, interligne 105 % (au lieu de 44 px / 100 %) ; mobile 32 px.
+- Cadre téléphone translucide : retrait de 16 px de chaque côté (au lieu de 8), dépasse de 28 px sous la carte.
+- Écran blanc de l'app dans le cadre : hauteur mini 128 px (au lieu de 152), marges haut/bas 16 / 20 px.
