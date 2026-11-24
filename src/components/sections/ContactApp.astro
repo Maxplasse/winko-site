@@ -24,8 +24,11 @@ const {
             </div>
           </div>
           <div class="contact-app_qr">
-            <img src={url('/images/shared/qr-app.svg')} alt="QR code vers winko.io/app (lien provisoire)" class="contact-app_qr-image" width="160" height="160">
-            <p class="contact-app_qr-caption">Scannez ce QR code avec l’appareil photo de votre téléphone pour télécharger Winko.</p>
+            <div class="contact-app_qr-list">
+              <figure class="contact-app_qr-item"><img src={url('/images/shared/qr-app-store.svg')} alt="QR code vers l’app Winko sur l’App Store" class="contact-app_qr-image" width="104" height="104"><figcaption class="contact-app_qr-label">iPhone</figcaption></figure>
+              <figure class="contact-app_qr-item"><img src={url('/images/shared/qr-google-play.svg')} alt="QR code vers l’app Winko sur Google Play" class="contact-app_qr-image" width="104" height="104"><figcaption class="contact-app_qr-label">Android</figcaption></figure>
+            </div>
+            <p class="contact-app_qr-caption">Scannez le QR code de votre téléphone avec son appareil photo pour télécharger Winko.</p>
           </div>
         </div>
       </div>
