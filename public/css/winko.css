@@ -305,12 +305,9 @@ button { font: inherit; cursor: pointer; }
 .contact-app_qr-caption { font-size: 0.8125rem; line-height: 1.4; }
 
 /* ---------- 8. Footer ---------- */
-.footer_component { padding-top: 2rem; padding-bottom: 2.5rem; }
-.footer_panel {
-  display: flex; flex-direction: column; gap: 3rem;
-  padding: 3.5rem 3.5rem 2rem; border-radius: var(--radius-panel);
-  background-color: var(--accent-tint); color: var(--accent-default);
-}
+/* Bande bleu ciel pleine largeur (plus de panneau arrondi en retrait : la section précédente l'est déjà) */
+.section_footer { background-color: var(--accent-tint); color: var(--accent-default); }
+.footer_panel { display: flex; flex-direction: column; gap: 3rem; padding: 4rem 0 2rem; }
 .footer_top { display: grid; grid-template-columns: 1fr auto; gap: 3rem; } /* accroche à gauche, colonnes calées à droite */
 .footer_signature { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; max-width: 26rem; }
 .footer_tagline { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.05; }
@@ -335,7 +332,7 @@ button { font: inherit; cursor: pointer; }
   .footer_signature { max-width: none; }
 }
 @media screen and (max-width: 767px) {
-  .footer_panel { gap: 2rem; padding: 2rem 1.5rem 1.5rem; border-radius: var(--radius-card); }
+  .footer_panel { gap: 2rem; padding: 3rem 0 1.5rem; }
   .footer_tagline { font-size: 1.75rem; }
   .footer_columns { grid-template-columns: 1fr; gap: 1.75rem; }
   .footer_bottom { flex-direction: column; align-items: flex-start; }

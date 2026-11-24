@@ -18,11 +18,11 @@
 
 **Avant** : logo à part à gauche (grand carré), panneau bleu ciel à droite avec accroche, boutons, trois colonnes (pages, réseaux en texte, légal) et « © 2026 Winko. » / « All rights reserved. » dispersés.
 
-**Après** : un seul panneau qui contient tout.
+**Après** : une seule bande qui contient tout.
 
-- Panneau : fond `accent-tint`, texte `accent-default`, rayon `radius-panel` (40), padding 56 px (haut) / 56 (côtés) / 32 (bas), en retrait des bords de page (marge de page habituelle). Espace sous le panneau : 40 px.
+- **Bande pleine largeur** (bord à bord, sans arrondi ni retrait) : fond `accent-tint`, texte `accent-default`. Le contenu reste aligné sur la grille du site (marges de page habituelles), padding 64 px en haut / 32 px en bas. (Un panneau arrondi en retrait a été essayé puis abandonné : la section précédente, bandeau CTA ou CTA photo, est déjà un bloc arrondi en retrait.)
 - **Zone haute** (grille `1fr auto`, gouttière 48 px) :
-  1. **Gauche** : logo Winko **intégré dans le panneau**, taille moyenne (112 × 84 px, rayon 16, onglet « RETAIL » 9,6 px, wordmark 36 px) ; dessous l'accroche (Instrument Serif 36 px, interligne 1,05, largeur max 416 px) ; dessous les boutons (Télécharger l'app en primaire, Créer mon compte en secondaire contour, taille small). Espacement vertical 28 px. L'accroche et les boutons restent des propriétés (elles changent selon la page).
+  1. **Gauche** : logo Winko **intégré dans la bande**, taille moyenne (112 × 84 px, rayon 16, onglet « RETAIL » 9,6 px, wordmark 36 px) ; dessous l'accroche (Instrument Serif 36 px, interligne 1,05, largeur max 416 px) ; dessous les boutons (Télécharger l'app en primaire, Créer mon compte en secondaire contour, taille small). Espacement vertical 28 px. L'accroche et les boutons restent des propriétés (elles changent selon la page).
   2. **Droite, calées contre le bord droit** : trois colonnes, écart 72 px (réduit jusqu'à 32 px sur les écrans moyens), décalées de 56 px vers le bas (elles commencent un peu sous le haut du logo) :
      - *Accueil, Professionnels, Entreprises, Contact* ;
      - *Mentions légales, Politique de confidentialité, Politique cookies* ;
@@ -32,7 +32,7 @@
 - **Barre du bas** : filet 1 px `accent-subtle` au-dessus, padding haut 24 px. Gauche : « © 2026 Winko. All rights reserved. » (regular, opacité 60 %). Droite : « FR · UK » (semibold).
 - Les réseaux ne sont plus des liens texte.
 - **Tablette (< 992 px)** : tout empilé (accroche/boutons, puis liens sans décalage).
-- **Mobile (< 768 px)** : panneau padding 32/24/24, rayon `radius-card` ; accroche 28 px ; les trois colonnes s'empilent (pages, mentions légales, Nous suivre) ; barre du bas en colonne (copyright, puis FR · UK).
+- **Mobile (< 768 px)** : padding 48 px en haut / 24 px en bas ; accroche 28 px ; les trois colonnes s'empilent (pages, mentions légales, Nous suivre) ; barre du bas en colonne (copyright, puis FR · UK).
 
 ### 1.2 Widget sticky (Figma 24:751 Professionnels / 21:753 Entreprises) · version compacte
 
