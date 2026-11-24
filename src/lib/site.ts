@@ -20,3 +20,10 @@ export const LEGAL_DOCS = [
   { href: '/cookies', title: 'Politique cookies', short: 'Cookies' },
   { href: '/cgu', title: 'Conditions générales d’utilisation', short: 'CGU' },
 ];
+
+// Réseaux sociaux (footer, colonne « Nous suivre »).
+export const SOCIAL = {
+  linkedin: 'https://www.linkedin.com/company/winko-retail/',
+  facebook: 'https://www.facebook.com/p/Winko-61591815674630/',
+  instagram: 'https://www.instagram.com/winko_retail/',
+};
