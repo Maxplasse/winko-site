@@ -219,11 +219,7 @@ button { font: inherit; cursor: pointer; }
 .section_hero[data-hero-visual="panneau"] .button.is-white:hover { background-color: var(--accent-strong); border-color: var(--accent-strong); }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white { border-color: var(--border-inverse); color: var(--text-primary); }
 .section_hero[data-hero-visual="panneau"] .button.is-outline-white:hover { background-color: var(--text-primary); color: var(--text-inverse); }
-.section_hero[data-hero-visual="panneau"] .hero_component { padding-top: 2.5rem; padding-bottom: 0; gap: 1.5rem; }
-/* En-tête compacte pour voir le panneau sans scroller */
-.section_hero[data-hero-visual="panneau"] .hero_content { gap: 1rem; }
-.section_hero[data-hero-visual="panneau"] .heading-style-display-xl { font-size: clamp(2.75rem, 8vh, 4.5rem); } /* s'adapte à la hauteur d'écran */
-.section_hero[data-hero-visual="panneau"] .text-size-large { font-size: 1.125rem; }
+.section_hero[data-hero-visual="panneau"] .hero_component { padding-bottom: 0; }
 /* Zone « ralentie » : le panneau reste à l'écran pendant une demi-hauteur d'écran de scroll supplémentaire (sticky + espace après) */
 .section_hero[data-hero-visual="panneau"] .hero_component::after { content: ""; display: block; flex: none; height: 50vh; }
 .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { position: sticky; top: max(6rem, calc(50vh - 17.2rem)); width: 38rem; max-width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; overflow: visible; }
@@ -381,10 +377,6 @@ button { font: inherit; cursor: pointer; }
   .section_hero[data-hero-visual="fond"] .hero_component { min-height: 38rem; }
   .section_hero[data-hero-visual="fond"] .hero_image-wrapper { top: 1.25rem; bottom: 1.25rem; border-radius: var(--radius-card); } /* côtés = marge du header (--gutter) */
   .section_hero[data-hero-visual="fond"] .hero_content { padding: 3rem 1.25rem; }
-  .section_hero[data-hero-visual="panneau"] .hero_component { padding-top: 1.75rem; gap: 1rem; }
-  .section_hero[data-hero-visual="panneau"] .hero_content { gap: 0.75rem; }
-  .section_hero[data-hero-visual="panneau"] .heading-style-display-xl { font-size: 2.5rem; }
-  .section_hero[data-hero-visual="panneau"] .text-size-large { font-size: 1rem; }
   .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { top: max(5rem, calc(50vh - 10rem)); width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; }
   .contact-app_component { flex-direction: column; align-items: stretch; gap: 1.5rem; padding: 2rem 1.5rem; border-radius: var(--radius-card); }
   .contact-app_actions { display: flex; }
