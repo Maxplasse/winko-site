@@ -173,7 +173,8 @@ button { font: inherit; cursor: pointer; }
 .marquee_track { display: flex; width: max-content; }
 /* Animation lancée par le script (classe js-ready) : figée sans JS et dans le Designer Webflow. */
 .js-ready .marquee_track { animation: marquee var(--marquee-duration, 40s) linear infinite; }
-.marquee:hover .marquee_track { animation-play-state: paused; }
+/* Pause au survol uniquement sur les écrans à souris : sur mobile, le toucher bloquait le défilement */
+@media (hover: hover) { .marquee:hover .marquee_track { animation-play-state: paused; } }
 /* Listes CMS dans un bandeau (Webflow : Collection List wrapper, list et item) */
 .marquee_list { display: flex; flex: none; }
 .marquee_item { display: flex; flex: none; }
@@ -996,7 +997,10 @@ textarea.form-modal_input { min-height: 7rem; resize: vertical; }
   /* Bandeaux défilants */
   .logos_component { gap: 1.5rem; }
   .logos_marquee { height: 4rem; }
-  .logos_list { zoom: 0.7; }
+  /* Bandeaux défilants : logos plus petits et plus serrés (sans zoom, mal géré par Safari iOS), défilement plus rapide */
+  .logos_logo { max-width: 6.5rem; max-height: 2.25rem; margin-right: 2.5rem; }
+  .logos_list { --marquee-duration: 18s; }
+  .testimonials_list { --marquee-duration: 35s; }
   .marquee_fade { width: 2.5rem; }
   .testimonials_quote { font-size: 1.25rem; }
   /* Cartes : pas de hauteur imposée */
