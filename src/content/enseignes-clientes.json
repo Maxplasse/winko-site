@@ -1,10 +1,10 @@
 [
   { "id": "carel", "nom": "Carel", "logo": "/images/shared/logo-carel.png", "largeur": 92, "hauteur": 46, "accordDiffusion": true, "secteur": "retail", "ordre": 1 },
-  { "id": "mellow-yellow", "nom": "Mellow Yellow", "logo": "/images/shared/logo-mellow-yellow.svg", "largeur": 150, "hauteur": 20, "accordDiffusion": true, "secteur": "retail", "ordre": 2 },
-  { "id": "seagale", "nom": "Seagale", "logo": "/images/shared/logo-seagale.png", "largeur": 69, "hauteur": 47, "accordDiffusion": true, "secteur": "retail", "ordre": 3 },
-  { "id": "le-tanneur", "nom": "Le Tanneur", "logo": "/images/shared/logo-le-tanneur.png", "largeur": 136, "hauteur": 31, "accordDiffusion": true, "secteur": "retail", "ordre": 4 },
+  { "id": "mellow-yellow", "nom": "Mellow Yellow", "logo": "/images/shared/logo-mellow-yellow.png", "largeur": 161, "hauteur": 22, "accordDiffusion": true, "secteur": "retail", "ordre": 2 },
+  { "id": "seagale", "nom": "Seagale", "logo": "/images/shared/logo-seagale.png", "largeur": 96, "hauteur": 48, "accordDiffusion": true, "secteur": "retail", "ordre": 3 },
+  { "id": "le-tanneur", "nom": "Le Tanneur", "logo": "/images/shared/logo-le-tanneur.png", "largeur": 150, "hauteur": 34, "accordDiffusion": true, "secteur": "retail", "ordre": 4 },
   { "id": "cyrillus", "nom": "Cyrillus", "logo": "/images/shared/logo-cyrillus.png", "largeur": 130, "hauteur": 32, "accordDiffusion": true, "secteur": "retail", "ordre": 5 },
-  { "id": "sud-express", "nom": "Sud Express", "logo": "/images/shared/logo-sud-express.png", "largeur": 95, "hauteur": 44, "accordDiffusion": true, "secteur": "retail", "ordre": 6 },
-  { "id": "rsvp-paris", "nom": "RSVP Paris", "logo": "/images/shared/logo-rsvp-paris.png", "largeur": 56, "hauteur": 52, "accordDiffusion": true, "secteur": "retail", "ordre": 7 },
+  { "id": "sud-express", "nom": "Sud Express", "logo": "/images/shared/logo-sud-express.png", "largeur": 93, "hauteur": 44, "accordDiffusion": true, "secteur": "retail", "ordre": 6 },
+  { "id": "rsvp-paris", "nom": "RSVP Paris", "logo": "/images/shared/logo-rsvp-paris.png", "largeur": 36, "hauteur": 52, "accordDiffusion": true, "secteur": "retail", "ordre": 7 },
   { "id": "pied-de-biche", "nom": "Pied de Biche", "logo": "/images/shared/logo-pied-de-biche.png", "largeur": 81, "hauteur": 52, "accordDiffusion": true, "secteur": "retail", "ordre": 8 }
 ]

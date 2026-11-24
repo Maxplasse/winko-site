@@ -61,7 +61,7 @@ Ouverte par le widget sticky de Professionnels. Reprendre l'UI suivante (desktop
 
 ### 1.4 Logo Mellow Yellow
 
-Remplacer le logo actuel (empilé, mal recadré) par le **logo officiel horizontal** « my mellow yellow » (SVG : `https://www.mellowyellow.com/static/version1794836332/frontend/MellowYellow/base/fr_FR/images/MY_logo.svg`, copie dans le dépôt `public/images/shared/logo-mellow-yellow.svg`). Largeur d'affichage dans le bandeau : 150 px (≈ 20 px de haut). À reporter dans S26 (bandeau logos) et dans la collection « Enseignes clientes » (page CMS 80:5, champ Logo, Largeur 150).
+Logos fournis par Winko (24/11) : Mellow Yellow, Seagale, Le Tanneur, Sud Express, RSVP Paris, recadrés et passés en PNG transparent gris foncé (`public/images/shared/logo-*.png`). Tailles d'affichage : collection « Enseignes clientes » (largeur × hauteur).
 
 ### 1.5 S26 · Bandeau logos « Ils nous font confiance » · hauteur réduite
 
