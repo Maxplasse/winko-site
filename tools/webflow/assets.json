@@ -111,10 +111,6 @@
   "id": "6afe915654692278fb438ecc",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe915654692278fb438ecc_picto-specialisation.svg"
  },
- "./shared/qr-app.svg": {
-  "id": "6afe915621410d3d91f6e272",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe915621410d3d91f6e272_qr-app.svg"
- },
  "./home/panneau-poster.webp": {
   "id": "6b04b836073f91ca2a06b730",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b836073f91ca2a06b730_panneau-poster-native.webp"
@@ -130,5 +126,13 @@
  "./shared/visuel-app.webp": {
   "id": "6b054f1cd5cb197a37508162",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b054f1cd5cb197a37508162_visuel-app.webp"
+ },
+ "./shared/qr-app-store.svg": {
+  "id": "6b05590a4f8f5dde3a04be69",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b05590a4f8f5dde3a04be69_qr-app-store.svg"
+ },
+ "./shared/qr-google-play.svg": {
+  "id": "6b05590aff34365191ab42f8",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b05590aff34365191ab42f8_qr-google-play.svg"
  }
 }
