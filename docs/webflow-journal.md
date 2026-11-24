@@ -75,7 +75,7 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - Liaison d'une propriété : `get_settings` (clé `text`, `link`, `assetId`, `altText`, `visibility`) puis `set_settings` avec `binding: {source_type: "prop"}` et `scope_component_id`.
 - Zéros sans unité (`margin: 0`) et `clip-path` font échouer l'import : `section.py` ajoute `px` et retire `clip-path` (mis dans Global styles).
 - Ombres : pas de variable possible, valeurs littérales. Une ombre `inset` s'est mal rendue : préférer une bordure.
-- Tout lien vers `https://winko.io/app` ouvre la popup QR (desktop) ou le store (mobile) : le script le détecte, pas besoin d'attribut.
+- Tout lien vers l'App Store Winko (`https://apps.apple.com/fr/app/id6785553304`, lien de repli des boutons « Télécharger l'app ») ouvre la popup QR codes iPhone / Android (desktop) ou mène au bon store (mobile) : le script le détecte, pas besoin d'attribut. Les anciens liens `winko.io/app` (page inexistante) sont redirigés vers l'App Store par le script.
 - Les variantes de Component se choisissent via la propriété « Variant » de l'instance (valeur = id de variante).
 - Collection List : `source` = `static_json` `{"collectionId": …}` ; `limit` en `static_number`. Les `filters` / `sort` non vides (format `[{"fieldSlug","operator":"equals","value"}]`, `[{"fieldSlug","direction":"ascending"}]`) passent la validation mais le serveur répond « [Conflict] … component map » : les régler dans le Designer.
 - Opérateurs de filtre : option → equals / doesNotEqual / isSet / isNotSet ; switch → isOn / isOff.
