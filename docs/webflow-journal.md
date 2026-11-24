@@ -89,3 +89,8 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 ### Logos enseignes (24/11)
 - Fichiers exportés à 2× la taille d'affichage (PNG transparent, gris foncé). Taille plafonnée par la classe `logos_logo` : `width/height: auto`, `max-width: 9.5rem`, `max-height: 3.25rem` (`width` est un attribut réservé dans Webflow, impossible de le lier au champ « Largeur (px) »).
 - Pour un nouveau logo : exporter à environ 2× (≈ 300 px de large pour un logo horizontal, ≈ 104 px de haut pour un logo carré).
+
+### Pages légales (24/11)
+- Mentions légales et Politique de confidentialité : textes fournis par Winko (Mentions légales V1, Privacy policy V1.1), transcrits à l'identique. Hébergeur remplacé : Webflow, Inc. (au lieu de Netlify).
+- Structure : sommaire `legal_toc` (liens #section-N) + bloc `legal_rich-text` (h2 avec id section-N, paragraphes, listes, tableau). Styles des listes / tableau / liens dans l'embed « Global styles ».
+- En attente : Politique cookies (document à venir), CGU / CGV (B2B / B2C, en cours avec la DPO).
