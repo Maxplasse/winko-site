@@ -80,3 +80,8 @@ Site Webflow : **WINKO** (`6afe8d84d7b588aa38a8fff7`). Page Home : `6afe8d85d7b5
 - Collection List : `source` = `static_json` `{"collectionId": …}` ; `limit` en `static_number`. Les `filters` / `sort` non vides (format `[{"fieldSlug","operator":"equals","value"}]`, `[{"fieldSlug","direction":"ascending"}]`) passent la validation mais le serveur répond « [Conflict] … component map » : les régler dans le Designer.
 - Opérateurs de filtre : option → equals / doesNotEqual / isSet / isNotSet ; switch → isOn / isOff.
 - Une image passée par URL à un item CMS est re-téléversée (nouvel asset) : prévoir le ménage des doublons dans Assets.
+
+### Popups (24/11)
+- La classe Webflow `app-modal` est en `display: none` : l'affichage à l'ouverture passe par `.app-modal.is-open { display: flex; }` dans l'embed « Global styles ». Sans cette règle, le script ajoute `is-open` mais rien ne s'affiche.
+- « Popup formulaire B2B » (ex « Popup formulaire ») : page Entreprises, ouverte par le widget sticky (le script relie `[data-sticky-widget] a` à la popup formulaire quand la page en contient une). Champs du formulaire Contact « Je cherche à recruter ». Combo `is-compact` sur `form-modal_dialog`.
+- Popup app : deux QR codes (iPhone → App Store, Android → Google Play).
