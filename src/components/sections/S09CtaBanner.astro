@@ -1,6 +1,6 @@
 ---
 // S09 · Bandeau CTA · Figma 39:3324
-// Variantes : B2C (fond accent + téléphone qui dépasse du bas du bandeau) et B2B (« is-dark » + photo).
+// Variantes : B2C (fond accent + visuel app) et B2B (« is-dark » + photo).
 import { url } from '../../lib/url';
 interface Props {
   title: string;
@@ -12,7 +12,7 @@ const {
   title,
   text,
   variant = 'b2c',
-  image = { src: '/images/shared/visuel-app-iphone.webp', alt: 'Aperçu de l’app Winko : liste des missions disponibles', width: 604, height: 804 },
+  image = { src: '/images/shared/visuel-app.webp', alt: 'Aperçu de l’app Winko : liste des missions disponibles', width: 936, height: 589 },
 } = Astro.props;
 const dark = variant === 'b2b';
 ---

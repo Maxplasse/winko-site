@@ -5,7 +5,7 @@
 | Fichier | Source Figma | État |
 |---|---|---|
 | public/images/home/hero-photo.jpg | S01 · Photo plein cadre (299:498) / Médiathèque 133:6735 | 1x, rognée depuis un rendu |
-| public/images/shared/visuel-app.png | S09 · Visuel app (490:2487) | 1x |
+| public/images/shared/visuel-app.webp | S09 · Visuel app (490:2487) : pastille + iPhone storyblok 644x959 | 1,8x (fait) |
 | public/images/shared/detoure-anna.png | Hero Entreprises (39:3060), CTA Professionnels, hero LP Noël | 1x (460×620) |
 | public/images/shared/objet-signature.png | Médiathèque « Image3 » (27:502) : étape 03, 404 | 1x (893×810) |
 | public/images/professionnels/etape-compte.png | Médiathèque « Visuel13 détouré » (27:510) : étape 01, hero LP Black Friday, formulaire LP Noël | 1x (291×435), **trop petit pour le hero LP** |
