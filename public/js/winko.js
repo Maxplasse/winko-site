@@ -51,7 +51,10 @@
         show(key, true);
       });
     });
-    show(location.hash.slice(1), false);
+    // Sur mobile, le choix s'affiche en onglets : le premier (« Je cherche une mission ») est ouvert par défaut.
+    var initial = location.hash.slice(1);
+    if (!initial && isMobile() && options[0]) initial = options[0].getAttribute('data-contact-option');
+    show(initial, false);
     window.addEventListener('hashchange', function () { show(location.hash.slice(1), true); });
   }
 
