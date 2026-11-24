@@ -197,6 +197,7 @@ button { font: inherit; cursor: pointer; }
 .navbar_locale a:hover { color: var(--text-primary); }
 .navbar_menu-button { display: none; }
 .navbar_locale.is-menu { display: none; }
+.navbar_menu-cta { display: none; }
 
 /* ---------- 7. Sections de l'accueil ---------- */
 /* S01 · Hero photo */
@@ -974,6 +975,9 @@ textarea.form-modal_input { min-height: 7rem; resize: vertical; }
   .navbar_container { padding-top: 0.875rem; padding-bottom: 0.875rem; }
   .navbar_actions { gap: 0.5rem; }
   .navbar_locale { display: none; }
+  .navbar_actions .button { display: none; }
+  .navbar_component.is-open .navbar_menu-cta { display: flex; flex-direction: column; margin-top: 0.75rem; }
+  .navbar_menu-cta .button { justify-content: center; }
   .navbar_component.is-open .navbar_locale.is-menu {
     display: flex; gap: 0.5rem; margin-top: 0.75rem; padding: 1rem 0.75rem 0;
     border-top: 1px solid var(--border-default); font-size: 1rem;
