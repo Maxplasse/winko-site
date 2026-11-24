@@ -55,6 +55,27 @@
     window.addEventListener('hashchange', function () { show(location.hash.slice(1), true); });
   }
 
+  // Pages légales : liens du sommaire. Webflow intercepte les ancres et ignore scroll-margin-top (le titre
+  // passait sous le header sticky) : on fait défiler nous-mêmes, en respectant la marge définie en CSS.
+  var scrollToAnchor = function (id, smooth) {
+    var target = id && document.getElementById(id);
+    if (!target) return false;
+    target.scrollIntoView({ behavior: smooth && !reduceMotion ? 'smooth' : 'auto', block: 'start' });
+    return true;
+  };
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('.legal_toc a[href^="#"]');
+    if (!link) return;
+    var id = link.getAttribute('href').slice(1);
+    if (!scrollToAnchor(id, true)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    history.replaceState(null, '', '#' + id);
+  }, true);
+  if (document.querySelector('.legal_toc') && location.hash) {
+    window.addEventListener('load', function () { setTimeout(function () { scrollToAnchor(location.hash.slice(1), false); }, 50); });
+  }
+
   // Menu mobile (en Webflow : composant Navbar natif).
   var navbar = document.querySelector('[data-navbar]');
   var toggle = document.querySelector('[data-navbar-toggle]');
