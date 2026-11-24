@@ -87,6 +87,7 @@ La collection **« Verticales » s'appelle désormais « Secteurs »** (champ de
 - Fond de section `accent-tint` (bleu très clair).
 - Surtitre « Winko Retail » : fond `accent-subtle`, texte `accent-strong`.
 - Titre « La bonne mission. Le bon renfort. » et texte en `text-primary`.
+- **En-tête compacte** pour que le panneau « Vente » soit visible sans scroller : titre **72 px** (au lieu de 120, réduit jusqu'à 44 px sur les écrans peu hauts), texte 18 px, marge haute 40 px, espacements de 16 px entre surtitre, titre, texte et boutons, 24 px entre les boutons et le panneau. Mobile : titre 40 px, texte 16 px, marge haute 28 px, espacements 12 px.
 - Boutons : « Je cherche une mission » en **primaire bleu** (`accent-default`, texte blanc) ; « Je cherche du renfort » en **secondaire** (contour `border-inverse`, texte `text-primary`).
 - Sous le texte, le **panneau de signalisation 3D** de winko.io (mât, panneaux bleus « Vente », panneau blanc « Trouver une mission. », cartes photos métiers autour) : largeur 608 px, ratio 1192 × 1080, centré, collé au bas de la section, **fondu sur les 12 % du bas** (le mât disparaît en douceur). Le hero n'a plus de marge basse sous le visuel. Image de référence : `public/images/home/panneau-poster.webp` (première image), animation : `public/videos/panneau-scroll.mp4`.
 - **Mobile** : panneau en pleine largeur, mêmes couleurs ; boutons empilés pleine largeur alignés à gauche.
