@@ -115,10 +115,6 @@
   "id": "6afe915621410d3d91f6e272",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe915621410d3d91f6e272_qr-app.svg"
  },
- "./shared/visuel-app.png": {
-  "id": "6afe91572f42630b2ca33c28",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6afe91572f42630b2ca33c28_visuel-app.png"
- },
  "./home/panneau-poster.webp": {
   "id": "6b04b836073f91ca2a06b730",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b836073f91ca2a06b730_panneau-poster-native.webp"
@@ -131,8 +127,8 @@
   "id": "6b04b836073f91ca2a06b708",
   "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b04b836073f91ca2a06b708_panneau-scroll.mp4"
  },
- "./shared/visuel-app-iphone.webp": {
-  "id": "6b054d589b9f883b4865199a",
-  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b054d589b9f883b4865199a_visuel-app-iphone.webp"
+ "./shared/visuel-app.webp": {
+  "id": "6b054f1cd5cb197a37508162",
+  "url": "https://cdn.prod.website-files.com/6afe8d84d7b588aa38a8fff7/6b054f1cd5cb197a37508162_visuel-app.webp"
  }
 }
