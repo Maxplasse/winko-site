@@ -10,6 +10,16 @@
 
   var isMobile = function () { return window.matchMedia('(max-width: 767px)').matches; };
 
+  // Menu mobile : recopie le CTA affiché dans le header (selon la page) dans le menu burger.
+  var menuCta = document.querySelector('.navbar_menu-cta');
+  if (menuCta && !menuCta.children.length) {
+    document.querySelectorAll('.navbar_actions a.button').forEach(function (b) {
+      var copy = b.cloneNode(true);
+      copy.classList.remove('is-small');
+      menuCta.appendChild(copy);
+    });
+  }
+
   // Lien intelligent « Télécharger l'app » : sur mobile, mène directement au bon store
   // (data-ios-url / data-android-url) ; sinon au lien de repli (href).
   var ua = navigator.userAgent || '';
@@ -85,6 +95,9 @@
   if (navbar && toggle) {
     toggle.addEventListener('click', function () {
       var open = navbar.classList.toggle('is-open');
+      // Icône : burger fermé, croix ouvert.
+      var icon = toggle.querySelector('path');
+      if (icon) icon.setAttribute('d', open ? 'M6 6l12 12M18 6L6 18' : 'M3 7h18M3 12h18M3 17h18');
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
     });

@@ -18,8 +18,8 @@ const { active, action } = Astro.props;
           {NAV.map((l) => (
             <a href={url(l.href)} class="navbar_link" aria-current={l.label === active ? 'page' : undefined}>{l.label}</a>
           ))}
-          {/* CTA du menu mobile : sur mobile, le bouton passe du header au menu burger */}
-          {action && <div class="navbar_menu-cta"><CtaButton action={action} /></div>}
+          {/* CTA du menu mobile : le script y recopie le CTA du header (aucun sur l'accueil, celui de la page ailleurs) */}
+          <div class="navbar_menu-cta"></div>
           {/* Sélecteur de langue du menu mobile (masqué sur desktop, où il est dans navbar_actions) */}
           <div class="navbar_locale is-menu"><a href={url('/')} aria-current="true" lang="fr">FR</a> · <a href="#" lang="en">UK</a></div>
         </div>
