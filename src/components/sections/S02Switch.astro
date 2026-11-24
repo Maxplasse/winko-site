@@ -1,8 +1,10 @@
 ---
 // S02 · Aiguillage B2C / B2B · Figma 39:3094 (Accueil)
 // Accroches issues de la collection Secteurs (accroche professionnels / entreprises).
+// « Trouver une mission » = téléchargement de l'app (popup QR codes sur desktop, store sur mobile).
 import { getEntry } from 'astro:content';
 import { url } from '../../lib/url';
+import CtaButton from '../global/CtaButton.astro';
 const v = (await getEntry('secteurs', 'retail'))!.data;
 ---
 <!-- S02 · Aiguillage B2C / B2B · Figma 39:3094 (Accueil) -->
@@ -15,7 +17,7 @@ const v = (await getEntry('secteurs', 'retail'))!.data;
             <p class="text-style-overline">Professionnels</p>
             <h2 class="heading-style-h2">{v.accrocheProfessionnels}</h2>
             <p class="text-size-large">Choisissez vos créneaux, validez vos compétences, soyez payé vite.</p>
-            <a href={url(`${v.prefixeUrl}/professionnels`)} class="button">Trouver une mission</a>
+            <CtaButton action="app" label="Trouver une mission" />
           </div>
           <div class="switch_card is-dark">
             <p class="text-style-overline">Entreprises</p>

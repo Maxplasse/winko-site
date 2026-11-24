@@ -8,6 +8,7 @@ import S02Switch from '../components/sections/S02Switch.astro';
 import S27Testimonials from '../components/sections/S27Testimonials.astro';
 import S09CtaBanner from '../components/sections/S09CtaBanner.astro';
 import { url } from '../lib/url';
+import CtaButton from '../components/global/CtaButton.astro';
 ---
 <BaseLayout
   title="Winko Retail · La bonne mission. Le bon renfort."
@@ -45,7 +46,7 @@ import { url } from '../lib/url';
 
   <!-- S09 · Bandeau CTA · Figma 39:3324 -->
   <S09CtaBanner title="Une mission à pourvoir ? Un créneau à prendre ?" text="Deux minutes suffisent pour commencer.">
-    <a href={url('/retail/professionnels')} class="button is-white">Trouver une mission</a>
+    <CtaButton action="app" variant="is-white" label="Trouver une mission" />
     <a href={url('/retail/entreprises')} class="button is-outline-white">Trouver du renfort</a>
   </S09CtaBanner>
 </BaseLayout>
