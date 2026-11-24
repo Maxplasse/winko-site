@@ -140,7 +140,8 @@
     modal.querySelectorAll('[data-modal-close], [data-app-modal-close]').forEach(function (btn) { btn.addEventListener('click', close); });
   };
   setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"], a[href*="apps.apple.com/fr/app/id6785553304"]', true);
-  setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open]', false);
+  // Le widget sticky ouvre la popup formulaire quand la page en contient une (Entreprises), comme dans Webflow.
+  setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open], [data-sticky-widget] a', false);
 
   // Vidéo pilotée par le scroll (panneau 3D du hero d'accueil, effet repris de winko.io).
   // L'image (affiche) porte data-sequence-video : URL d'un MP4 sur fond blanc, à images clés rapprochées.

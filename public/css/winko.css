@@ -786,6 +786,9 @@ textarea.form-modal_input { min-height: 7rem; resize: vertical; }
   .form-modal_input { padding: 1.1rem 1.25rem; font-size: 1rem; }
   .form-modal_check { font-size: 0.9375rem; }
   .form-modal_submit { margin: 1rem -0.75rem 0; padding: 1.25rem; }
+  .form-modal_dialog.is-compact .form-modal_form { padding: 1.5rem 1.25rem 0.5rem; }
+  .form-modal_dialog.is-compact .form-modal_title { font-size: 1.75rem; }
+  .form-modal_dialog.is-compact .form-modal_submit { margin: 0.75rem -0.75rem 0; }
 }
 
 @media screen and (max-width: 767px) {
