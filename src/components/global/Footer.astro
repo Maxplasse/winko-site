@@ -41,6 +41,10 @@ const cur = (l: string) => (l === current ? 'page' : undefined);
                 {buttons.map((b, i) => <CtaButton action={b} variant={i > 0 ? 'is-secondary is-small' : 'is-small'} />)}
               </div>
             </div>
+            <div class="footer_qr" aria-hidden="true">
+              <img src={url('/images/shared/qr-app.svg')} alt="" class="footer_qr-image" width="120" height="120" loading="lazy">
+              <p class="footer_qr-caption">Scannez ce QR code avec l’appareil photo de votre téléphone pour télécharger Winko.</p>
+            </div>
             <div class="footer_columns">
               <nav class="footer_column" aria-label="Pied de page">
                 {nav.map((l) => <a href={url(l.href)} class="footer_link" aria-current={cur(l.label)}>{l.label}</a>)}
