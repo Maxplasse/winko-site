@@ -16,5 +16,5 @@
 | public/images/shared/logo-*.png (8) | S26 Logos enseignes (497:494 → 497:501) | 1x, rognés : **à remplacer par les logos fournis par le client** |
 | public/images/shared/avatar-1.png, avatar-2.png | S27 (503:538, 503:556) | 1x ; avatar-3 (503:574) manquant |
 | public/images/shared/picto-*.svg (7) | Phosphor Light : lightning, target, shield-check, calendar-check, storefront, handshake, clock | OK, SVG d'origine (@phosphor-icons/core) |
-| public/images/shared/qr-app.svg | QR vers https://winko.io/app | Généré, lien provisoire à confirmer |
+| public/images/shared/qr-app-store.svg, qr-google-play.svg | QR vers l'App Store et Google Play | Générés |
 | Logo Winko | Placeholder HTML/CSS | Remplacer par `logo-winko-blue.svg` officiel |

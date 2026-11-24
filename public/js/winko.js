@@ -15,7 +15,7 @@
   var ua = navigator.userAgent || '';
   var platform = /iPhone|iPad|iPod/i.test(ua) ? 'ios' : /Android/i.test(ua) ? 'android' : null;
   if (platform) {
-    document.querySelectorAll('[data-app-link], a[href*="winko.io/app"]').forEach(function (link) {
+    document.querySelectorAll('[data-app-link], a[href*="winko.io/app"], a[href*="apps.apple.com/fr/app/id6785553304"]').forEach(function (link) {
       var store = link.getAttribute('data-' + platform + '-url');
       if (store) link.setAttribute('href', store);
     });
@@ -139,7 +139,7 @@
     document.querySelectorAll(triggers).forEach(function (btn) { btn.addEventListener('click', open); });
     modal.querySelectorAll('[data-modal-close], [data-app-modal-close]').forEach(function (btn) { btn.addEventListener('click', close); });
   };
-  setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"]', true);
+  setupModal(document.querySelector('[data-app-modal]'), '[data-app-modal-open], a[href*="winko.io/app"], a[href*="apps.apple.com/fr/app/id6785553304"]', true);
   setupModal(document.querySelector('[data-form-modal]'), '[data-form-modal-open]', false);
 
   // Vidéo pilotée par le scroll (panneau 3D du hero d'accueil, effet repris de winko.io).
