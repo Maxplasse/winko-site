@@ -311,11 +311,11 @@ button { font: inherit; cursor: pointer; }
   padding: 3.5rem 3.5rem 2rem; border-radius: var(--radius-panel);
   background-color: var(--accent-tint); color: var(--accent-default);
 }
-.footer_top { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; } /* accroche à gauche, liens sur la moitié droite */
+.footer_top { display: grid; grid-template-columns: 1fr auto; gap: 3rem; } /* accroche à gauche, colonnes calées à droite */
 .footer_signature { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; max-width: 26rem; }
 .footer_tagline { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.05; }
-.footer_columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-top: 3.5rem; } /* liens un peu plus bas que le logo */
-.footer_bottom-end { display: flex; align-items: center; gap: 1.5rem; }
+.footer_columns { display: grid; grid-template-columns: repeat(3, auto); gap: clamp(2rem, 4vw, 4.5rem); padding-top: 3.5rem; } /* pages | légal | nous suivre, un peu plus bas que le logo */
+.footer_column-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
 .footer_social { display: flex; gap: 0.5rem; }
 .footer_social-link { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-full); background-color: var(--bg-surface); color: var(--accent-default); transition: background-color 150ms ease, color 150ms ease; }
 .footer_social-link:hover { background-color: var(--accent-default); color: var(--text-inverse); }
@@ -337,8 +337,7 @@ button { font: inherit; cursor: pointer; }
 @media screen and (max-width: 767px) {
   .footer_panel { gap: 2rem; padding: 2rem 1.5rem 1.5rem; border-radius: var(--radius-card); }
   .footer_tagline { font-size: 1.75rem; }
-  .footer_columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem 1rem; }
-  .footer_column:last-child { grid-column: 1 / -1; }
+  .footer_columns { grid-template-columns: 1fr; gap: 1.75rem; }
   .footer_bottom { flex-direction: column; align-items: flex-start; }
 }
 /* Tablette (Webflow : 991px) */

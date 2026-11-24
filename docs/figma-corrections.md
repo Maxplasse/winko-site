@@ -21,16 +21,18 @@
 **Après** : un seul panneau qui contient tout.
 
 - Panneau : fond `accent-tint`, texte `accent-default`, rayon `radius-panel` (40), padding 56 px (haut) / 56 (côtés) / 32 (bas), en retrait des bords de page (marge de page habituelle). Espace sous le panneau : 40 px.
-- **Zone haute, 2 moitiés égales** (grille `1fr 1fr`, gouttière 48 px) :
-  1. **Moitié gauche** : logo Winko **intégré dans le panneau**, taille moyenne (112 × 84 px, rayon 16, onglet « RETAIL » 9,6 px, wordmark 36 px) ; dessous l'accroche (Instrument Serif 36 px, interligne 1,05, largeur max 416 px) ; dessous les boutons (Télécharger l'app en primaire, Créer mon compte en secondaire contour, taille small). Espacement vertical 28 px. L'accroche et les boutons restent des propriétés (elles changent selon la page).
-  2. **Moitié droite** : deux colonnes de liens réparties à parts égales (écart 32 px), décalées de 56 px vers le bas (elles commencent un peu sous le haut du logo) : *Accueil, Professionnels, Entreprises, Contact* · *Mentions légales, Politique de confidentialité, Politique cookies*. DM Sans 16 px semibold, interligne 1, écart 16 px.
+- **Zone haute** (grille `1fr auto`, gouttière 48 px) :
+  1. **Gauche** : logo Winko **intégré dans le panneau**, taille moyenne (112 × 84 px, rayon 16, onglet « RETAIL » 9,6 px, wordmark 36 px) ; dessous l'accroche (Instrument Serif 36 px, interligne 1,05, largeur max 416 px) ; dessous les boutons (Télécharger l'app en primaire, Créer mon compte en secondaire contour, taille small). Espacement vertical 28 px. L'accroche et les boutons restent des propriétés (elles changent selon la page).
+  2. **Droite, calées contre le bord droit** : trois colonnes, écart 72 px (réduit jusqu'à 32 px sur les écrans moyens), décalées de 56 px vers le bas (elles commencent un peu sous le haut du logo) :
+     - *Accueil, Professionnels, Entreprises, Contact* ;
+     - *Mentions légales, Politique de confidentialité, Politique cookies* ;
+     - **« Nous suivre »** : petit titre (12 px, semibold, capitales, interlettrage 8 %, opacité 60 %), puis les pictos réseaux LinkedIn, Facebook, Instagram (Phosphor Light `linkedin-logo`, `facebook-logo`, `instagram-logo`, 22 px, `accent-default`) dans des pastilles rondes blanches de 40 px, écart 8 px ; survol : pastille `accent-default`, picto blanc.
+     - Liens : DM Sans 16 px semibold, interligne 1, écart 16 px.
   - **Pas de QR code dans le footer** (essayé puis retiré).
-- **Barre du bas** : filet 1 px `accent-subtle` au-dessus, padding haut 24 px.
-  - Gauche : « © 2026 Winko. All rights reserved. » (regular, opacité 60 %).
-  - Droite : **pictos réseaux** LinkedIn, Facebook, Instagram (Phosphor Light `linkedin-logo`, `facebook-logo`, `instagram-logo`, 22 px, couleur `accent-default`) dans des pastilles rondes blanches de 40 px, écart 8 px ; état survol : pastille `accent-default`, picto blanc. Puis « FR · UK » (semibold), écart 24 px.
-- Les réseaux ne sont plus des liens texte et ne sont plus dans une colonne.
+- **Barre du bas** : filet 1 px `accent-subtle` au-dessus, padding haut 24 px. Gauche : « © 2026 Winko. All rights reserved. » (regular, opacité 60 %). Droite : « FR · UK » (semibold).
+- Les réseaux ne sont plus des liens texte.
 - **Tablette (< 992 px)** : tout empilé (accroche/boutons, puis liens sans décalage).
-- **Mobile (< 768 px)** : panneau padding 32/24/24, rayon `radius-card` ; accroche 28 px ; liens des pages, puis les mentions légales en dessous (les deux colonnes s'empilent) ; barre du bas en colonne (copyright, puis pictos + FR · UK).
+- **Mobile (< 768 px)** : panneau padding 32/24/24, rayon `radius-card` ; accroche 28 px ; les trois colonnes s'empilent (pages, mentions légales, Nous suivre) ; barre du bas en colonne (copyright, puis FR · UK).
 
 ### 1.2 Widget sticky (Figma 24:751 Professionnels / 21:753 Entreprises) · version compacte
 
