@@ -204,10 +204,10 @@ button { font: inherit; cursor: pointer; }
 .hero_image-wrapper { width: 100%; aspect-ratio: 1312 / 600; border-radius: var(--radius-card); overflow: hidden; }
 .hero_image { width: 100%; height: 100%; object-fit: cover; }
 /* Visuel en fond (propriété « Visuel : fond ou dessous » du Component S01 → attribut data-hero-visual) :
-   la photo devient un panneau arrondi sur le fond accent (retrait de 40 px), sous un voile neutre (jamais de dégradé). */
+   la photo devient un panneau arrondi sur le fond accent, aligné sur la marge du header (--gutter, grille 82rem), sous un voile neutre (jamais de dégradé). */
 .section_hero { position: relative; overflow: hidden; }
 .section_hero[data-hero-visual="fond"] .hero_component { min-height: 44rem; justify-content: center; }
-.section_hero[data-hero-visual="fond"] .hero_image-wrapper { position: absolute; top: 2.5rem; right: 2.5rem; bottom: 2.5rem; left: 2.5rem; width: auto; aspect-ratio: auto; border-radius: var(--radius-panel); }
+.section_hero[data-hero-visual="fond"] .hero_image-wrapper { position: absolute; top: 2.5rem; bottom: 2.5rem; left: max(var(--gutter), calc((100% - var(--container-large)) / 2)); right: max(var(--gutter), calc((100% - var(--container-large)) / 2)); width: auto; aspect-ratio: auto; border-radius: var(--radius-panel); }
 .section_hero[data-hero-visual="fond"] .hero_image-wrapper::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(33, 33, 33, 0.45); }
 .hero_content { position: relative; z-index: 1; }
 .section_hero[data-hero-visual="fond"] .hero_image-wrapper .hero_image { object-fit: cover; }
@@ -375,7 +375,7 @@ button { font: inherit; cursor: pointer; }
   .hero_image-wrapper { aspect-ratio: 4 / 5; border-radius: 1.5rem; }
   .hero_component .button-group .button { flex: 1 1 100%; justify-content: flex-start; }
   .section_hero[data-hero-visual="fond"] .hero_component { min-height: 38rem; }
-  .section_hero[data-hero-visual="fond"] .hero_image-wrapper { top: 1.25rem; right: 1.25rem; bottom: 1.25rem; left: 1.25rem; border-radius: var(--radius-card); }
+  .section_hero[data-hero-visual="fond"] .hero_image-wrapper { top: 1.25rem; bottom: 1.25rem; border-radius: var(--radius-card); } /* côtés = marge du header (--gutter) */
   .section_hero[data-hero-visual="fond"] .hero_content { padding: 3rem 1.25rem; }
   .section_hero[data-hero-visual="panneau"] .hero_image-wrapper { top: max(5rem, calc(50vh - 10rem)); width: 100%; aspect-ratio: 1192 / 1080; border-radius: 0; }
   .contact-app_component { flex-direction: column; align-items: stretch; gap: 1.5rem; padding: 2rem 1.5rem; border-radius: var(--radius-card); }

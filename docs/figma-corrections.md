@@ -103,11 +103,11 @@ La collection **« Verticales » s'appelle désormais « Secteurs »** (champ de
 
 **Après** :
 - Fond de section `accent-default`.
-- La photo (vendeuse présentant des smartphones, ex-photo de l'accueil) remplit un **panneau arrondi en retrait de 40 px** de chaque bord de la section, rayon `radius-panel` ; on voit le bleu autour.
+- La photo (vendeuse présentant des smartphones, ex-photo de l'accueil) remplit un **panneau arrondi** : 40 px du haut et du bas de la section, et **sur les côtés, aligné sur la marge du header** (bord gauche du logo, bord droit du bouton : 64 px en desktop, 40 px tablette, 20 px mobile, contenu centré dans 1 312 px max) ; rayon `radius-panel` ; on voit le bleu autour.
 - Voile sombre uniforme sur la photo : `bg-inverse` à 45 % (pas de dégradé).
 - Textes et bouton **par-dessus la photo**, centrés : surtitre « Professionnels » (pastille blanche translucide), titre blanc « Votre prochaine mission en un clic. », texte blanc, bouton blanc « Télécharger l'app ». Hauteur minimale du contenu : 704 px.
 - Le visuel de l'app n'est plus dans le hero.
-- **Mobile** : retrait 20 px, rayon `radius-card`, hauteur min 608 px, contenu avec 48 px / 20 px de marge intérieure.
+- **Mobile** : 20 px en haut/bas, côtés à 20 px (marge du header), rayon `radius-card`, hauteur min 608 px, contenu avec 48 px / 20 px de marge intérieure.
 
 ### 3.2 S28 · Avantages « Ce qui change avec Winko. » (Figma 506:531)
 
