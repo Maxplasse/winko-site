@@ -285,7 +285,7 @@ button { font: inherit; cursor: pointer; }
   overflow: hidden;
 }
 .cta-banner_content { flex: 1; display: flex; flex-direction: column; gap: 1.5rem; }
-.cta-banner_image { width: 32.5rem; flex: none; }
+.cta-banner_image { width: 16rem; height: auto; flex: none; align-self: flex-end; margin: 0 4rem -8rem 0; } /* téléphone calé en bas, coupé par le bord du bandeau */
 
 /* Contact · renvoi vers l'app (écran « Je cherche une mission ») : carte étroite, QR code sur desktop, bouton store sur mobile */
 .contact-app_component {
@@ -345,7 +345,7 @@ button { font: inherit; cursor: pointer; }
   .values_card { min-height: 0; }
   .switch_list { grid-template-columns: 1fr; }
   .cta-banner_component { flex-direction: column; align-items: flex-start; padding: 3rem; }
-  .cta-banner_image { width: 100%; max-width: 32.5rem; }
+  .cta-banner_image { width: 13rem; align-self: center; margin: 0 0 -7rem; }
 }
 /* Mobile paysage (Webflow : 767px). Les règles valent aussi pour le mobile portrait :
    le palier « 478 px et moins » de Webflow s'écrit @media screen and (max-width: 479px)
@@ -609,7 +609,7 @@ button { font: inherit; cursor: pointer; }
 
 /* S09 · Bandeau CTA : variante sombre + photo */
 .cta-banner_component.is-dark { background-color: var(--bg-inverse); }
-.cta-banner_image.is-photo { height: 20.4375rem; object-fit: cover; border-radius: var(--radius-lg); }
+.cta-banner_image.is-photo { width: 32.5rem; max-width: 100%; height: 20.4375rem; align-self: auto; margin: 0; object-fit: cover; border-radius: var(--radius-lg); }
 
 @media screen and (max-width: 991px) {
   .hero-split_component { flex-direction: column; align-items: stretch; }
