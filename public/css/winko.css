@@ -741,6 +741,27 @@ textarea.form_input { min-height: 7.5rem; resize: vertical; }
 }
 .form-modal_input::placeholder { color: var(--text-inverse); opacity: 1; }
 .form-modal_input:focus { outline: none; border-color: var(--neutral-white); }
+select.form-modal_input {
+  appearance: none; padding-right: 3rem; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--neutral-white) 50%), linear-gradient(135deg, var(--neutral-white) 50%, transparent 50%);
+  background-position: calc(100% - 1.6rem) 50%, calc(100% - 1.25rem) 50%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat;
+}
+.form-modal_input option { color: var(--text-primary); }
+textarea.form-modal_input { min-height: 7rem; resize: vertical; }
+/* Variante compacte (formulaire B2B, plus de champs) : tient dans un écran de 900 px */
+.form-modal_dialog.is-compact { gap: 1rem; padding: 1.25rem; }
+.form-modal_dialog.is-compact .logo { width: 4.5rem; height: 4.5rem; padding: 0.5rem 0.375rem; border-radius: 0.75rem; }
+.form-modal_dialog.is-compact .logo_tab { font-size: 0.5rem; }
+.form-modal_dialog.is-compact .logo_wordmark { font-size: 1.5rem; }
+.form-modal_dialog.is-compact .form-modal_close { width: 3.5rem; height: 3.5rem; border-radius: 1rem; }
+.form-modal_dialog.is-compact .form-modal_close svg { width: 1.75rem; height: 1.75rem; }
+.form-modal_dialog.is-compact .form-modal_form { gap: 1rem; padding: 1.75rem 2rem 0.5rem; }
+.form-modal_dialog.is-compact .form-modal_title { font-size: 2.25rem; margin-bottom: 0.25rem; }
+.form-modal_dialog.is-compact .form-modal_row { gap: 1rem; }
+.form-modal_dialog.is-compact .form-modal_input { padding: 1rem 1.5rem; font-size: 1rem; }
+.form-modal_dialog.is-compact textarea.form-modal_input { min-height: 5.5rem; }
+.form-modal_dialog.is-compact .form-modal_check { font-size: 0.9375rem; }
+.form-modal_dialog.is-compact .form-modal_submit { margin: 0.75rem -1.5rem 0; padding: 1.25rem; }
 .form-modal_check { display: flex; align-items: flex-start; gap: 0.875rem; font-size: 1.0625rem; line-height: 1.4; cursor: pointer; }
 .form-modal_check input {
   flex: none; appearance: none; width: 1.25rem; height: 1.25rem; margin: 0.15rem 0 0;

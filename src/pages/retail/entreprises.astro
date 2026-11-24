@@ -8,6 +8,7 @@ import S05Arguments from '../../components/sections/S05Arguments.astro';
 import S20FaqGrid from '../../components/sections/S20FaqGrid.astro';
 import S09CtaBanner from '../../components/sections/S09CtaBanner.astro';
 import StickyWidget from '../../components/global/StickyWidget.astro';
+import FormModal from '../../components/global/FormModal.astro';
 import CtaButton from '../../components/global/CtaButton.astro';
 import { faqFor, statsFor, profilesFor } from '../../lib/content';
 const [faq, stats, profiles] = await Promise.all([faqFor('entreprises'), statsFor('entreprises'), profilesFor()]);
@@ -62,5 +63,6 @@ const [faq, stats, profiles] = await Promise.all([faqFor('entreprises'), statsFo
   </S09CtaBanner>
 
   <!-- Widget « En savoir plus » · Figma 21:753 -->
-  <StickyWidget slot="after-main" picto="appel" title="Être appelé" text="Formulaire de contact à remplir en 2 min." href="/contact#recruter" ariaLabel="Être appelé" />
+  <StickyWidget slot="after-main" picto="appel" modal title="Être appelé" text="Formulaire de contact à remplir en 2 min." href="/contact#recruter" ariaLabel="Être appelé" />
+  <FormModal slot="after-main" b2b />
 </BaseLayout>

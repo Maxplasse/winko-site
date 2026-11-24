@@ -1,21 +1,22 @@
 ---
-// Popup formulaire « Entretien personnalisé » (Professionnels) · ouverte par le widget sticky
-// Même formulaire sur desktop et mobile. En Webflow : Component « Popup formulaire »
-// (embed HubSpot ou formulaire natif, redirection vers /merci).
+// Popup formulaire · ouverte par le widget sticky (data-form-modal-open), desktop et mobile.
+// Variante « b2b » (Entreprises, « Être appelé ») : mêmes champs que le formulaire Contact « Je cherche à recruter » (S13).
+// En Webflow : Component « Popup formulaire » (variante B2B), formulaire natif ou embed HubSpot, redirection vers /merci.
 // Le bouton reste estompé tant que le formulaire n'est pas valide (consentement compris).
 import Logo from './Logo.astro';
 import { url } from '../../lib/url';
-interface Props { title?: string; submit?: string; consent?: string }
+interface Props { title?: string; submit?: string; consent?: string; b2b?: boolean }
 const {
-  title = 'Entretien personnalisé.',
+  b2b = false,
+  title = b2b ? 'Parlons de vos besoins en renfort.' : 'Entretien personnalisé.',
   submit = 'Être rappelé',
   consent = 'En soumettant ce formulaire, j’accepte d’être recontacté par Winko.',
 } = Astro.props;
 ---
-<!-- Popup formulaire « Entretien personnalisé » · ouverte par le widget sticky (data-form-modal-open) -->
+<!-- Popup formulaire · ouverte par le widget sticky (data-form-modal-open) -->
 <div class="app-modal" data-form-modal hidden>
   <div class="app-modal_overlay" data-modal-close></div>
-  <div class="form-modal_dialog" role="dialog" aria-modal="true" aria-labelledby="form-modal-title">
+  <div class={b2b ? "form-modal_dialog is-compact" : "form-modal_dialog"} role="dialog" aria-modal="true" aria-labelledby="form-modal-title">
     <div class="form-modal_header">
       <Logo link={false} light />
       <button type="button" class="form-modal_close" aria-label="Fermer" data-modal-close>
@@ -24,12 +25,38 @@ const {
     </div>
     <form class="form-modal_form" action={url('/merci')} method="get">
       <h2 class="heading-style-h2 form-modal_title" id="form-modal-title">{title}</h2>
-      <div class="form-modal_row">
-        <input class="form-modal_input" name="nom" placeholder="Nom*" aria-label="Nom" autocomplete="family-name" required>
-        <input class="form-modal_input" name="prenom" placeholder="Prénom*" aria-label="Prénom" autocomplete="given-name" required>
-      </div>
-      <input class="form-modal_input" name="email" type="email" placeholder="Email*" aria-label="Email" autocomplete="email" required>
-      <input class="form-modal_input" name="telephone" type="tel" placeholder="Numéro de téléphone*" aria-label="Numéro de téléphone" autocomplete="tel" required>
+      {b2b ? (
+        <>
+          <div class="form-modal_row">
+            <input class="form-modal_input" name="prenom" placeholder="Prénom*" aria-label="Prénom" autocomplete="given-name" required>
+            <input class="form-modal_input" name="nom" placeholder="Nom*" aria-label="Nom" autocomplete="family-name" required>
+          </div>
+          <div class="form-modal_row">
+            <input class="form-modal_input" name="email" type="email" placeholder="Email professionnel*" aria-label="Email professionnel" autocomplete="email" required>
+            <input class="form-modal_input" name="entreprise" placeholder="Entreprise*" aria-label="Entreprise" autocomplete="organization" required>
+          </div>
+          <div class="form-modal_row">
+            <select class="form-modal_input" name="objet" aria-label="Objet" required>
+              <option value="" disabled selected>Objet*</option>
+              <option>[Options à définir dans HubSpot]</option>
+            </select>
+            <select class="form-modal_input" name="pays" aria-label="Pays">
+              <option selected>France</option>
+              <option>Royaume-Uni</option>
+            </select>
+          </div>
+          <textarea class="form-modal_input" name="message" placeholder="Message" aria-label="Message"></textarea>
+        </>
+      ) : (
+        <>
+          <div class="form-modal_row">
+            <input class="form-modal_input" name="nom" placeholder="Nom*" aria-label="Nom" autocomplete="family-name" required>
+            <input class="form-modal_input" name="prenom" placeholder="Prénom*" aria-label="Prénom" autocomplete="given-name" required>
+          </div>
+          <input class="form-modal_input" name="email" type="email" placeholder="Email*" aria-label="Email" autocomplete="email" required>
+          <input class="form-modal_input" name="telephone" type="tel" placeholder="Numéro de téléphone*" aria-label="Numéro de téléphone" autocomplete="tel" required>
+        </>
+      )}
       <label class="form-modal_check"><input type="checkbox" name="consentement" required><span>{consent}</span></label>
       <button type="submit" class="form-modal_submit">{submit}</button>
     </form>
