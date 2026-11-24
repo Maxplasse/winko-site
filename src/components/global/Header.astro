@@ -18,6 +18,8 @@ const { active, action } = Astro.props;
           {NAV.map((l) => (
             <a href={url(l.href)} class="navbar_link" aria-current={l.label === active ? 'page' : undefined}>{l.label}</a>
           ))}
+          {/* Sélecteur de langue du menu mobile (masqué sur desktop, où il est dans navbar_actions) */}
+          <div class="navbar_locale is-menu"><a href={url('/')} aria-current="true" lang="fr">FR</a> · <a href="#" lang="en">UK</a></div>
         </div>
         <div class="navbar_actions">
           <div class="navbar_locale"><a href={url('/')} aria-current="true" lang="fr">FR</a> · <a href="#" lang="en">UK</a></div>
